@@ -1,0 +1,33 @@
+.section-hero {
+  @include section-block;
+  max-height: 60vh;
+  @include dropshadow;
+}
+
+
+.section-haiku {
+  @include section-block;
+  max-height: 80vh;
+  background-color: $color-white-true;
+  color: $color-black;
+
+}
+
+.section-purpose {
+  @include section-block;
+  max-height: 80vh;
+  background-color: rgba($color-secondary, .6);
+  @include dropshadow;
+
+}
+
+.section-latest {
+  @include section-block;
+  max-height: 100%;
+  background-color: rgba($color-primary, .4);
+  @include dropshadow;
+  padding-top: 2rem;
+  padding-bottom: 4rem;
+
+
+}

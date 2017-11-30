@@ -1,0 +1,44 @@
+.haiku {
+  margin-left: calc(8rem + #{$left-margin});
+  @include flex-container;
+  flex-wrap: nowrap;
+  // border: 1px solid gray;
+  width: calc(100vw - (8rem + #{$left-margin}));
+
+
+  &__header {
+    flex: 0 1 auto;
+    width: 0;
+    height: 0;
+
+    &-top {
+      top: $h2-top-haiku;
+    }
+  }
+
+
+  &__text {
+    flex: 1 1 auto;
+    flex-wrap: wrap;
+    display: flex;
+    height: 100%;
+
+
+
+    &-single {
+      align-items: space-between;
+      display: block;
+      color: $color-primary-dark;
+      font-size: 3rem;
+      font-weight: 400;
+      word-spacing: 1.05rem;
+      margin-bottom: 1rem;
+      position: relative;
+      line-height: 4rem;
+      top: 0;
+      vertical-align: top;
+
+    }
+
+  }
+}

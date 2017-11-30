@@ -1,0 +1,49 @@
+// Basic horizontal drop shdow
+@mixin dropshadow {
+  box-shadow: 0 .5rem .5rem rgba($color-primary, .6);
+}
+
+// Drop shdow for rotated elements , like 2nd headers
+@mixin dropshadow-vertical {
+  box-shadow: -.5rem .5rem .5rem rgba($color-primary, .6);
+}
+
+// Basics for each flex container
+@mixin flex-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: flex-start;
+}
+
+// Basics for each main section block
+@mixin section-block {
+  display: block;
+  position: relative;
+  width: 100vw;
+}
+
+
+// Color screen overlaid over HTML images, takes color
+@mixin overlay($overlay-col) {
+
+  &::before {
+    display: inline-block;
+    vertical-align: top;
+    line-height: 0;
+    position: absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    width: 100%;
+    height: 100%;
+    content: '';
+    z-index: 1001;
+
+    background-image: linear-gradient( to right bottom,
+      rgba($overlay-col, .05),
+      rgba($overlay-col, .33));
+  }
+}

@@ -1,0 +1,50 @@
+.footer {
+  @include section-block;
+  max-height: 60vh;
+
+  padding: $left-margin;
+  background-color: $color-primary-dark;
+  color: $color-white;
+
+
+  &__links {
+
+    &-item {
+      list-style: none;
+      margin-bottom: 1rem;
+      font-weight: bolder;
+      justify-content: flex-start;
+      vertical-align: center;
+
+      img {
+        width: 3.5rem;
+        height: 3.5rem;
+        object-fit: contain;
+        overflow: hidden;
+      }
+
+      &-text {
+        font-size: 3rem;
+        }
+
+      a {
+        &:link,
+        &:visited {
+          text-decoration: none;
+          color: $color-white;
+        }
+
+        &:hover,
+        &:active {
+          color: $color-secondary;
+        }
+      }
+    }
+  }
+
+  &__copyright {
+    font-size: 1rem;
+    color: $color-white;
+    text-align: center;
+  }
+}

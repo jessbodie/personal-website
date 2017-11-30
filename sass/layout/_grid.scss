@@ -1,0 +1,24 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+  align-content: flex-start;
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+.row {
+  max-width: $grid-width;
+  width: 100vw;
+  display: block;
+  position: inherit;
+}
+
+.col-1-of-2 {
+
+
+}

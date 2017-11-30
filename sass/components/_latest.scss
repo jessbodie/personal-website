@@ -1,0 +1,53 @@
+img {
+  max-width: 100%;
+}
+
+.latest {
+  @include flex-container;
+  flex-direction: column;
+  margin-left: $left-margin;
+  margin-right: $left-margin;
+
+  &__header-top {
+    top: $h2-top-latest;
+  }
+
+
+  &__text {
+    color: $color-black;
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+
+  }
+
+
+
+  &__image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    @include dropshadow;
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    line-height: 0;
+
+    @include overlay($color-tertiary);
+
+  }
+
+
+  &__first {
+
+  }
+
+  &__captions {
+
+  }
+
+  &__calculator {
+
+  }
+
+}

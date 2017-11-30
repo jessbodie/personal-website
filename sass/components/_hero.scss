@@ -1,0 +1,29 @@
+.hero {
+
+
+  &__image {
+
+    background-image: linear-gradient(
+         to right bottom,
+         rgba($color-primary, 0.8),
+         rgba($color-primary-dark, .95)),
+         url('img/tree_bag_bg.jpg');
+
+    background-size: cover;
+    background-position: center;
+    width: 100vw;
+    height: 60vh;
+    position: relative;
+  }
+
+  &__text {
+    position: absolute;
+    bottom: -0.3rem;
+    right: 0;
+    text-align: right;
+    line-height: 5.8rem;
+    background-color: transparent;
+    text-shadow: 0 .5rem .5rem rgba($color-primary, .6);
+
+  }
+}

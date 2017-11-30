@@ -1,0 +1,70 @@
+.header {
+  position: fixed;
+  z-index: 2000;
+
+  &__logo-nav {
+    background-color: $color-white;
+    position: relative;
+    height: 4rem;
+    width: 100vw;
+    @include dropshadow;
+  }
+
+  &__logo {
+    background-color: $color-primary-dark;
+    position: absolute;
+    top: 0;
+    left: $left-margin;
+    height: 6rem;
+    width: 6rem;
+    z-index: 100;
+    @include dropshadow;
+
+    &-text {
+      color: $color-white;
+      font-size: 2rem;
+      font-weight: 800;
+      position: absolute;
+      top: 2rem;
+      width: 100%;
+      padding: 0 .2rem;
+      text-align: center;
+
+    }
+  }
+
+
+
+  &__nav {
+  position: absolute;
+  top: 1.5rem;
+  right: $left-margin;
+
+  &-list {
+    list-style: none;
+
+    &-item {
+      display: inline-block;
+      font-size: 1.5rem;
+      padding-left: $left-margin;
+      vertical-align: bottom;
+
+      a {
+        &:link,
+        &:visited {
+          text-decoration: none;
+          color: $color-secondary;
+          font-size: 2rem;
+          font-weight: bolder;
+        }
+
+        &:hover,
+        &:visited {
+
+          }
+        }
+
+      }
+    }
+  }
+}
