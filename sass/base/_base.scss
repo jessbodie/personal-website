@@ -59,7 +59,7 @@ body {
   @include dropshadow-vertical;
   position: absolute;
   left: $left-margin;
-  z-index: 2000;
+  z-index: 90;
 }
 
 .heading-tertiary {
@@ -72,4 +72,23 @@ body {
   margin-top: 3rem;
   z-index: 4000;
 
+}
+
+
+button {
+  background-color: $color-secondary;
+  font-family: inherit;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: $color-white;
+  padding: .5rem 1rem .75rem 1rem;
+  border: none;
+  outline: none;
+
+  &:hover,
+  &:focus,
+  &:active {
+    @include dropshadow;
+    cursor: pointer;
+  }
 }

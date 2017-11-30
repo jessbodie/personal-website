@@ -1,14 +1,64 @@
 .captions {
 
   &__container {
-    border: 1px solid blue;
+    // border: 1px solid blue;
     width: 100%;
-    font-family: arial;
+    display: block;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    position: relative;
   }
 
   &__form {
-    border: 3px solid purple;
-    width: 100%;
+    display: block;
+    // border: 3px solid purple;
+    width: 100%; // At start it is this width
+
+    font-family: inherit;
+    font-size: 1.5rem;
+    color: $color-black;
+    background: transparent;
+    padding: .5rem;
+    overflow-y: auto;
+    vertical-align: top;
+    height: 5rem;
+    border: 1px dotted transparent;
+    border-radius: 2px;
+    // outline: 1px solid transparent;
+    outline: none;
+    transition: all 1s;
+
+    &:hover,
+    &:focus {
+      border: 1px dotted rgba($color-tertiary, .5);
+      background: $color-white;
+      @include dropshadow;
+    }
+
+    &-narrow {
+      width: calc(100% - 9rem); // After inserting one caption it is this width
+    }
+
+    &-fadeIn {
+      opacity: 1;
+      visibility: visible;
+      transition: all 1s;
+    }
+
+    &-fadeOut {
+      opacity: 0;
+      visibility: hidden;
+      transition: all 1s;
+    }
+
+  }
+
+  &__rehash {
+    position: absolute;
+    top: 0;
+    right: 0;
+
+
   }
 
 }

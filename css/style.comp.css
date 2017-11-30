@@ -38,7 +38,7 @@ body {
   box-shadow: -0.5rem 0.5rem 0.5rem rgba(65, 71, 112, 0.6);
   position: absolute;
   left: 4rem;
-  z-index: 2000; }
+  z-index: 90; }
 
 .heading-tertiary {
   display: inline-block;
@@ -49,6 +49,19 @@ body {
   padding: .5rem 0 .5rem 0;
   margin-top: 3rem;
   z-index: 4000; }
+
+button {
+  background-color: #5B85AA;
+  font-family: inherit;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #eeeff5;
+  padding: .5rem 1rem .75rem 1rem;
+  border: none;
+  outline: none; }
+  button:hover, button:focus, button:active {
+    box-shadow: 0 0.5rem 0.5rem rgba(65, 71, 112, 0.6);
+    cursor: pointer; }
 
 .u-margin-bottom-med {
   margin-bottom: 5rem; }
@@ -192,13 +205,46 @@ img {
       background-image: linear-gradient(to right bottom, rgba(245, 110, 72, 0.05), rgba(245, 110, 72, 0.33)); }
 
 .captions__container {
-  border: 1px solid blue;
   width: 100%;
-  font-family: arial; }
+  display: block;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  position: relative; }
 
 .captions__form {
-  border: 3px solid purple;
-  width: 100%; }
+  display: block;
+  width: 100%;
+  font-family: inherit;
+  font-size: 1.5rem;
+  color: #372248;
+  background: transparent;
+  padding: .5rem;
+  overflow-y: auto;
+  vertical-align: top;
+  height: 5rem;
+  border: 1px dotted transparent;
+  border-radius: 2px;
+  outline: none;
+  transition: all 1s; }
+  .captions__form:hover, .captions__form:focus {
+    border: 1px dotted rgba(245, 110, 72, 0.5);
+    background: #eeeff5;
+    box-shadow: 0 0.5rem 0.5rem rgba(65, 71, 112, 0.6); }
+  .captions__form-narrow {
+    width: calc(100% - 9rem); }
+  .captions__form-fadeIn {
+    opacity: 1;
+    visibility: visible;
+    transition: all 1s; }
+  .captions__form-fadeOut {
+    opacity: 0;
+    visibility: hidden;
+    transition: all 1s; }
+
+.captions__rehash {
+  position: absolute;
+  top: 0;
+  right: 0; }
 
 .section-hero {
   display: block;
