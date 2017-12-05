@@ -25,6 +25,8 @@ html {
 body {
      box-sizing: border-box; /* best practice */
      font-family: 'Montserrat', sans-serif;
+     overflow-x: hidden;
+
 
 
     //  @include respond(tab-port) {
@@ -59,7 +61,7 @@ body {
   @include dropshadow-vertical;
   position: absolute;
   left: $left-margin;
-  z-index: 90;
+  z-index: map-get($zindex, text-over);
 }
 
 .heading-tertiary {
@@ -70,7 +72,7 @@ body {
   background-color: transparent;
   padding: .5rem 0 .5rem 0;
   margin-top: 3rem;
-  z-index: 4000;
+  z-index: map-get($zindex, text-over);
 
 }
 

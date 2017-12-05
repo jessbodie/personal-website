@@ -5,7 +5,7 @@ $color-primary: #414770;
 $color-white: #eeeff5;
 $color-white-true: #fff;
 $color-black: #372248;
-$color-black-true: #000;
+$color-blacker: #0b070e;
 
 $color-secondary: #5B85AA;
 
@@ -20,3 +20,12 @@ $default-font-size: 2rem;
 $h2-top-haiku: 9rem;
 $h2-top-latest: 17rem;
 $nav-top-margin: 4rem;
+$margin-scroll: 1.5rem;
+
+
+// Z-INDEX
+$zindex: (
+  header: 4000,
+  text-over: 2000,
+  screens: 1000
+);
