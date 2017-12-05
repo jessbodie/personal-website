@@ -47,3 +47,18 @@
       rgba($overlay-col, .33));
   }
 }
+
+@mixin animation__moveDown ($y) {
+
+  @keyframes moveDown {
+         0% {
+              opacity: 0;
+              transform: translateY($y);
+         }
+
+         100% {
+              opacity: 1;
+              transform: translateY(0);
+         }
+    }
+}

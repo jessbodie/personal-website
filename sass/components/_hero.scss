@@ -25,9 +25,32 @@
     line-height: 5.8rem;
     background-color: transparent;
     text-shadow: 0 .5rem .5rem rgba($color-primary, .6);
-    // animation-name: moveInLeft;
-    // animation-duration: 3s;
-    // animation-delay: 1s;
+    transform-origin: left top;
+
+    &-1st {
+      display: inline-block;
+      opacity: 0;
+
+      animation-name: moveInTopLeft;
+      animation-duration: 2s;
+      animation-timing-function: ease-in;
+      animation-delay: 600ms;
+      animation-fill-mode: forwards;
+
+    }
+
+    &-2nd {
+      display: inline-block;
+      opacity: 0;
+
+      animation-name: moveInRight;
+      animation-duration: 1.5s;
+      animation-timing-function: ease;
+      animation-delay: 2s;
+      animation-fill-mode: forwards;
+
+    }
+
 
     // TODO Media Query greater than 600px
     // padding-right: $margin-scroll;
