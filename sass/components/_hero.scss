@@ -1,6 +1,7 @@
 .hero {
 
 
+
   &__image {
 
     background-image: linear-gradient(
@@ -24,6 +25,13 @@
     line-height: 5.8rem;
     background-color: transparent;
     text-shadow: 0 .5rem .5rem rgba($color-primary, .6);
+    // animation-name: moveInLeft;
+    // animation-duration: 3s;
+    // animation-delay: 1s;
+
+    // TODO Media Query greater than 600px
+    // padding-right: $margin-scroll;
+
 
   }
 }
