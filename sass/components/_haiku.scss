@@ -13,6 +13,15 @@
 
     &-top {
       top: $h2-top-haiku;
+
+      opacity: 0;
+      animation-name: fadeIn;
+      animation-duration: 1s;
+      animation-timing-function: ease-in;
+      animation-delay: 3.5s;
+      animation-fill-mode: forwards;
+
+
     }
   }
 
@@ -39,6 +48,25 @@
       line-height: 2.8rem;
       top: 0;
       vertical-align: top;
+
+
+
+      opacity: 0;
+      animation-name: fadeIn;
+      animation-duration: 1s;
+      animation-timing-function: ease-in;
+      animation-delay: 6s;
+      animation-fill-mode: forwards;
+
+      @for $i from 1 through 3 {
+        &:nth-child(#{$i}) {
+            animation-delay:(#{4s + ($i * .5s)});
+          }
+
+      }
+
+
+
 
     }
 

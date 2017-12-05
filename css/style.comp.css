@@ -22,7 +22,7 @@ body {
 
 .heading-primary {
   display: inline-block;
-  font-size: 7rem;
+  font-size: 6rem;
   font-weight: 800;
   color: #eeeff5;
   vertical-align: bottom; }
@@ -70,41 +70,36 @@ button {
 .u-margin-header-wrap {
   margin-left: 6rem; }
 
-@keyframes moveInLeft {
+@keyframes moveInTopLeft {
   0% {
     opacity: 0;
-    transform: translateX(-10rem) scale(0); }
+    transform: translateX(-15rem) translateY(-20rem) scale(0); }
   80% {
-    opacity: 1;
-    transform: translateX(1rem); }
+    opacity: .9;
+    transform: translateX(2rem) translateY(4rem) scale(2); }
   100% {
     opacity: 1;
-    transform: translate(0) scale(1); } }
-
-@keyframes grow {
-  0% {
-    transform: scale(0); }
-  100% {
-    transform: scale(1); } }
+    transform: translateX(0) translateY(0) scale(1); } }
 
 @keyframes moveInRight {
   0% {
     opacity: 0;
-    transform: translateX(10rem); }
-  80% {
-    opacity: 1;
-    transform: translateX(-1rem); }
+    transform: translateX(30rem) skewX(25deg) scale(0.25); }
+  75% {
+    opacity: .25;
+    transform: translateX(-5rem) skewX(0) scale(1.5); }
+  85% {
+    opacity: .55;
+    transform: translateX(0) skewX(0) scale(0.75); }
   100% {
     opacity: 1;
-    transform: translate(0); } }
+    transform: translateX(0) skewX(0) scale(1); } }
 
-@keyframes moveInBottom {
+@keyframes fadeIn {
   0% {
-    opacity: 0;
-    transform: translateY(5rem); }
+    opacity: 0; }
   100% {
-    opacity: 1;
-    transform: translate(0); } }
+    opacity: 1; } }
 
 .hero__image {
   background-image: linear-gradient(to right bottom, rgba(65, 71, 112, 0.8), rgba(55, 34, 72, 0.95)), url("img/tree_bag_bg.jpg");
@@ -121,7 +116,24 @@ button {
   text-align: right;
   line-height: 5.8rem;
   background-color: transparent;
-  text-shadow: 0 0.5rem 0.5rem rgba(65, 71, 112, 0.6); }
+  text-shadow: 0 0.5rem 0.5rem rgba(65, 71, 112, 0.6);
+  transform-origin: left top; }
+  .hero__text-1st {
+    display: inline-block;
+    opacity: 0;
+    animation-name: moveInTopLeft;
+    animation-duration: 2s;
+    animation-timing-function: ease-in;
+    animation-delay: 600ms;
+    animation-fill-mode: forwards; }
+  .hero__text-2nd {
+    display: inline-block;
+    opacity: 0;
+    animation-name: moveInRight;
+    animation-duration: 1.5s;
+    animation-timing-function: ease;
+    animation-delay: 2s;
+    animation-fill-mode: forwards; }
 
 .haiku {
   margin-left: calc(8rem + 4rem);
@@ -137,7 +149,13 @@ button {
     width: 0;
     height: 0; }
     .haiku__header-top {
-      top: 9rem; }
+      top: 9rem;
+      opacity: 0;
+      animation-name: fadeIn;
+      animation-duration: 1s;
+      animation-timing-function: ease-in;
+      animation-delay: 3.5s;
+      animation-fill-mode: forwards; }
   .haiku__text {
     flex: 1 1 auto;
     flex-wrap: wrap;
@@ -155,7 +173,19 @@ button {
       position: relative;
       line-height: 2.8rem;
       top: 0;
-      vertical-align: top; }
+      vertical-align: top;
+      opacity: 0;
+      animation-name: fadeIn;
+      animation-duration: 1s;
+      animation-timing-function: ease-in;
+      animation-delay: 6s;
+      animation-fill-mode: forwards; }
+      .haiku__text-single:nth-child(1) {
+        animation-delay: 4.5s; }
+      .haiku__text-single:nth-child(2) {
+        animation-delay: 5s; }
+      .haiku__text-single:nth-child(3) {
+        animation-delay: 5.5s; }
 
 .purpose {
   padding-bottom: 0;
@@ -341,7 +371,21 @@ img {
     margin: 0;
     box-shadow: 0.1rem 0.5rem 0.5rem rgba(65, 71, 112, 0.6);
     display: inline-block;
-    transition: all 300ms; }
+    transition: all 300ms;
+    opacity: 0;
+    animation-name: moveDown;
+    animation-duration: 300ms;
+    animation-timing-function: ease-in;
+    animation-delay: 0s;
+    animation-fill-mode: forwards; }
+
+@keyframes moveDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-6rem); }
+  100% {
+    opacity: 1;
+    transform: translateY(0); } }
     .header__logo:hover, .header__logo:focus {
       box-shadow: 0.25rem 0.25rem 0.5rem rgba(11, 7, 14, 0.6); }
     .header__logo-text {
@@ -386,7 +430,23 @@ img {
       background-color: transparent;
       color: #5B85AA;
       text-decoration: none;
-      text-shadow: 1px 1px 1px #eeeff5; }
+      text-shadow: 1px 1px 1px #eeeff5;
+      opacity: 0;
+      animation-name: moveDown;
+      animation-duration: 200ms;
+      animation-timing-function: ease-in;
+      animation-delay: 300ms;
+      animation-fill-mode: forwards; }
+
+@keyframes moveDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-4rem); }
+  100% {
+    opacity: 1;
+    transform: translateY(0); } }
+      .header__nav-link:nth-child(2) {
+        animation-delay: 600ms; }
       .header__nav-link:hover, .header__nav-link:focus {
         background-image: linear-gradient(to top left, white, #eeeff5);
         border-bottom: 2rem solid #372248;
