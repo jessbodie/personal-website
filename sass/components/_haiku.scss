@@ -21,13 +21,13 @@
     flex: 1 1 auto;
     flex-wrap: wrap;
     display: flex;
+    flex-direction: column;
     height: 100%;
 
 
 
     &-single {
       align-items: space-between;
-      display: block;
       color: $color-primary-dark;
       font-size: 3rem;
       font-weight: 400;

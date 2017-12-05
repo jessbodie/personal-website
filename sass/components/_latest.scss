@@ -6,7 +6,7 @@ img {
   @include flex-container;
   flex-direction: column;
   margin-left: $left-margin;
-  margin-right: $left-margin;
+  margin-right: calc(#{$left-margin} + #{$margin-scroll});
 
   &__header-top {
     top: $h2-top-latest;

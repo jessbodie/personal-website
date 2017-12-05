@@ -52,7 +52,7 @@
     left: $left-margin;
     bottom: 0;
     right: 0;
-    z-index: 2001;
+    z-index: map-get($zindex, screens);
 
 
     // Greater than 600px
