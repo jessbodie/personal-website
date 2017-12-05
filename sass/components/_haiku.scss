@@ -23,18 +23,20 @@
     display: flex;
     flex-direction: column;
     height: 100%;
+    padding-right: $margin-scroll;
+
 
 
 
     &-single {
       align-items: space-between;
       color: $color-primary-dark;
-      font-size: 3rem;
+      font-size: 2.5rem;
       font-weight: 400;
       word-spacing: 1.05rem;
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
       position: relative;
-      line-height: 4rem;
+      line-height: 2.8rem;
       top: 0;
       vertical-align: top;
 
