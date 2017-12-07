@@ -20,6 +20,7 @@
     background: transparent;
     padding: .5rem;
     overflow-y: auto;
+    overflow-x: hidden;
     vertical-align: top;
     height: 5rem;
     border: 1px dotted transparent;
@@ -30,7 +31,7 @@
 
     &:hover,
     &:focus {
-      border: 1px dotted rgba($color-tertiary, .5);
+      border: 1px solid rgba($color-secondary, .25);
       background: $color-white;
       @include dropshadow;
     }

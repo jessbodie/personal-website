@@ -1,15 +1,40 @@
 .haiku {
-  margin-left: calc(8rem + #{$left-margin});
-  @include flex-container;
+  margin-left: $left-margin;
+  margin-right: $left-margin;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: flex-start;
   flex-wrap: nowrap;
-  // border: 1px solid gray;
-  width: calc(100vw - (8rem + #{$left-margin}));
+
+  @include respond(desktop) {
+    margin-right: calc(#{$left-margin} + #{$margin-scroll});
+  }
 
 
   &__header {
-    flex: 0 1 auto;
-    width: 0;
-    height: 0;
+    flex: 0 1 4rem;
+    width: 4rem;
+    height: 10rem;
+    display: inline-block;
+    position: relative;
+
+    &-rotate {
+      width: 4rem;
+      display: inline-block;
+      position: absolute;
+      top: 9rem;
+      transform: rotate(-90deg);
+      transform-origin: left top;
+
+
+      @include respond(tab-port) {
+
+
+      }
+    }
 
     &-top {
       top: $h2-top-haiku;
@@ -18,7 +43,7 @@
       animation-name: fadeIn;
       animation-duration: 1s;
       animation-timing-function: ease-in;
-      animation-delay: 3.5s;
+      animation-delay: 2.5s;
       animation-fill-mode: forwards;
 
 
@@ -27,13 +52,14 @@
 
 
   &__text {
-    flex: 1 1 auto;
+    flex: 4 1 auto;
     flex-wrap: wrap;
     display: flex;
     flex-direction: column;
     height: 100%;
-    padding-right: $margin-scroll;
+    width: 100%;
 
+    margin-left: $gutter-sm;
 
 
 
@@ -44,31 +70,41 @@
       font-weight: 400;
       word-spacing: 1.05rem;
       margin-bottom: 1.5rem;
-      position: relative;
       line-height: 2.8rem;
+      position: relative;
       top: 0;
       vertical-align: top;
-
-
-
+      // Animation
       opacity: 0;
       animation-name: fadeIn;
-      animation-duration: 1s;
+      animation-duration: 1.25s;
       animation-timing-function: ease-in;
-      animation-delay: 6s;
       animation-fill-mode: forwards;
 
       @for $i from 1 through 3 {
         &:nth-child(#{$i}) {
-            animation-delay:(#{4s + ($i * .5s)});
+            animation-delay:(#{2s + ($i * 2s)});
           }
+        }
 
+
+      @include respond(tab-port) {
+        font-size: 2.8rem;
+        margin-bottom: 2rem;
+        line-height: 3rem;
+
+        @for $i from 1 through 3 {
+          &:nth-child(#{$i}) {
+              margin-left: (#{($i * $left-margin)});
+            }
+          }
+        }
+
+      @include respond(tab-land) {
+        font-size: 3.5rem;
+        line-height: 3.5rem;
       }
 
-
-
-
     }
-
   }
 }

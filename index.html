@@ -13,7 +13,7 @@
 
      <noscript>Please enable JavaScript!</noscript>
 
-     <!--Begin Favicon, from https://realfavicongenerator.net -->
+     <!--Begin Favicon, thanks to https://realfavicongenerator.net -->
       <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
       <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
       <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
@@ -68,7 +68,11 @@
       <div class="row u-margin-bottom-med">
         <div class="haiku">
           <div class="haiku__header">
-            <h2 class="heading-secondary haiku__header-top">haiku</h2>
+            <div class="haiku__header-rotate">
+              <h2 class="heading-secondary">haiku</h2>
+              <!-- Used to work in 600px and  greater pre Latest fix -->
+              <!-- <h2 class="heading-secondary haiku__header-top">haiku</h2> -->
+            </div>
           </div>
           <div class="haiku__text">
             <p class="haiku__text-single">Time, money, the &ldquo;what&rdquo;...</p>
@@ -93,21 +97,29 @@
           </div>
         </div>
       </div>
-    </section>
+  </section>
 
 
-   <section class="section-latest">
+  <section class="section-latest">
       <div class="row">
         <div class="latest">
-          <!-- <div class="col-1-of-2"> -->
-            <h2 class="heading-secondary latest__header-top">The Latest</h2>
+
+            <div class="col-1-of-2">
+              <div class="latest__header">
+                <div class="latest__header-rotate">
+                  <h2 class="heading-secondary">The Latest</h2>
+                </div>
+              </div>
+            </div>
+            <div class="col-1-of-2">
 
 
              <div class="latest__first">
-              <div class="latest__captions">
+              <div class="latest__titles">
                 <h3 class="heading-tertiary u-margin-header-wrap">Caption Generator</h3>
                 <p class="latest__text u-margin-header-wrap">a.k.a. Gratuitous JavaScript</p>
-                <figure>
+              </div>
+                <figure style="border: 1px">
                   <div class="latest__image">
                      <img src="img/a_tree_grows_in.jpg" alt="Tree with no leaves and many plastic bags ensnared">
                   </div>
@@ -125,17 +137,17 @@
                 </figure>
               </div>
             </div>
-          <!-- </div> -->
 
 
 
 
           <div class="col-1-of-2">
             <div class="latest__second">
-              <div class="latest__calculator">
+              <div class="latest__titles">
                 <h3 class="heading-tertiary">
                   Practical Retirement Calculator
                 </h3>
+              </div>
                 <figure>
                   <div class="latest__image">
 
@@ -145,7 +157,6 @@
                     <p class="latest__text">Calculates needed retirement savings with five inputs. Developed with JavaScript, HTML, CSS.<p>
                   </figcaption>
                 </figure>
-              </div>
             </div>
           </div>
 

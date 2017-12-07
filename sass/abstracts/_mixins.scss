@@ -8,14 +8,6 @@
   box-shadow: -.5rem .5rem .5rem rgba($color-primary, .6);
 }
 
-// Basics for each flex container
-@mixin flex-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: flex-start;
-  align-content: flex-start;
-}
 
 // Basics for each main section block
 @mixin section-block {
@@ -48,17 +40,44 @@
   }
 }
 
-@mixin animation__moveDown ($y) {
 
-  @keyframes moveDown {
-         0% {
-              opacity: 0;
-              transform: translateY($y);
-         }
 
-         100% {
-              opacity: 1;
-              transform: translateY(0);
-         }
-    }
+// MEDIA QUERY MANAGER
+/*
+0-600px: Phone - Default
+600-900px: Tablet in portrait mode
+900-1200px: Tablet in landscape // skipping, hopefully
+1200-1800: Desktop
+1800+ : Big desktop
+
+$breakpoint argument choices:
+~ phone
+~ tab
+~ desktop
+~ big-desktop
+*/
+
+// Use ems for media queries, more accessible
+@mixin respond($breakpoint) {
+  // @if $breakpoint == phone {
+  //   @media only screen and (max-width: 37.5em) { @content }; // 600px
+  // }
+
+  @if $breakpoint == tab-port {
+    @media only screen and (min-width: 37.5em) { @content }; // 600px +
+  }
+
+  @if $breakpoint == tab-land {
+    @media only screen and (min-width: 56.25em) { @content }; // 900px +
+  }
+
+  @if $breakpoint == desktop {
+    @media only screen and (min-width: 75em) { @content }; // 1200px +
+  }
+
+  @if $breakpoint == big-desktop {
+    @media only screen and (min-width: 112.5em) { @content }; // 1800px +
+  }
+
+
 }
