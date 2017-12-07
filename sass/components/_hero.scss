@@ -22,7 +22,6 @@
     bottom: -0.3rem;
     right: 0;
     text-align: right;
-    line-height: 5.8rem;
     background-color: transparent;
     text-shadow: 0 .5rem .5rem rgba($color-primary, .6);
     transform-origin: left top;
@@ -32,7 +31,7 @@
       opacity: 0;
 
       animation-name: moveInTopLeft;
-      animation-duration: 2s;
+      animation-duration: 1.5s;
       animation-timing-function: ease-in;
       animation-delay: 600ms;
       animation-fill-mode: forwards;
@@ -46,7 +45,7 @@
       animation-name: moveInRight;
       animation-duration: 1.5s;
       animation-timing-function: ease;
-      animation-delay: 2s;
+      animation-delay: 1.5s;
       animation-fill-mode: forwards;
 
     }

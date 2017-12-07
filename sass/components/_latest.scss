@@ -3,13 +3,54 @@ img {
 }
 
 .latest {
-  @include flex-container;
+  display: flex;
+  align-items: flex-start;
+  align-content: flex-start;
   flex-direction: column;
-  margin-left: $left-margin;
-  margin-right: calc(#{$left-margin} + #{$margin-scroll});
+  justify-content: space-between;
 
-  &__header-top {
-    top: $h2-top-latest;
+  margin-left: $left-margin;
+  margin-right: $left-margin;
+
+
+  @include respond(tab-port) {
+    flex-direction: row;
+  }
+
+  @include respond(desktop) {
+    margin-right: calc(#{$left-margin} + #{$margin-scroll});
+  }
+
+
+
+  &__header {
+    display: inline-block;
+
+    @include respond(tab-port) {
+      flex: 0 1 4rem;
+      margin-top: 17rem;
+      width: 4rem;
+    }
+
+
+    &-rotate {
+
+      height: 4rem;
+      width: 14rem;
+      transform: rotate(-90deg);
+      transform-origin: left top;
+      display: inline-block;
+      position: relative;
+      top: 21rem;
+      z-index: map-get($zindex, text-over);
+
+
+
+      @include respond(tab-port) {
+        top: 0;
+
+      }
+    }
   }
 
 
@@ -28,22 +69,33 @@ img {
     max-height: 100%;
     object-fit: contain;
     @include dropshadow;
-    position: relative;
     display: inline-block;
     vertical-align: top;
     line-height: 0;
+    position: relative;
 
     @include overlay($color-tertiary);
 
   }
 
-
-  &__first {
+  &__titles {
+    height: 10rem;
+    width: 100%;
 
   }
 
-  &__captions {
 
+  &__first {
+    // border: 1px solid yellow;
+    flex: 3 1 auto;
+    width: 100%;
+  }
+
+
+
+  &__second {
+    // border: 1px solid red;
+    flex: 1 1 auto;
   }
 
   &__calculator {

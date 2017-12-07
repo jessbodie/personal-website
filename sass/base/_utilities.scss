@@ -4,5 +4,11 @@
 }
 
 .u-margin-header-wrap {
-  margin-left: 6rem;;
+  margin-left: 6rem;
+
+  @include respond(tab-port) {
+    margin-left: 0;
+  }
+
+
 }
