@@ -43,15 +43,13 @@
 
 
 // MEDIA QUERY MANAGER
-/*
-0-600px: Default
-600-900px: tab-port
-900-1200px: tab-land
-1200-1800: desktop
-1800+ : big-desktop
-*/
+// 0-600px: Default
+// 600-900px: tab-port
+// 900-1200px: tab-land
+// 1200-1800: desktop
+// 1800+ : big-desktop
 
-// Use ems for media queries, more accessible
+// Using ems for media queries, more accessible
 @mixin respond($breakpoint) {
 
   @if $breakpoint == tab-port {
