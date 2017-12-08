@@ -14,13 +14,13 @@
   max-width: $grid-width;
   width: 100%;
   display: block;
-  position: inherit;
+  position: relative;
+  // margin-bottom: 4rem;
 
   @include respond(big-desktop) {
       width: 80%;
       margin: 0 auto;
-    }
-
+  }
 }
 
 .col-1-of-2 {

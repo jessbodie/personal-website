@@ -9,9 +9,11 @@
   align-content: flex-start;
   flex-wrap: nowrap;
 
+  // Responsive edits
   @include respond(desktop) {
     margin-right: calc(#{$left-margin} + #{$margin-scroll});
   }
+
 
 
   &__header {

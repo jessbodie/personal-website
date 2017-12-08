@@ -1,15 +1,9 @@
 /*
-0-600px: Phone - Default
-600-900px: Tablet in portrait mode
-900-1200px: Tablet in landscape // skipping, hopefully
-1200-1800: Desktop
-1800+ : Big desktop
-
-$breakpoint argument choices:
-~ phone
-~ tab
-~ desktop
-~ big-desktop
+0-600px: Default
+600-900px: tab-port
+900-1200px: tab-land
+1200-1800: desktop
+1800+ : big-desktop
 */
 *,
 *::after,
@@ -132,9 +126,6 @@ button {
     opacity: 1; } }
 
 .hero__image {
-  background-image: linear-gradient(to right bottom, rgba(65, 71, 112, 0.8), rgba(55, 34, 72, 0.95)), url("img/tree_bag_bg.jpg");
-  background-size: cover;
-  background-position: center;
   max-width: 100%;
   height: 60vh;
   position: relative; }
@@ -250,6 +241,13 @@ button {
   width: 100%;
   max-height: 80vh;
   background-color: inherit; }
+  .purpose::after {
+    content: "";
+    display: table;
+    clear: both; }
+  @media only screen and (min-width: 37.5em) {
+    .purpose {
+      max-height: 50vh; } }
   .purpose__image {
     width: 100%;
     max-height: inherit;
@@ -257,21 +255,19 @@ button {
     object-fit: cover;
     object-position: 0 0;
     overflow: hidden;
-    position: relative; }
-    .purpose__image::before {
-      display: inline-block;
-      vertical-align: top;
-      line-height: 0;
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      width: 100%;
-      height: 100%;
-      content: '';
-      z-index: 1000;
-      background-image: linear-gradient(to right bottom, rgba(91, 133, 170, 0.05), rgba(91, 133, 170, 0.33)); }
+    position: relative;
+    line-height: 0;
+    display: block; }
+    @media only screen and (min-width: 37.5em) {
+      .purpose__image {
+        float: left;
+        clip-path: polygon(55% 0, 66% 50%, 55% 100%, 0% 100%, 0 0);
+        shape-outside: polygon(55% 0, 66% 50%, 55% 100%, 0% 100%, 0 0);
+        margin-right: 4rem;
+        margin-left: -10rem; } }
+    @media only screen and (min-width: 56.25em) {
+      .purpose__image {
+        margin-left: 0; } }
   .purpose__text {
     padding: 1.5rem 1.5rem 2rem 2rem;
     background: linear-gradient(to right bottom, rgba(91, 133, 170, 0.66), #5b85aa);
@@ -284,6 +280,21 @@ button {
     bottom: 0;
     right: 0;
     z-index: 1000; }
+    @media only screen and (min-width: 37.5em) {
+      .purpose__text {
+        font-size: 2.5rem;
+        line-height: 145%;
+        color: #372248;
+        text-shadow: none;
+        left: unset;
+        bottom: unset;
+        top: unset;
+        right: unset;
+        position: relative;
+        background: transparent; } }
+    @media only screen and (min-width: 56.25em) {
+      .purpose__text {
+        font-size: 2.7rem; } }
 
 img {
   max-width: 100%; }
@@ -407,7 +418,13 @@ img {
   width: 100%;
   max-height: 60vh;
   background-color: #414770;
-  box-shadow: 0.1rem 0.5rem 0.5rem rgba(65, 71, 112, 0.6); }
+  box-shadow: 0.1rem 0.5rem 0.5rem rgba(65, 71, 112, 0.6);
+  background-image: linear-gradient(to right bottom, rgba(65, 71, 112, 0.8), rgba(55, 34, 72, 0.95)), url("img/tree_bag_bg.jpg");
+  background-size: cover;
+  background-position: left 90%;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  max-width: 100%; }
 
 .section-haiku {
   display: block;
@@ -415,7 +432,9 @@ img {
   width: 100%;
   max-height: 80vh;
   background-color: #fff;
-  color: #372248; }
+  color: #372248;
+  padding-top: 2rem;
+  padding-bottom: 4rem; }
 
 .section-purpose {
   display: block;
@@ -437,12 +456,14 @@ img {
 
 .header {
   position: fixed;
+  background-color: #eeeff5;
+  width: 100%;
+  height: 4rem;
   opacity: .99;
   z-index: 4000; }
   .header__logo-nav {
-    background-color: #eeeff5;
-    position: relative;
-    width: 100vw;
+    position: sticky;
+    width: 100%;
     display: inline-block;
     box-shadow: 0.1rem 0.5rem 0.5rem rgba(65, 71, 112, 0.6);
     height: 4rem; }
@@ -516,9 +537,6 @@ img {
       position: relative;
       transition: all 300ms;
       background-color: transparent;
-      color: #5B85AA;
-      text-decoration: none;
-      text-shadow: 1px 1px 1px #eeeff5;
       opacity: 0;
       animation-name: moveDown;
       animation-duration: 200ms;
@@ -538,24 +556,15 @@ img {
       .header__nav-link:hover, .header__nav-link:focus {
         background-image: linear-gradient(to top left, white, #eeeff5);
         border-bottom: 2rem solid #372248;
-        transform: translateY(-2px); }
-      .header__nav-link:active {
-        transform: translateY(1px); }
-      .header__nav-link:hover::before, .header__nav-link:focus::before {
-        display: inline-block;
-        vertical-align: top;
-        line-height: 0;
-        position: absolute;
-        top: -2.2rem;
-        bottom: 0;
-        right: 0;
-        left: 0;
-        height: 6rem;
-        content: '';
-        box-shadow: 0.25rem 0.5rem 0.5rem rgba(55, 34, 72, 0.5);
-        transform: translateY(-2px); }
-      .header__nav-link:active::before {
-        box-shadow: 0.25rem 0.5rem 0.25rem rgba(55, 34, 72, 0.3); }
+        box-shadow: 0.25rem 0.5rem 0.5rem rgba(55, 34, 72, 0.5); }
+      .header__nav-link-text {
+        color: #5B85AA;
+        text-decoration: none;
+        text-shadow: 1px 1px 1px #eeeff5; }
+        .header__nav-link-text:hover, .header__nav-link-text:focus {
+          transform: scaoe(200%); }
+        .header__nav-link-text:active {
+          transform: translateY(1px); }
 
 .container {
   display: flex;
@@ -572,7 +581,7 @@ img {
   max-width: 180rem;
   width: 100%;
   display: block;
-  position: inherit; }
+  position: relative; }
   @media only screen and (min-width: 112.5em) {
     .row {
       width: 80%;
@@ -589,38 +598,40 @@ img {
   position: relative;
   width: 100%;
   max-height: 60vh;
-  padding: 4rem;
   background-color: #372248;
   color: #eeeff5; }
-  .footer__links-item {
-    list-style: none;
-    margin-bottom: 1rem;
-    font-weight: bolder;
-    justify-content: flex-start;
-    vertical-align: center;
-    transition: all 300ms; }
-    .footer__links-item:hover, .footer__links-item:focus {
-      transform: translateY(-2px);
-      text-shadow: 0.25rem 0.25rem 0.5rem rgba(11, 7, 14, 0.8); }
-    .footer__links-item:active {
-      transform: translateY(1px);
-      text-shadow: 0.25rem 0.25rem 0.25rem rgba(11, 7, 14, 0.6); }
-    .footer__links-item img {
-      width: 3.5rem;
-      height: 3.5rem;
-      object-fit: contain;
-      overflow: hidden;
+  .footer__links {
+    padding: 4rem; }
+    .footer__links-item {
+      list-style: none;
+      margin-bottom: 1rem;
+      font-weight: bolder;
+      justify-content: flex-start;
+      vertical-align: center;
       transition: all 300ms; }
-      .footer__links-item img:hover, .footer__links-item img:focus {
-        filter: drop-shadow(0.25rem 0.25rem 0.5rem rgba(11, 7, 14, 0.8)); }
-      .footer__links-item img:active {
-        filter: drop-shadow(0.25rem 0.25rem 0.25rem rgba(11, 7, 14, 0.6)); }
-    .footer__links-item-text {
-      font-size: 3rem; }
-    .footer__links-item a:link, .footer__links-item a:visited {
-      text-decoration: none;
-      color: #eeeff5; }
+      .footer__links-item:hover, .footer__links-item:focus {
+        transform: translateY(-2px);
+        text-shadow: 0.25rem 0.25rem 0.5rem rgba(11, 7, 14, 0.8); }
+      .footer__links-item:active {
+        transform: translateY(1px);
+        text-shadow: 0.25rem 0.25rem 0.25rem rgba(11, 7, 14, 0.6); }
+      .footer__links-item img {
+        width: 3.5rem;
+        height: 3.5rem;
+        object-fit: contain;
+        overflow: hidden;
+        transition: all 300ms; }
+        .footer__links-item img:hover, .footer__links-item img:focus {
+          filter: drop-shadow(0.25rem 0.25rem 0.5rem rgba(11, 7, 14, 0.8)); }
+        .footer__links-item img:active {
+          filter: drop-shadow(0.25rem 0.25rem 0.25rem rgba(11, 7, 14, 0.6)); }
+      .footer__links-item-text {
+        font-size: 3rem; }
+      .footer__links-item a:link, .footer__links-item a:visited {
+        text-decoration: none;
+        color: #eeeff5; }
   .footer__copyright {
     font-size: 1rem;
     color: #eeeff5;
-    text-align: center; }
+    text-align: center;
+    padding-bottom: 6rem; }

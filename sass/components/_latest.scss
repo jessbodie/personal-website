@@ -13,6 +13,8 @@ img {
   margin-right: $left-margin;
 
 
+
+  // Responsive edits
   @include respond(tab-port) {
     flex-direction: row;
   }
@@ -20,7 +22,6 @@ img {
   @include respond(desktop) {
     margin-right: calc(#{$left-margin} + #{$margin-scroll});
   }
-
 
 
   &__header {
