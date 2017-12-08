@@ -7,6 +7,18 @@
   background-color: inherit;
   // border: 2px solid orange;
 
+  // Clearfix - necessary for the float because of shape-outside
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+
+  @include respond(tab-port) {
+    max-height: 50vh;
+  }
+
 
 
 // Greater than 600px
@@ -27,13 +39,22 @@
     object-position: 0 0;
     overflow: hidden;
     position: relative;
+    line-height: 0;
+    display: block;
 
+    @include respond(tab-port) {
+      float: left;
+      clip-path: polygon(55% 0, 66% 50%, 55% 100%, 0% 100%, 0 0);
+      shape-outside: polygon(55% 0, 66% 50%, 55% 100%, 0% 100%, 0 0);
+      margin-right: $left-margin;
+      margin-left: -10rem;
+    }
+    
 
-    // Greater than 600px
-    // max-width: 60vw;
-    // max-height: 90vh;
+    @include respond(tab-land) {
+      margin-left: 0;
 
-    @include overlay($color-secondary);
+    }
 
   }
 
@@ -45,7 +66,6 @@
       rgba($color-secondary, 1));
     color: $color-white;
     text-shadow: 1px 1px 1px rgba($color-black, 1);
-
     font-size: 1.67rem;
     line-height: 140%;
     position: absolute;
@@ -54,13 +74,27 @@
     right: 0;
     z-index: map-get($zindex, screens);
 
+    @include respond(tab-port) {
+      font-size: 2.5rem;
+      line-height: 145%;
+      color: $color-black;
+      text-shadow: none;
+      // width: 100%;
+      // display: inline-block;
+      left: unset;
+      bottom: unset;
+      top: unset;
+      right: unset;
+      position: relative;
+      background: transparent;
+    }
+
+    @include respond(tab-land) {
+      font-size: 2.7rem;
+    }
+
 
     // TODO Greater than 600px
-    // margin-left: 3rem;
-    // margin-right: 10rem;
-    // max-width: 70%;
-    // font-size: 3rem;
-    // line-height: 160%;
     // align-self: flex-end;
 
   }

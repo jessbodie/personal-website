@@ -4,6 +4,18 @@
   background-color: $color-primary;
   @include dropshadow;
 
+  // TODO CROP IMAGE TO LANDSCAPE SO VARIATION ISN'T SO WIDE. USE CLIP.
+  background-image: linear-gradient(
+       to right bottom,
+       rgba($color-primary, 0.8),
+       rgba($color-primary-dark, .95)),
+       url('img/tree_bag_bg.jpg');
+
+  background-size: cover;
+  background-position: left 90%;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  max-width: 100%;
 }
 
 
@@ -12,6 +24,8 @@
   max-height: 80vh;
   background-color: $color-white-true;
   color: $color-black;
+  padding-top: 2rem;
+  padding-bottom: 4rem;
 }
 
 .section-purpose {
@@ -29,5 +43,6 @@
   @include dropshadow;
   padding-top: 2rem;
   padding-bottom: 4rem;
+
 
 }
