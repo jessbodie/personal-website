@@ -14,11 +14,12 @@ var dataController = (function() {
      // Add more preset strings to the array for ABOUT page
      if (document.querySelector("title").textContent.includes("About")) {
           newCaption.push(
+               "J Boh the Damager",
                "If it's going to be that kind of party, I'll stick my thumb in the mashed potatoes!",
                "Jelly beans in the dryer... again!",
                "Happy St. Paddy's Day!",
                "That tea was HOT!");
-     } else if (document.querySelector("title").textContent.includes("Welcome")) {
+     } else if (document.querySelector("title").textContent.includes("Web Developer")) {
           // Add more preset strings to the array for HOME page
           newCaption.push(
                "Oh, look, dinner!",

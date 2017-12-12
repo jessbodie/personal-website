@@ -4,18 +4,18 @@
   background-color: $color-primary;
   @include dropshadow;
 
-  // TODO CROP IMAGE TO LANDSCAPE SO VARIATION ISN'T SO WIDE. USE CLIP.
   background-image: linear-gradient(
        to right bottom,
        rgba($color-primary, 0.8),
        rgba($color-primary-dark, .95)),
-       url('img/tree_bag_bg.jpg');
+       url('img/tree_bag_bg-600.jpg');
 
   background-size: cover;
   background-position: left 90%;
   background-attachment: fixed;
   background-repeat: no-repeat;
   max-width: 100%;
+
 }
 
 
@@ -41,12 +41,8 @@
 
   @include dropshadow;
 
-  // Clearfix - necessary for the float because of shape-outside
-  &::after {
-    content: "";
-    display: table;
-    clear: both;
-  }
+  @include clearfix;
+
 
 }
 

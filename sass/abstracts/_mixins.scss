@@ -1,6 +1,6 @@
 // Basic horizontal drop shdow
 @mixin dropshadow {
-  box-shadow: .1rem .5rem .5rem rgba($color-primary, .6);
+  box-shadow: .2rem .5rem .5rem rgba($color-primary, .6);
 }
 
 // Drop shdow for rotated elements , like 2nd headers
@@ -15,6 +15,40 @@
   position: relative;
   width: 100%;
 }
+
+
+// Basic flex container e.g. Haiku and The Obligatory
+@mixin basic-flex {
+  margin-left: $left-margin;
+  margin-right: $left-margin;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: flex-start;
+  flex-wrap: nowrap;
+
+
+  // Responsive edits
+  @include respond(desktop) {
+    margin-right: calc(#{$left-margin} + #{$margin-scroll});
+  }
+
+}
+
+// Basic flex item for  e.g. Haiku and The Obligatory
+@mixin flex-item-right {
+  flex: 4 1 auto;
+  flex-wrap: wrap;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+
+  margin-left: $gutter-sm;
+}
+
+
 
 
 // Color screen overlaid over HTML images, takes color
@@ -41,6 +75,16 @@
 }
 
 
+@mixin clearfix {
+  // Clearfix - necessary for the float because of shape-outside
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+
 
 // MEDIA QUERY MANAGER
 // 0-600px: Default
@@ -51,6 +95,10 @@
 
 // Using ems for media queries, more accessible
 @mixin respond($breakpoint) {
+
+  @if $breakpoint == mobile {
+    @media only screen and (max-width: 37.5em) { @content }; // 600px +
+  }
 
   @if $breakpoint == tab-port {
     @media only screen and (min-width: 37.5em) { @content }; // 600px +

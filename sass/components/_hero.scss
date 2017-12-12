@@ -3,8 +3,10 @@
 
   &__image {
     // Moved image details to Section div to accommodate extra large displays
+
+    // TODO PASS TO USE VAR 
     max-width: 100%;
-    height: 60vh;
+    height: 30vh;
     position: relative;
   }
 
@@ -40,10 +42,6 @@
       animation-fill-mode: forwards;
 
     }
-
-
-    // TODO Media Query greater than 600px
-    // padding-right: $margin-scroll;
 
 
   }

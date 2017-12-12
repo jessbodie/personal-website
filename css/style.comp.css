@@ -25,6 +25,18 @@ body {
   font-family: 'Montserrat', sans-serif;
   overflow-x: hidden; }
 
+main a {
+  display: inline-block;
+  transition: all 300ms; }
+  main a:link, main a:visited {
+    text-decoration: none;
+    color: #414770; }
+  main a:hover, main a:focus {
+    transform: translateY(-2px);
+    text-shadow: 0px 1px 4px rgba(55, 34, 72, 0.3); }
+  main a:active {
+    transform: translateY(1px); }
+
 ::selection {
   background-color: #414770;
   color: #eeeff5; }
@@ -57,12 +69,12 @@ body {
 
 .heading-tertiary {
   display: inline-block;
+  position: relative;
   font-size: 1.8rem;
   font-weight: 800;
   color: #414770;
   background-color: transparent;
   padding: .5rem 0 .5rem 0;
-  margin-top: 3rem;
   z-index: 2000; }
 
 button {
@@ -75,7 +87,7 @@ button {
   border: none;
   outline: none; }
   button:hover, button:focus, button:active {
-    box-shadow: 0.1rem 0.5rem 0.5rem rgba(65, 71, 112, 0.6);
+    box-shadow: 0.2rem 0.5rem 0.5rem rgba(65, 71, 112, 0.6);
     cursor: pointer; }
 
 .u-margin-bottom-med {
@@ -140,7 +152,7 @@ button {
 
 .hero__image {
   max-width: 100%;
-  height: 60vh;
+  height: 30vh;
   position: relative; }
 
 .hero__text {
@@ -199,7 +211,7 @@ button {
       animation-name: fadeIn;
       animation-duration: 1s;
       animation-timing-function: ease-in;
-      animation-delay: 2.5s;
+      animation-delay: 2s;
       animation-fill-mode: forwards; }
   .haiku__text {
     flex: 4 1 auto;
@@ -359,7 +371,7 @@ img {
     max-width: 100%;
     max-height: 60rem;
     object-fit: scale-down;
-    box-shadow: 0.1rem 0.5rem 0.5rem rgba(65, 71, 112, 0.6);
+    box-shadow: 0.2rem 0.5rem 0.5rem rgba(65, 71, 112, 0.6);
     display: inline-block;
     vertical-align: top;
     line-height: 0;
@@ -408,7 +420,6 @@ img {
   overflow-y: auto;
   overflow-x: hidden;
   vertical-align: top;
-  height: 5rem;
   border: 1px dotted transparent;
   border-radius: 2px;
   outline: none;
@@ -416,7 +427,7 @@ img {
   .captions__form:hover, .captions__form:focus {
     border: 1px solid rgba(91, 133, 170, 0.25);
     background: #eeeff5;
-    box-shadow: 0.1rem 0.5rem 0.5rem rgba(65, 71, 112, 0.6); }
+    box-shadow: 0.2rem 0.5rem 0.5rem rgba(65, 71, 112, 0.6); }
   .captions__form-narrow {
     width: calc(100% - 9rem); }
   .captions__form-fadeIn {
@@ -433,14 +444,96 @@ img {
   top: 0;
   right: 0; }
 
+.obligatory {
+  display: block;
+  margin-left: 4rem;
+  margin-right: 4rem; }
+  @media only screen and (min-width: 56.25em) {
+    .obligatory {
+      margin-left: 4rem;
+      margin-right: 4rem;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: flex-start;
+      align-content: flex-start;
+      flex-wrap: nowrap; } }
+  @media only screen and (min-width: 56.25em) and (min-width: 75em) {
+    .obligatory {
+      margin-right: calc(4rem + 1.5rem); } }
+  .obligatory__image {
+    display: inline-block;
+    line-height: 0;
+    height: 100%;
+    max-width: 20rem;
+    float: left;
+    margin-right: 4rem; }
+    @media only screen and (min-width: 56.25em) {
+      .obligatory__image {
+        margin-right: 0; } }
+    .obligatory__image-only {
+      box-shadow: 0.2rem 0.5rem 0.5rem rgba(65, 71, 112, 0.6);
+      width: 100%; }
+    .obligatory__image-crazy {
+      filter: blur(1px) hue-rotate(90deg) saturate(150%);
+      transition: all 500ms; }
+      .obligatory__image-crazy:hover, .obligatory__image-crazy:active {
+        filter: blur(2px) hue-rotate(90deg) saturate(80%) invert(190%) contrast(80%); }
+    .obligatory__image figcaption {
+      font-size: 1.2rem;
+      max-width: 20rem;
+      height: 5rem;
+      padding-top: 1rem;
+      line-height: normal; }
+  @media only screen and (min-width: 56.25em) {
+    .obligatory__text {
+      flex: 4 1 auto;
+      flex-wrap: wrap;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      width: 100%;
+      margin-left: 2rem; } }
+  @media only screen and (min-width: 56.25em) {
+    .obligatory__text-wrapper:nth-child(1) {
+      margin-left: 0rem; }
+    .obligatory__text-wrapper:nth-child(2) {
+      margin-left: 4rem; }
+    .obligatory__text-wrapper:nth-child(3) {
+      margin-left: 8rem; }
+    .obligatory__text-wrapper:nth-child(4) {
+      margin-left: 12rem; } }
+  .obligatory__text-single {
+    color: #372248;
+    font-size: 1.5rem;
+    line-height: normal;
+    word-spacing: 1.05rem;
+    margin-bottom: 2.5rem;
+    position: relative;
+    top: 0;
+    vertical-align: top; }
+    @media only screen and (max-width: 37.5em) {
+      .obligatory__text-single:nth-child(4)::after {
+        content: "";
+        display: table;
+        clear: both; } }
+    @media only screen and (min-width: 37.5em) {
+      .obligatory__text-single:nth-child(6)::after {
+        content: "";
+        display: table;
+        clear: both; } }
+    @media only screen and (min-width: 56.25em) {
+      .obligatory__text-single {
+        align-items: space-between; } }
+
 .section-hero {
   display: block;
   position: relative;
   width: 100%;
   max-height: 60vh;
   background-color: #414770;
-  box-shadow: 0.1rem 0.5rem 0.5rem rgba(65, 71, 112, 0.6);
-  background-image: linear-gradient(to right bottom, rgba(65, 71, 112, 0.8), rgba(55, 34, 72, 0.95)), url("img/tree_bag_bg.jpg");
+  box-shadow: 0.2rem 0.5rem 0.5rem rgba(65, 71, 112, 0.6);
+  background-image: linear-gradient(to right bottom, rgba(65, 71, 112, 0.8), rgba(55, 34, 72, 0.95)), url("img/tree_bag_bg-600.jpg");
   background-size: cover;
   background-position: left 90%;
   background-attachment: fixed;
@@ -462,7 +555,7 @@ img {
   position: relative;
   width: 100%;
   background-image: linear-gradient(-60deg, rgba(91, 133, 170, 0.7), rgba(91, 133, 170, 0) 50%, rgba(91, 133, 170, 0) 15%, rgba(91, 133, 170, 0.6));
-  box-shadow: 0.1rem 0.5rem 0.5rem rgba(65, 71, 112, 0.6); }
+  box-shadow: 0.2rem 0.5rem 0.5rem rgba(65, 71, 112, 0.6); }
   .section-purpose::after {
     content: "";
     display: table;
@@ -474,7 +567,30 @@ img {
   width: 100%;
   max-height: 100%;
   background-color: rgba(65, 71, 112, 0.4);
-  box-shadow: 0.1rem 0.5rem 0.5rem rgba(65, 71, 112, 0.6);
+  box-shadow: 0.2rem 0.5rem 0.5rem rgba(65, 71, 112, 0.6);
+  padding-top: 2rem;
+  padding-bottom: 4rem; }
+
+.section-hero-about {
+  display: block;
+  position: relative;
+  width: 100%;
+  max-height: 30vh;
+  background-color: #414770;
+  box-shadow: 0.2rem 0.5rem 0.5rem rgba(65, 71, 112, 0.6);
+  background-image: linear-gradient(to right bottom, rgba(65, 71, 112, 0.8), rgba(55, 34, 72, 0.95)), url("img/verrazano_day_cropped.jpg");
+  background-size: cover;
+  background-position: bottom 20% left;
+  background-repeat: no-repeat;
+  max-width: 100%; }
+
+.section-the-basics {
+  display: block;
+  position: relative;
+  width: 100%;
+  max-height: 80vh;
+  background-color: #fff;
+  color: #372248;
   padding-top: 2rem;
   padding-bottom: 4rem; }
 
@@ -489,7 +605,7 @@ img {
     position: sticky;
     width: 100%;
     display: inline-block;
-    box-shadow: 0.1rem 0.5rem 0.5rem rgba(65, 71, 112, 0.6);
+    box-shadow: 0.2rem 0.5rem 0.5rem rgba(65, 71, 112, 0.6);
     height: 4rem; }
   .header__logo {
     content: '';
@@ -502,7 +618,7 @@ img {
     background-color: #372248;
     padding: 0;
     margin: 0;
-    box-shadow: 0.1rem 0.5rem 0.5rem rgba(65, 71, 112, 0.6);
+    box-shadow: 0.2rem 0.5rem 0.5rem rgba(65, 71, 112, 0.6);
     display: inline-block;
     transition: all 300ms;
     opacity: 0;
