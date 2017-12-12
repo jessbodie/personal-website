@@ -1,0 +1,113 @@
+.obligatory {
+  display: block;
+  margin-left: $left-margin;
+  margin-right: $left-margin;
+
+  @include respond (tab-land) {
+
+    @include basic-flex;
+
+  }
+
+  &__image {
+    // border: 1px solid black;
+    display: inline-block;
+    line-height: 0;
+    height: 100%;
+    max-width: 20rem;
+    float: left;
+    // position: relative;
+    margin-right: $left-margin;
+
+    @include respond (tab-land) {
+      margin-right: 0;
+      }
+
+    &-only {
+      @include dropshadow;
+      width: 100%;
+    }
+
+    &-crazy {
+      // border: 5px solid red;
+      filter: blur(1px) hue-rotate(90deg) saturate(150%);
+      transition: all 500ms;
+
+      &:hover,
+      &:active {
+        filter: blur(2px) hue-rotate(90deg) saturate(80%) invert(190%) contrast(80%);
+      }
+    }
+
+    figcaption {
+      font-size: 1.2rem;
+      max-width: 20rem;
+      height: 5rem;
+      padding-top: 1rem;
+      line-height: normal;
+    }
+
+  }
+
+
+  &__text {
+
+    @include respond (tab-land) {
+      @include flex-item-right;
+    }
+
+    &-wrapper {
+      // border: 1px solid blue;
+
+      @include respond (tab-land) {
+        @for $i from 1 through 4 {
+          &:nth-child(#{$i}) {
+              margin-left: (#{($i * $left-margin) - $left-margin});
+            }
+          }
+        }
+
+    }
+
+
+
+
+    &-single {
+      // border: 1px solid gray;
+
+      color: $color-primary-dark;
+      font-size: 1.5rem;
+      line-height: normal;
+      word-spacing: 1.05rem;
+      margin-bottom: 2.5rem;
+      position: relative;
+      top: 0;
+      vertical-align: top;
+
+      @include respond (mobile) {
+          &:nth-child(4) {
+            @include clearfix;
+            }
+        }
+
+      @include respond (tab-port) {
+          &:nth-child(6) {
+            @include clearfix;
+            }
+        }
+
+      @include respond (tab-land) {
+        align-items: space-between;
+
+      }
+
+
+
+
+      }
+
+
+
+
+  }
+}

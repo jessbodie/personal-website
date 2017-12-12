@@ -1,0 +1,29 @@
+  .section-hero-about {
+    @include section-block;
+    max-height: 30vh;
+    background-color: $color-primary;
+    @include dropshadow;
+
+
+    background-image: linear-gradient(
+         to right bottom,
+         rgba($color-primary, 0.8),
+         rgba($color-primary-dark, .95)),
+         url('img/verrazano_day_cropped.jpg');
+
+    background-size: cover;
+    background-position: bottom 20% left;
+    background-repeat: no-repeat;
+    max-width: 100%;
+
+  }
+
+.section-the-basics {
+  @include section-block;
+  max-height: 80vh;
+  background-color: $color-white-true;
+  color: $color-black;
+  padding-top: 2rem;
+  padding-bottom: 4rem;
+
+}

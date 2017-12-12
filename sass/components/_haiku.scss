@@ -1,19 +1,6 @@
 .haiku {
-  margin-left: $left-margin;
-  margin-right: $left-margin;
 
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: flex-start;
-  align-content: flex-start;
-  flex-wrap: nowrap;
-
-  // Responsive edits
-  @include respond(desktop) {
-    margin-right: calc(#{$left-margin} + #{$margin-scroll});
-  }
-
+  @include basic-flex;
 
 
   &__header {
@@ -45,7 +32,7 @@
       animation-name: fadeIn;
       animation-duration: 1s;
       animation-timing-function: ease-in;
-      animation-delay: 2.5s;
+      animation-delay: 2s;
       animation-fill-mode: forwards;
 
 
@@ -54,15 +41,8 @@
 
 
   &__text {
-    flex: 4 1 auto;
-    flex-wrap: wrap;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    width: 100%;
 
-    margin-left: $gutter-sm;
-
+    @include flex-item-right;
 
 
     &-single {
