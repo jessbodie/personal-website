@@ -19,6 +19,7 @@
       transform-origin: left top;
 
 
+
       @include respond(tab-port) {
 
 
@@ -27,12 +28,13 @@
 
     &-top {
       top: $h2-top-haiku;
+      @include dropshadow-vertical;
 
       opacity: 0;
       animation-name: fadeIn;
       animation-duration: 1s;
       animation-timing-function: ease-in;
-      animation-delay: 2s;
+      animation-delay: 2.5s;
       animation-fill-mode: forwards;
 
 
@@ -65,7 +67,7 @@
 
       @for $i from 1 through 3 {
         &:nth-child(#{$i}) {
-            animation-delay:(#{2s + ($i * 2s)});
+            animation-delay:(#{1s + ($i * 2s)});
           }
         }
 

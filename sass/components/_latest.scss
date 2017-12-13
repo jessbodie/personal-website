@@ -11,6 +11,7 @@ img {
 
   margin-left: $left-margin;
   margin-right: $left-margin;
+  padding: 0;
 
   @include respond (desktop) {
     margin-top: $nav-top-margin;
@@ -30,7 +31,8 @@ img {
 
 
   &__header {
-    display: inline-block;
+    display: block;
+    height: 0;
 
     @include respond(tab-port) {
       flex: 0 1 4rem;
@@ -41,14 +43,18 @@ img {
 
     &-rotate {
 
+
       height: 4rem;
       width: 14rem;
       transform: rotate(-90deg);
       transform-origin: left top;
-      display: inline-block;
+      display: block;
       position: relative;
-      top: 21rem;
+      top: 14rem;
       z-index: map-get($zindex, text-over);
+      @include dropshadow-vertical;
+      background-color: $color-primary;
+
 
 
 
@@ -79,6 +85,8 @@ img {
     vertical-align: top;
     line-height: 0;
     position: relative;
+    top: 0;
+    margin-top: 0;
 
     @include overlay($color-tertiary);
 
@@ -91,7 +99,7 @@ img {
   }
 
   &__titles {
-    height: 10rem;
+    height: 7rem;
     width: 100%;
 
   }
