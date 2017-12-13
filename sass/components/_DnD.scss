@@ -1,0 +1,33 @@
+.DnD {
+  border: 2px solid green;
+
+  &__toDrag {
+
+    draggable: true;
+
+
+    &-img {
+      width: 16rem;
+      height: 12rem;
+      border: 1px solid red;
+      background-color: $color-primary;
+
+    }
+
+  }
+
+  &__dropzone {
+
+    &-wrapper {
+
+    }
+
+    &-drophere {
+      background-color: rgba($color-secondary, .4);
+      width: 8rem;
+      height: 6rem;
+
+    }
+  }
+
+}

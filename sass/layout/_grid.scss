@@ -13,8 +13,10 @@
 .row {
   max-width: $grid-width;
   width: 100%;
+  // height: 100%;
   display: block;
   position: relative;
+  border: 4px solid black;
   // margin-bottom: 4rem;
 
   @include respond(big-desktop) {

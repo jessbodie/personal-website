@@ -1,6 +1,6 @@
   .section-hero-about {
     @include section-block;
-    max-height: 30vh;
+    height: 30rem;
     background-color: $color-primary;
     @include dropshadow;
 
@@ -15,7 +15,7 @@
     background-position: bottom 20% left;
     background-repeat: no-repeat;
     max-width: 100%;
-
+    max-height: 100%;
   }
 
 .section-the-basics {
@@ -25,5 +25,17 @@
   color: $color-black;
   padding-top: 2rem;
   padding-bottom: 4rem;
+
+}
+
+.section-DnD {
+  @include section-block;
+  background-color: rgba($color-primary, .2);
+  color: $color-black;
+  padding-top: 2rem;
+  padding-bottom: 4rem;
+  border: 1px solid black;
+  // max-height: 80vh;
+
 
 }
