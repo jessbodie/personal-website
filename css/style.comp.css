@@ -631,7 +631,6 @@ img {
     .list__container-text {
       margin-left: 4rem;
       margin-right: 4rem;
-      display: none;
       border: 4px solid gray; }
       .list__container-text ul, .list__container-text p {
         font-size: 1.6rem;
@@ -646,6 +645,53 @@ img {
         display: inline-block;
         margin-right: 1rem;
         margin-left: -2rem; }
+  .list input {
+    display: none;
+    visibility: hidden; }
+  .list label {
+    display: block; }
+  .list #toggle0:checked ~ #expand {
+    height: auto;
+    transform: scaleY(1); }
+  .list #toggle1:checked ~ #expand {
+    height: auto;
+    transform: scaleY(1); }
+  .list #toggle2:checked ~ #expand {
+    height: auto;
+    transform: scaleY(1); }
+  .list #toggle3:checked ~ #expand {
+    height: auto;
+    transform: scaleY(1); }
+  .list #toggle4:checked ~ #expand {
+    height: auto;
+    transform: scaleY(1); }
+  .list #toggle5:checked ~ #expand {
+    height: auto;
+    transform: scaleY(1); }
+  .list #toggle6:checked ~ #expand {
+    height: auto;
+    transform: scaleY(1); }
+  .list #toggle7:checked ~ #expand {
+    height: auto;
+    transform: scaleY(1); }
+  .list #toggle8:checked ~ #expand {
+    height: auto;
+    transform: scaleY(1); }
+  .list #toggle9:checked ~ #expand {
+    height: auto;
+    transform: scaleY(1); }
+  .list #toggle10:checked ~ #expand {
+    height: auto;
+    transform: scaleY(1); }
+  .list #toggle11:checked ~ #expand {
+    height: auto;
+    transform: scaleY(1); }
+  .list #expand {
+    overflow: hidden;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.3s ease-out;
+    height: 0px; }
 
 .section-hero {
   display: block;
