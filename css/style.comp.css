@@ -103,8 +103,8 @@ button {
     .u-margin-header-wrap {
       margin-left: 0; } }
 
-.u-img-cover {
-  object-fit: cover; }
+.u-height-100 {
+  height: 100%; }
 
 @keyframes moveInTopLeft {
   0% {
@@ -735,7 +735,7 @@ img {
   background-color: #414770;
   box-shadow: 0.2rem 0.5rem 0.5rem rgba(65, 71, 112, 0.6);
   background-image: linear-gradient(to right bottom, rgba(65, 71, 112, 0.8), rgba(55, 34, 72, 0.95));
-  height: 12rem;
+  height: 18rem;
   max-width: 100%;
   z-index: 2000; }
 
@@ -813,8 +813,6 @@ img {
       font-weight: 800;
       padding: 0 .5rem;
       width: 100%;
-      transition: all 300ms;
-      line-height: 1;
       text-align: center;
       text-decoration: none;
       transition: all 300ms;
@@ -889,7 +887,6 @@ img {
 .row {
   max-width: 180rem;
   width: 100%;
-  height: 100%;
   display: block;
   position: relative; }
   @media only screen and (min-width: 112.5em) {
