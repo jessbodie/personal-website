@@ -25,11 +25,12 @@ var dataController = (function() {
                "Oh, look, dinner!",
                "I'll give you my plastic bags when you pry (or take) it from my cold, dead hands!",
                "A tree grows in Brooklyn... (really)");
-     } else if (document.querySelector("title").textContent.includes("Sandbox")) {
+     } else if (document.querySelector("title").textContent.includes("Captions")) {
           // Add more preset strings to the array for SANDBOX page
           newCaption.push(
                "Introducing... the next Albert Einstein!",
                "Hey, who turned out the lights?",
+               "Are you sure? I don't see any holes.",
                "Come out, come out wherever you are!");
      }
 

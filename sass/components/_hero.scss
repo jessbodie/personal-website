@@ -17,15 +17,19 @@
   &__text {
     position: absolute;
     bottom: 0;
-    // bottom: -0.3rem;
     right: 0;
+    // height: 100%;
+    vertical-align: bottom;
     text-align: right;
     background-color: transparent;
     text-shadow: 0 .5rem .5rem rgba($color-primary, .6);
     transform-origin: left top;
 
     &-1st {
+      vertical-align: bottom;
+      // height: 100%;
       display: inline-block;
+      line-height: 1;
       opacity: 0;
 
       animation-name: moveInTopLeft;
