@@ -18,17 +18,17 @@
 
 
 .section-featured {
-  @include section-block;
-  max-height: 80vh; // be more exact...?
-  background-color: $color-white-true;
-  color: $color-black;
-  padding-top: 2rem;
-  padding-bottom: 4rem;
-  visibility: hidden; //visible
   display: none;
 
-  max-width: 100%;
-  border: 4px solid orange;
+  @include respond(tab-port) {
+
+
+    @include section-block;
+    height: auto;
+    background-color: $color-white-true;
+    color: $color-black;
+    max-width: 100%;
+  }
 
 }
 

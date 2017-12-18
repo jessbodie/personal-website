@@ -4,7 +4,7 @@
      <!-- Fonts -->
      <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 
-     <link rel="stylesheet" type="text/css" href="css/style.comp.css">
+     <link rel="stylesheet" type="text/css" href="css/style.min.css">
 
      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
      <meta name="description" content="The greatest CV website on Earth, courtesy Jess Bodie Richards">
@@ -93,7 +93,7 @@
             <img src="img/tree-dark_tree-light.jpg"
             alt="Tree in shadow with plastic bag, tree in light">
           </figure>
-
+          <!-- TODO NEED SOLUTION FOR FIREFOX -->
           <div class="purpose__text">
             <p>After years of digital product and project management experience,
             I am branching out&mdash;to hands-on web development.</p>
@@ -119,13 +119,17 @@
 
              <div class="latest__first">
               <div class="latest__titles">
-                <h3 class="heading-tertiary u-margin-header-wrap">Caption Generator</h3>
+                <h3 class="heading-tertiary u-margin-header-wrap">
+                  <a href="captions.html" target="_new">Caption Generator</a>
+                </h3>
                 <p class="latest__text u-margin-header-wrap">a.k.a. Gratuitous JavaScript</p>
               </div>
                 <figure style="border: 1px">
-                  <div class="latest__image">
-                     <img src="img/a_tree_grows_in.jpg" alt="Tree with no leaves and many plastic bags ensnared">
-                  </div>
+                  <a href="captions.html" target="_new">
+                    <div class="latest__image">
+                     <img src="img/a_tree_grows_in.jpg" alt="Tree with no leaves and many plastic bags ensnared" />
+                    </div>
+                  </a>
 
                 <!-- Begin caption generator -->
                   <div class="captions">
@@ -148,11 +152,11 @@
             <div class="latest__second">
               <div class="latest__titles">
                 <h3 class="heading-tertiary">
-                  <a href="../retirement-calculator">Practical Retirement Calculator</a>
+                  <a href="../retirement-calculator" target="_new">Practical Retirement Calculator</a>
                 </h3>
               </div>
                 <figure>
-                  <a href="../retirement-calculator"><div class="latest__image">
+                  <a href="../retirement-calculator" target="_new"><div class="latest__image">
 
                     <img src="img/projects/proj_calc.png" alt="Practical Retirement Calculator screenshot" />
                   </div></a>

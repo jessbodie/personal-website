@@ -56,6 +56,28 @@ main {
 
 }
 
+ul, p {
+  font-size: $body-default;
+  margin-top: .8rem;
+  }
+
+
+li {
+  list-style:none;
+  margin-left: $left-margin;
+  margin-top: .6rem;
+}
+
+// li::before {
+//   content: '\25A0';
+//   color: $color-primary;
+//   display: inline-block;
+//   margin-right: 1rem;
+//   margin-left: -2rem;
+// }
+
+
+
 ::selection {
   background-color: $color-primary;
   color: $color-white;
@@ -98,7 +120,7 @@ main {
 .heading-tertiary {
   display: inline-block;
   position: relative;
-  font-size: 1.8rem;
+  font-size: $h3-default;
   font-weight: 800;
   color: $color-primary;
   background-color: transparent;
