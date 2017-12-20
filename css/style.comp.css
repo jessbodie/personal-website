@@ -505,7 +505,12 @@ img {
     height: 100%;
     max-width: 10rem;
     float: left;
-    margin-right: 4rem; }
+    margin-right: 4rem;
+    opacity: 0;
+    animation-name: fadeIn;
+    animation-duration: 1s;
+    animation-timing-function: ease-in;
+    animation-fill-mode: forwards; }
     @media only screen and (min-width: 56.25em) {
       .obligatory__image {
         margin-right: 0;
@@ -606,7 +611,7 @@ img {
     display: block;
     cursor: pointer; }
     .list__container:nth-child(even) {
-      background-color: rgba(65, 71, 112, 0.3); }
+      background-image: linear-gradient(to right bottom, rgba(65, 71, 112, 0.05), rgba(65, 71, 112, 0.3)); }
     @media only screen and (min-width: 37.5em) {
       .list__container {
         width: 50%;
@@ -615,9 +620,9 @@ img {
         padding-top: 0;
         padding-bottom: 0; }
         .list__container:nth-child(1), .list__container:nth-child(4n + 1) {
-          background-color: rgba(65, 71, 112, 0.3); }
+          background-image: linear-gradient(to right bottom, rgba(65, 71, 112, 0.05), rgba(65, 71, 112, 0.3)); }
         .list__container:nth-child(4n), .list__container:nth-child(4n-1) {
-          background-color: rgba(245, 110, 72, 0.3);
+          background-image: linear-gradient(to right bottom, rgba(245, 110, 72, 0.15), rgba(245, 110, 72, 0.45));
           text-align: right; } }
     .list__container-image {
       max-width: 100%;
@@ -627,11 +632,19 @@ img {
       margin-right: 4rem;
       margin-bottom: 2rem;
       display: inline-block; }
+      .list__container-image:hover, .list__container-image:focus {
+        transform: translateY(-2px);
+        text-shadow: 0px 1px 4px rgba(55, 34, 72, 0.3); }
       .list__container-image img {
         object-fit: cover;
         object-position: 0% 0%;
         width: 100%;
-        height: 28rem; }
+        height: 28rem;
+        cursor: pointer; }
+        .list__container-image img:hover, .list__container-image img:focus {
+          opacity: .7;
+          transform: translateY(-2px);
+          box-shadow: 0.2rem 0.5rem 1rem rgba(65, 71, 112, 0.6); }
       @media only screen and (min-width: 37.5em) {
         .list__container-image {
           opacity: 0;
@@ -783,6 +796,11 @@ img {
             transform: rotate(-135deg); } }
     @media only screen and (min-width: 37.5em) {
       .list__featured-image {
+        opacity: 0;
+        animation-name: fadeIn;
+        animation-duration: 1s;
+        animation-timing-function: ease-in;
+        animation-fill-mode: forwards;
         flex: 3 .5 auto;
         margin-right: 2rem;
         max-height: 36rem; } }
@@ -793,20 +811,31 @@ img {
     @media only screen and (min-width: 75em) {
       .list__featured-image {
         flex: 1 0 auto; } }
-    @media only screen and (min-width: 37.5em) {
-      .list__featured-image img {
-        max-height: 36rem;
-        object-fit: cover;
-        object-position: top left;
-        max-width: 100%; } }
-    @media only screen and (min-width: 56.25em) {
-      .list__featured-image img {
-        object-fit: contain; } }
+    .list__featured-image img {
+      opacity: 0;
+      animation-name: fadeIn;
+      animation-duration: 1s;
+      animation-timing-function: ease-in;
+      animation-fill-mode: forwards; }
+      @media only screen and (min-width: 37.5em) {
+        .list__featured-image img {
+          max-height: 36rem;
+          object-fit: cover;
+          object-position: top left;
+          max-width: 100%; } }
+      @media only screen and (min-width: 56.25em) {
+        .list__featured-image img {
+          object-fit: contain; } }
     @media only screen and (min-width: 37.5em) {
       .list__featured-text {
         flex: 1 1 auto; }
         .list__featured-text ul, .list__featured-text li, .list__featured-text p {
-          font-size: 1.25rem; }
+          font-size: 1.25rem;
+          opacity: 0;
+          animation-name: fadeIn;
+          animation-duration: 1s;
+          animation-timing-function: ease-in;
+          animation-fill-mode: forwards; }
         .list__featured-text li::before {
           content: '\25A0';
           color: #414770;
@@ -814,7 +843,12 @@ img {
           margin-right: 1rem;
           margin-left: -2rem; }
         .list__featured-text h3 {
-          font-size: 1.5rem; } }
+          font-size: 1.5rem;
+          opacity: 0;
+          animation-name: fadeIn;
+          animation-duration: 1s;
+          animation-timing-function: ease-in;
+          animation-fill-mode: forwards; } }
     @media only screen and (min-width: 56.25em) {
       .list__featured-text {
         flex: 1 3 auto; }

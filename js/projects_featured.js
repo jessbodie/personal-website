@@ -45,6 +45,8 @@ var dataController = (function() {
 var UIController = (function() {
 
   return {
+
+    // Show the image and text for selected project in feature area
     showFeature: function (projImage, prevFeature) {
       // Find parent Div of selected project, with ID
       var projToggleID = projImage.parentNode.parentNode;
@@ -64,42 +66,43 @@ var UIController = (function() {
       var featuredTitle = projTitle.cloneNode(true);
       var featuredDescrip = projDescrip.cloneNode(true);
 
+      //Remove u-hidden and add u-visible
+      document.getElementById("section-featured").classList.remove('u-hidden');
+      document.getElementById("section-featured").className += ' u-visible';
+
+
       // Check if featured image already
       if (featuredImageDiv.childNodes[1]) {
 
-        //Remove u-hidden and add u-visible
-        document.getElementById("section-featured").classList.remove('u-visible');
+        // Remove previously featured
+        featuredImageDiv.removeChild(featuredImageDiv.childNodes[1]);
+        featuredTextDiv.removeChild(featuredTextDiv.childNodes[1]);
+        // Since first child was just removed, formerly 2nd child now first child
+        featuredTextDiv.removeChild(featuredTextDiv.childNodes[1]);
 
-        // Replace previous with newly selected
-        featuredImageDiv.replaceChild(featuredImage, featuredImageDiv.childNodes[1]);
-        featuredTextDiv.replaceChild(featuredTitle, featuredTextDiv.childNodes[1]);
-        featuredTextDiv.replaceChild(featuredDescrip, featuredTextDiv.childNodes[2]);
-
-        //Remove u-hidden and add u-visible
-        document.getElementById("section-featured").className += ' u-visible';
-        // TODO ADD SLOW TRANSITION BETWEEN NEW PROJECTS
-        // TODO ADD WAY TO COLLAPSE THE FEATURED AREA
-
+        // Add newly featured
+        featuredImageDiv.appendChild(featuredImage);
+        featuredTextDiv.appendChild(featuredTitle);
+        featuredTextDiv.appendChild(featuredDescrip);
+        featuredImageDiv.scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});
 
       } else {
+        // If no featured image already
         // Add cloned image, title, descrip to featured area
         featuredImageDiv.appendChild(featuredImage);
         featuredTextDiv.appendChild(featuredTitle);
         featuredTextDiv.appendChild(featuredDescrip);
-
-        //Remove u-hidden and add u-visible
-        document.getElementById("section-featured").classList.remove('u-hidden');
-        document.getElementById("section-featured").className += ' u-visible';
-
+        featuredImageDiv.scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});
       }
+    },
 
-
+    closeFeature: function () {
+      // console.log("closeFeature");
+      document.getElementById("section-featured").classList.remove('u-visible');
+      document.getElementById("section-featured").className += ' u-hidden';
 
     }
-
   }
-
-
 
 })();
 
@@ -120,21 +123,32 @@ var controller = (function(dataCtrl, UICtrl){
     }
 
     var setupEventListeners = function() {
-      console.log("event listeners");
+      // Setup to detect window width
+      var w = window.innerWidth;
 
-      var divList = document.querySelectorAll('.list__container-image');
+      // Listeners for showing project in featured area
+      var divList = document.querySelectorAll('.list__container-image > img');
       for (var i = 0; i < divList.length; i++) {
         // console.log(divList[i]);
-        divList[i].addEventListener('click', updateFeature);
-        // TODO ADD FOR HOVER, FOCUS
-
+        // If window width greater than 600, listener to show top feature area
+        if (w >= 600) {
+          divList[i].addEventListener('click', updateFeature);
+          divList[i].addEventListener('focus', updateFeature);
+        } else {
+          // Less than 600px, listener to scroll current project into view
+          divList[i].addEventListener('click', function(el) {
+            el.target.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
+          });
+        }
       }
 
+      // Listener for close button
+      document.getElementById('list__featured-close').addEventListener('click', UICtrl.closeFeature);
     }
 
     return {
       init: function() {
-        console.log("started");
+        console.log("Project Features JS started");
         setupEventListeners();
       }
     }

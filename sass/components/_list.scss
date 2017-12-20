@@ -4,6 +4,7 @@
   flex-direction: column;
 
 
+
   @include respond(tab-port) {
     flex-direction: row;
     justify-content: space-between;
@@ -15,23 +16,20 @@
 
 
 
+  // CONTAINER OF ALL PROJECT ITEMS
   &__container {
 
     padding-top: 2rem;
     padding-bottom: $left-margin;
     width: 100%;
     display: block;
-    // display: flex;
-    // flex-direction: column;
-    // flex-wrap: nowrap;
     cursor: pointer;
 
     &:nth-child(even) {
-      background-color: rgba($color-primary, .3);
-
+      background-image: linear-gradient( to right bottom,
+        rgba($color-primary, .05),
+        rgba($color-primary, 0.3));
     }
-
-
 
 
     @include respond(tab-port) {
@@ -43,22 +41,26 @@
 
       &:nth-child(1),
       &:nth-child(4n + 1) {
-        background-color: rgba($color-primary, .3);
+        // background-color: rgba($color-primary, .3);
+        background-image: linear-gradient( to right bottom,
+          rgba($color-primary, .05),
+          rgba($color-primary, 0.3));
       }
 
       &:nth-child(4n),
       &:nth-child(4n-1) {
-        background-color: rgba($color-tertiary, .3);
+        // background-color: rgba($color-tertiary, .3);
+        background-image: linear-gradient( to right bottom,
+          rgba($color-tertiary, .15),
+          rgba($color-tertiary, 0.45));
         text-align: right;
-
       }
     }
 
 
 
 
-
-
+    // IMAGE FOR EACH PROJECT IN THE LIST
     &-image {
       max-width: 100%;
       height: $proj-header-mobile;
@@ -68,18 +70,30 @@
       margin-bottom: $gutter-sm;
       display: inline-block;
 
+      &:hover,
+      &:focus {
+        @include link-hover;
+      }
+
       img {
         object-fit: cover;
         object-position: 0% 0%;
         width: 100%;
         height: $proj-header-mobile;
+        cursor: pointer;
+
+        &:hover,
+        &:focus {
+          opacity: .7;
+          transform: translateY(-2px);
+          box-shadow: .2rem .5rem 1rem rgba($color-primary, .6);
+        }
       }
 
 
       @include respond(tab-port) {
 
         @include animation-fadeIn;
-
         margin-left: 0;
         margin-right: 0;
         margin-top: 0;
@@ -92,17 +106,15 @@
         }
       }
 
-
     }
 
+    // HEADER THAT COVERS EACH IMAGE IN THE LIST
     &-header {
       display: block;
       height: 0;
       margin: 0;
       padding: 0;
       text-align: left;
-
-
 
       &-rotate {
         height: 4rem;
@@ -120,16 +132,13 @@
         @include respond(tab-port) {
           width: $proj-header-tab;
           top: $proj-header-tab;
-
         }
-
-
-
       }
     }
 
 
-    // For Mobile only
+    // TEXT FOR EACH PROJECT IN THE LIST
+    // MOBILE DISPLAY
     &-text {
       margin-left: $left-margin;
       margin-right: $left-margin;
@@ -137,16 +146,14 @@
       @include respond (tab-port) {
         display: none;
       }
-
-
     }
 
   }
 
 
-///////////////////////////////////////////////////
-// To show expanded descriptive text
-///////////////////////////////////////////////////
+//////////////////////////////////////////////
+// TOGGLE TO SHOW EXPANDED DESCRIPTIVE TEXT //
+//////////////////////////////////////////////
 
   input {
     display: none;
@@ -162,7 +169,6 @@
       height: auto;
       transform: scaleY(1);
       transition: transform 0.3s ease-out;
-
     }
   }
 
@@ -174,25 +180,23 @@
   }
 
 
-  // 600px and higher - Top Featured area
+  /////////////////////////////////
+  // TOP FEATURE AREA - 600PX +  //
+  /////////////////////////////////
 
   &__featured {
     position: relative;
     margin: $gutter-sm 0 0 0;
 
-
     &-container {
+
       @include respond(tab-port) {
-
-
         display: flex;
         flex-direction: row;
         flex-wrap: nowrap;
         justify-content: space-between;
         align-items: center;
         align-content: center;
-
-
         max-height: $proj-featured-y;
         max-width: 90rem;
         margin: 0 auto;
@@ -200,7 +204,7 @@
     }
 
 
-    // ICON
+      // CLOSE ICON
       &-close {
           @include respond(tab-port) {
             display: inline-block;
@@ -211,7 +215,6 @@
             height: 3rem;
             cursor: pointer;
 
-
             &-shape,
             &::after {
               position: absolute;
@@ -221,10 +224,8 @@
               height: 3px;
               background-color: $color-secondary;
               display: inline-block;
-
               transform: rotate(135deg);
               transition: all .3s;
-
             }
 
           &::after {
@@ -234,39 +235,34 @@
             left: 0;
           }
 
-
-
       &:hover,
       &:focus {
         background-color: $color-secondary;
         border-radius: 1px;
         @include dropshadow;
 
-
         & > div {
           background-color: $color-white;
           transform: rotate(-45deg);
-
         }
 
         &::after {
           background-color: $color-white;
           transform: rotate(-135deg);
           }
-
         }
-
       }
-
-
     }
 
+
+    // FEATURED IMAGE
     &-image {
+
       @include respond(tab-port) {
+        @include animation-fadeIn;
         flex: 3 .5 auto;
         margin-right: $gutter-sm;
         max-height: $proj-featured-y;
-
       }
 
       @include respond(tab-land) {
@@ -277,30 +273,26 @@
 
       @include respond(desktop) {
         flex: 1 0 auto;
-
       }
 
       img {
+        @include animation-fadeIn;
 
         @include respond(tab-port) {
           max-height: $proj-featured-y;
           object-fit: cover;
           object-position: top left;
           max-width: 100%;
-
         }
 
         @include respond(tab-land) {
-          // height: $proj-featured-y;
           object-fit: contain;
-
         }
-
       }
-
     }
 
 
+    // FEATURED TEXT
     &-text {
       @include respond(tab-port) {
 
@@ -308,6 +300,7 @@
 
         ul, li, p, {
           font-size: 1.25rem;
+          @include animation-fadeIn;
         }
 
         li::before {
@@ -321,6 +314,7 @@
 
         h3 {
           font-size: 1.5rem;
+          @include animation-fadeIn;
         }
       }
 
@@ -334,7 +328,6 @@
         h3 {
           font-size: $h3-default;
         }
-
       }
 
       @include respond(desktop) {
