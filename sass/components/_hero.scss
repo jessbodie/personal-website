@@ -33,7 +33,7 @@
       opacity: 0;
 
       animation-name: moveInTopLeft;
-      animation-duration: 1.5s;
+      animation-duration: 1s;
       animation-timing-function: ease-in;
       animation-delay: 600ms;
       animation-fill-mode: forwards;
@@ -45,9 +45,9 @@
       opacity: 0;
 
       animation-name: moveInRight;
-      animation-duration: 1.5s;
+      animation-duration: 1.25s;
       animation-timing-function: ease;
-      animation-delay: 1.5s;
+      animation-delay: 1.25s;
       animation-fill-mode: forwards;
 
     }
