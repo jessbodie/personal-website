@@ -18,6 +18,8 @@
     float: left;
     // position: relative;
     margin-right: $left-margin;
+    @include animation-fadeIn;
+
 
     @include respond (tab-land) {
       margin-right: 0;
