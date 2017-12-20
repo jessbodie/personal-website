@@ -59,11 +59,13 @@
       top: 0;
       vertical-align: top;
       // Animation
-      opacity: 0;
-      animation-name: fadeIn;
-      animation-duration: 1.25s;
-      animation-timing-function: ease-in;
-      animation-fill-mode: forwards;
+
+      @include animation-fadeIn;
+      // opacity: 0;
+      // animation-name: fadeIn;
+      // animation-duration: 1.25s;
+      // animation-timing-function: ease-in;
+      // animation-fill-mode: forwards;
 
       @for $i from 1 through 3 {
         &:nth-child(#{$i}) {

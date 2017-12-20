@@ -60,10 +60,17 @@
     &-wrapper {
       // border: 1px solid blue;
 
+
+
       @include respond (tab-land) {
+
+        @include animation-fadeIn;
+
+
         @for $i from 1 through 4 {
           &:nth-child(#{$i}) {
               margin-left: (#{($i * $left-margin) - $left-margin});
+              animation-delay:(#{($i * 1s)});
             }
           }
         }
@@ -84,6 +91,8 @@
       position: relative;
       top: 0;
       vertical-align: top;
+
+
 
       @include respond (mobile) {
           &:nth-child(4) {

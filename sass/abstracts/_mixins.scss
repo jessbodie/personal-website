@@ -49,6 +49,15 @@
 }
 
 
+// ANIMATIONS
+
+@mixin animation-fadeIn {
+  opacity: 0;
+  animation-name: fadeIn;
+  animation-duration: 1s;
+  animation-timing-function: ease-in;
+  animation-fill-mode: forwards;
+}
 
 
 // Color screen overlaid over HTML images, takes color
