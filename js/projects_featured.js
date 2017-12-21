@@ -123,8 +123,12 @@ var controller = (function(dataCtrl, UICtrl){
     }
 
     var setupEventListeners = function() {
+      console.log("eventlisteners");
       // Setup to detect window width
       var w = window.innerWidth;
+
+      // TODO On resize, update event listeners
+      window.addEventListener('resize', resizeReset);
 
       // Listeners for showing project in featured area
       var divList = document.querySelectorAll('.list__container-image > img');
@@ -145,6 +149,27 @@ var controller = (function(dataCtrl, UICtrl){
       // Listener for close button
       document.getElementById('list__featured-close').addEventListener('click', UICtrl.closeFeature);
     }
+
+    // When user resizes window, reset the listeners. Probably an edge case.
+    var resizeReset = function() {
+      console.log("replace eventlisteners");
+
+      // Listeners for showing project in featured area
+      var divList = document.querySelectorAll('.list__container-image > img');
+      for (var i = 0; i < divList.length; i++) {
+
+        // Remove listeners
+          divList[i].removeEventListener('click', updateFeature);
+          divList[i].removeEventListener('focus', updateFeature);
+          divList[i].removeEventListener('click', function(el) {
+            el.target.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
+          });
+        }
+
+        setupEventListeners();
+      }
+
+
 
     return {
       init: function() {
