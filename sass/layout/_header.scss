@@ -44,6 +44,7 @@
     &:hover,
     &:focus {
       box-shadow: .25rem .25rem .5rem rgba($color-blacker, .6);
+      border-bottom: 2rem solid $color-white;
     }
 
 
@@ -57,13 +58,12 @@
       text-align: center;
       text-decoration: none;
       transition: all 300ms;
-      // border: 1px solid yellow;
       vertical-align: -.3rem;
+      height: 6rem;
 
       &:hover,
       &:focus {
         transform: translateY(-2px);
-        border-bottom: 2rem solid $color-white;
 
       }
 
@@ -89,12 +89,10 @@
     justify-content: flex-end;
     align-items: flex-end;
 
-
     &-link {
       line-height: 1;
       font-size: 1.8rem;
       font-weight: bold;
-      // border: 1px solid yellow;
 
       margin-right: $left-margin;
       height: 4rem;
@@ -134,11 +132,13 @@
         color: $color-secondary;
         text-decoration: none;
         text-shadow: 1px 1px 1px $color-white;
+        display: inline-block;
 
         &:hover,
         &:focus,
          {
-           transform: scaoe(200%);
+           transform: translateY(-2px);
+
          }
 
          &:active

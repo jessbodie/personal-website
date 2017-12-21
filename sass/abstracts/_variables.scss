@@ -8,6 +8,7 @@ $color-black: #372248;
 $color-blacker: #0b070e;
 
 $color-secondary: #5B85AA;
+$color-secondary-light: #a9bfd3;
 
 
 $color-tertiary: #F56E48;
@@ -16,7 +17,6 @@ $color-tertiary: #F56E48;
 // MARGINS
 $grid-width: 180rem;
 $left-margin: 4rem;
-$default-font-size: 2rem;
 $h2-top-haiku: 9rem;
 $h2-top-latest: 17rem;
 $nav-top-margin: 4rem;
@@ -37,8 +37,9 @@ $proj-header-tab: 20rem;
 $proj-featured-y: 36rem;
 
 // FONT SIZES
-$body-default: 1.6rem;
+$body-default: 1.4rem;
 $h3-default: 1.8rem;
+$default-font-size: 2rem;
 
 // Z-INDEX
 $zindex: (

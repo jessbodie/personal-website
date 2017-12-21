@@ -1,6 +1,4 @@
-img {
-  max-width: 100%;
-}
+
 
 .latest {
   display: flex;
@@ -13,13 +11,6 @@ img {
   margin-right: $left-margin;
   padding: 0;
 
-  @include respond (desktop) {
-    margin-top: $nav-top-margin;
-  }
-
-
-
-
   // Responsive edits
   @include respond(tab-port) {
     flex-direction: row;
@@ -27,22 +18,34 @@ img {
 
   @include respond(desktop) {
     margin-right: calc(#{$left-margin} + #{$margin-scroll});
+    margin-top: $nav-top-margin;
   }
 
 
   &__header {
+
     display: block;
     height: 0;
+    position: relative;
+
+    opacity: 0;
+    @include animation__moveDown(-6rem);
+    animation-name: moveDown;
+    animation-duration: 500ms;
+    animation-timing-function: ease-in;
+    animation-delay: 2.5s;
+    animation-fill-mode: forwards;
+
+    z-index: map-get($zindex, text-over);
 
     @include respond(tab-port) {
       flex: 0 1 4rem;
-      margin-top: 17rem;
+      margin-top: 14rem;
       width: 4rem;
     }
 
 
     &-rotate {
-
 
       height: 4rem;
       width: 14rem;
@@ -68,7 +71,7 @@ img {
 
   &__text {
     color: $color-black;
-    font-size: 1.25rem;
+    font-size: $body-default;
     margin-bottom: 1rem;
     margin-top: 1rem;
 
@@ -114,8 +117,11 @@ img {
 
 
   &__second {
-    // border: 1px solid red;
     flex: 1 1 auto;
+
+    // h3 {
+    //   width: 60%;
+    // }
   }
 
   &__calculator {

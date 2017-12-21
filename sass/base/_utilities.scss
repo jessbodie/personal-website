@@ -4,7 +4,12 @@
 }
 
 .u-margin-top-med {
-  margin-top: 5rem;
+  margin-top: 3rem;
+
+  @include respond (tab-port) {
+    margin-top: 5rem;
+  }
+
 }
 
 .u-margin-header-wrap {

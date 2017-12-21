@@ -1,6 +1,6 @@
 .section-hero {
   @include section-block;
-  height: 42rem;
+  height: 36rem;
   background-color: $color-primary;
   @include dropshadow;
 
@@ -17,6 +17,11 @@
   max-width: 100%;
   z-index: map-get($zindex, text-over);
 
+  @include respond(tab-port) {
+    height: 42rem;
+
+  }
+
 
 }
 
@@ -32,13 +37,22 @@
 
 .section-purpose {
   @include section-block;
-  // background-color: rgba($color-secondary, .6);
-  background-image: linear-gradient(
+  background: linear-gradient(
        -60deg,
-       rgba($color-secondary, .7),
-       rgba($color-secondary, .0) 50%,
+       rgba($color-secondary, .6) 0%,
        rgba($color-secondary, .0) 15%,
-       rgba($color-secondary, .6));
+       rgba($color-secondary, .0) 55%,
+       rgba($color-secondary, .7) 100%);
+
+
+  @include respond (tab-land) {
+    background: linear-gradient(
+         -60deg,
+         rgba($color-secondary, .6) 0%,
+         rgba($color-secondary, .0) 7%,
+         rgba($color-secondary, .0) 11%,
+         rgba($color-secondary, .7) 100%);
+  }
 
 
   @include dropshadow;

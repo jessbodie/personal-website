@@ -68,14 +68,6 @@ li {
   margin-top: .6rem;
 }
 
-// li::before {
-//   content: '\25A0';
-//   color: $color-primary;
-//   display: inline-block;
-//   margin-right: 1rem;
-//   margin-left: -2rem;
-// }
-
 
 
 ::selection {
@@ -148,4 +140,9 @@ button {
     @include dropshadow;
     cursor: pointer;
   }
+}
+
+
+img {
+  max-width: 100%;
 }

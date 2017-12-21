@@ -45,7 +45,7 @@
   height: 100%;
   width: 100%;
 
-  margin-left: $gutter-sm;
+  margin-left: $left-margin;
 }
 
 
@@ -88,6 +88,16 @@
 @mixin link-hover {
   transform: translateY(-2px);
   text-shadow: 0px 1px 4px rgba($color-primary-dark, .3);
+}
+
+@mixin fancy-bullets {
+  li::before {
+    content: '\25A0';
+    color: $color-primary;
+    display: inline-block;
+    margin-right: 1rem;
+    margin-left: -2rem;
+  }
 }
 
 

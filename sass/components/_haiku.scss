@@ -10,6 +10,14 @@
     display: inline-block;
     position: relative;
 
+    opacity: 0;
+    @include animation__moveDown(-6rem);
+    animation-name: moveDown;
+    animation-duration: 500ms;
+    animation-timing-function: ease-in;
+    animation-delay: 1.5s;
+    animation-fill-mode: forwards;
+
     &-rotate {
       width: 4rem;
       display: inline-block;
@@ -18,10 +26,7 @@
       transform: rotate(-90deg);
       transform-origin: left top;
 
-
-
       @include respond(tab-port) {
-
 
       }
     }
@@ -30,12 +35,12 @@
       top: $h2-top-haiku;
       @include dropshadow-vertical;
 
-      opacity: 0;
-      animation-name: fadeIn;
-      animation-duration: 1s;
-      animation-timing-function: ease-in;
-      animation-delay: 2.5s;
-      animation-fill-mode: forwards;
+      // opacity: 0;
+      // animation-name: fadeIn;
+      // animation-duration: 1s;
+      // animation-timing-function: ease-in;
+      // animation-delay: 2.5s;
+      // animation-fill-mode: forwards;
 
 
     }
@@ -58,14 +63,9 @@
       position: relative;
       top: 0;
       vertical-align: top;
-      // Animation
+
 
       @include animation-fadeIn;
-      // opacity: 0;
-      // animation-name: fadeIn;
-      // animation-duration: 1.25s;
-      // animation-timing-function: ease-in;
-      // animation-fill-mode: forwards;
 
       @for $i from 1 through 3 {
         &:nth-child(#{$i}) {
