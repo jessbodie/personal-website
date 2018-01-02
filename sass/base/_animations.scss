@@ -56,6 +56,28 @@
      }
 }
 
+
+@mixin animation-fadeInRight {
+  opacity: 0;
+  animation-name: fadeInRight;
+  animation-duration: 800ms;
+  animation-timing-function: ease-in;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeInRight {
+     0% {
+        opacity: 0;
+        transform: translateX(4rem);
+     }
+
+     100% {
+       opacity: 1;
+       transform: translateX(0);
+     }
+}
+
+
 @mixin animation__moveDown ($y) {
 
   @keyframes moveDown {
@@ -71,18 +93,13 @@
     }
 }
 
-
+// TODO Make pretty
 @keyframes bag {
      0% {
-        opacity: 0;
+        opacity: 0.05;
         transform: rotate(90deg) scaleY(.5) skewX(0) skewY(0);
 
      }
-
-    //  10% {
-    //     opacity: .15;
-    //     transform: rotate(90deg) scaleY(1.2) skewX(15deg) skewY(0deg);
-    //  }
 
      15% {
        opacity: .15;
@@ -102,8 +119,7 @@
        transform: rotate(90deg) scaleY(1) skewX(-35deg) skewY(2deg);
      }
 
-     100% {
-       opacity: 0;
-       transform: rotate(90deg) scaleY(.5) skewX(0) skewY(0);
+     90% {
+       transform: rotate(90deg) scaleY(.85) skewX(0) skewY(0);
      }
 }

@@ -64,8 +64,8 @@
       top: 0;
       vertical-align: top;
 
-
-      @include animation-fadeIn;
+      // Replaced with AOS Library
+      // @include animation-fadeIn;
 
       @for $i from 1 through 3 {
         &:nth-child(#{$i}) {

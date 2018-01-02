@@ -1,9 +1,12 @@
 .DnD {
-  border: 2px solid green;
+  border: 2px solid red;
 
   &__toDrag {
 
     draggable: true;
+    border: 1px solid orange;
+    width: 100px;
+    height: 100px;
 
 
     &-img {
@@ -16,7 +19,11 @@
 
   }
 
-  &__dropzone {
+  &__dropZone {
+
+    border: 5px solid yellow;
+    width: 200px;
+    height: 200px;
 
     &-wrapper {
 

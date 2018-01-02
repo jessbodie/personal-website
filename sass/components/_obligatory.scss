@@ -3,6 +3,7 @@
   margin-left: $left-margin;
   margin-right: $left-margin;
 
+
   @include respond (tab-land) {
 
     @include basic-flex;
@@ -10,15 +11,16 @@
   }
 
   &__image {
-    // border: 1px solid black;
     display: inline-block;
     line-height: 0;
     height: 100%;
-    max-width: 10rem;
+    max-width: 8rem;
     float: left;
     // position: relative;
     margin-right: $left-margin;
-    @include animation-fadeIn;
+    // REPLACE WITH AOS
+    // @include animation-fadeIn;
+    // animation-delay: 750ms;
 
 
     @include respond (tab-land) {
@@ -32,7 +34,6 @@
     }
 
     &-crazy {
-      // border: 5px solid red;
       filter: blur(1px) hue-rotate(90deg) saturate(150%);
       transition: all 500ms;
 
@@ -60,19 +61,15 @@
     }
 
     &-wrapper {
-      // border: 1px solid blue;
 
-
-
-      @include respond (tab-land) {
-
-        @include animation-fadeIn;
-
-
+      // REPLACED WITH AOS
+      // @include animation-fadeInRight;
         @for $i from 1 through 4 {
           &:nth-child(#{$i}) {
+      //       animation-delay:(#{($i * 1s)});
+            @include respond (tab-land) {
               margin-left: (#{($i * $left-margin) - $left-margin});
-              animation-delay:(#{($i * 1s)});
+
             }
           }
         }

@@ -5,6 +5,10 @@
      <!-- Fonts -->
      <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 
+     <!-- AOS LIBRARY -->
+     <!-- Credit to https://github.com/michalsnik/aos -->
+     <link rel="stylesheet" href="vendor/aos/aos.css" />
+
      <link rel="stylesheet" type="text/css" href="css/style.min.css">
 
      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -54,7 +58,7 @@
 
   <main>
 
-    <section class="section-hero-text-only">
+    <section class="section-hero-text-only" data-aos="fade-down" data-aos-delay="200">
 
       <div class="row">
         <div class="hero">
@@ -92,7 +96,7 @@
             <input id="toggle0" type="checkbox" unchecked>
             <label for="toggle0">
 
-              <div class="list__container-image">
+              <div class="list__container-image" data-aos="fade-up">
                 <div class="list__container-header">
                   <div class="list__container-header-rotate">
                     <h2 class="heading-secondary">JS, CSS, HTML</h2>
@@ -121,7 +125,7 @@
           <div class="list__container">
             <input id="toggle1" type="checkbox" unchecked>
             <label for="toggle1">
-              <div class="list__container-image">
+              <div class="list__container-image" data-aos="fade-up">
                 <div class="list__container-header">
                   <div class="list__container-header-rotate">
                     <h2 class="heading-secondary">PM</h2>
@@ -149,7 +153,7 @@
             <input id="toggle2" type="checkbox" unchecked>
             <label for="toggle2">
 
-              <div class="list__container-image">
+              <div class="list__container-image" data-aos="fade-up">
                 <div class="list__container-header">
                   <div class="list__container-header-rotate">
                     <h2 class="heading-secondary">JS, SASS, HTML</h2>
@@ -175,7 +179,7 @@
             <input id="toggle3" type="checkbox" unchecked>
             <label for="toggle3">
 
-              <div class="list__container-image">
+              <div class="list__container-image" data-aos="fade-up">
                 <div class="list__container-header">
                   <div class="list__container-header-rotate">
                     <h2 class="heading-secondary">PM</h2>
@@ -207,7 +211,7 @@
             <input id="toggle4" type="checkbox" unchecked>
             <label for="toggle4">
 
-              <div class="list__container-image">
+              <div class="list__container-image" data-aos="fade-up">
                 <div class="list__container-header">
                   <div class="list__container-header-rotate">
                     <h2 class="heading-secondary">PM</h2>
@@ -230,7 +234,7 @@
             <input id="toggle5" type="checkbox" unchecked>
             <label for="toggle5">
 
-              <div class="list__container-image">
+              <div class="list__container-image" data-aos="fade-up">
                 <div class="list__container-header">
                   <div class="list__container-header-rotate">
                     <h2 class="heading-secondary">PM</h2>
@@ -258,7 +262,7 @@
             <input id="toggle6" type="checkbox" unchecked>
             <label for="toggle6">
 
-              <div class="list__container-image">
+              <div class="list__container-image" data-aos="fade-up">
                 <div class="list__container-header">
                   <div class="list__container-header-rotate">
                     <h2 class="heading-secondary">PM</h2>
@@ -284,7 +288,7 @@
           <div class="list__container">
             <input id="toggle7" type="checkbox" unchecked>
             <label for="toggle7">
-              <div class="list__container-image">
+              <div class="list__container-image" data-aos="fade-up">
                 <div class="list__container-header">
                   <div class="list__container-header-rotate">
                     <h2 class="heading-secondary">PM</h2>
@@ -311,7 +315,7 @@
           <div class="list__container">
             <input id="toggle8" type="checkbox" unchecked>
             <label for="toggle8">
-              <div class="list__container-image">
+              <div class="list__container-image" data-aos="fade-up">
                 <div class="list__container-header">
                   <div class="list__container-header-rotate">
                     <h2 class="heading-secondary">PM</h2>
@@ -344,27 +348,32 @@
 
   </main>
 
- <footer class="footer">
-   <div class="row">
-     <div class="footer__bg-image">&nbsp;</div>
-     <ul class="footer__links">
-       <li class="footer__links-item">
-           <!-- TODO Use JS snippet to hide email -->
-           <!-- http://joemaller.com/js-mailer.shtml -->
-           <span class="footer__links-item-text"><a href="mailto:jessbodie@gmail.com?subject=Yo!">@</a></span>
-       </li>
-       <li class="footer__links-item">
-         <a href="https://github.com/jessbodie" target="_new"><img src="vendor/img/GitHub-Mark/PNG/GitHub-Mark-Light-64px.png" alt="Jess's GitHub Repo"></a>
-       </li>
-       <li class="footer__links-item">
-         <a href="https://www.linkedin.com/in/jessica-bodie-richards-11b9401" target="_new"><img src="vendor/img/LinkedIn/Screen/White/In-White-66px-TM.png" alt="Jess on LinkedIn"></a>
-       </li>
-     </ul>
-     <div class="footer__copyright">&copy; 2017 Jess Bodie Richards. All rights reserved.</div>
-   </div>
-  </footer>
+  <footer class="footer">
+    <div class="row">
+      <div class="footer__bg-image">&nbsp;</div>
+      <ul class="footer__links"  data-aos="fade-up">
+        <li class="footer__links-item">
+            <!-- TODO Use JS snippet to hide email -->
+            <!-- http://joemaller.com/js-mailer.shtml -->
+            <span class="footer__links-item-text"><a href="mailto:jessbodie@gmail.com?subject=Yo!">@</a></span>
+        </li>
+        <li class="footer__links-item">
+          <a href="https://github.com/jessbodie" target="_new"><img src="vendor/img/GitHub-Mark/PNG/GitHub-Mark-Light-64px.png" alt="Jess's GitHub Repo"></a>
+        </li>
+        <li class="footer__links-item">
+          <a href="https://www.linkedin.com/in/jessica-bodie-richards-11b9401" target="_new"><img src="vendor/img/LinkedIn/Screen/White/In-White-66px-TM.png" alt="Jess on LinkedIn"></a>
+        </li>
+      </ul>
+      <div class="footer__copyright"  data-aos="fade-up" data-aos-delay="300">&copy; 2017 Jess Bodie Richards. All rights reserved.</div>
+    </div>
+   </footer>
 
 </div>
+
+<!-- AOS LIBRARY -->
+<!-- Credit to https://github.com/michalsnik/aos -->
+<script src="vendor/aos/aos.js"></script>
+<script src="vendor/aos/aos-init.js"></script>
 
 <script src="js/projects_featured.js"></script>
 

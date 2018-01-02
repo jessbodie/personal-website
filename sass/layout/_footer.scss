@@ -1,6 +1,7 @@
 .footer {
   @include section-block;
-  max-height: 60vh;
+  height: 27rem;
+  // max-height: 60vh;
 
 
   color: $color-white;
@@ -21,39 +22,39 @@
     background-image: url('../vendor/img/plastic_bag_outline_cc.svg');
     background-size: cover;
     width: 30rem;
-    height: 100%;
+    height: 30rem;
     position: absolute;
     top: 0;
     right: 0;
     transform-origin: top right;
     transform: rotate(90deg) scaleY(1) skewX(10deg) skewY(0);
-
+    padding-top: 4rem;
 
     opacity: .1;
     margin-top: 26rem;
     margin-right: -6rem;
-    transition: all 1s;
+    // transition: all 1s;
 
-    // TODO Make animation look good....
-    animation-name: bag;
-    animation-delay: 3s;
-    animation-duration: 6s;
-    animation-timing-function: ease-in-out;
-    animation-iteration-count: 1;
-    animation-fill-mode: backwards;
+    &:hover {
+      // TODO Make animation look good....
+      animation-name: bag;
+      animation-delay: 500ms;
+      animation-duration: 6s;
+      animation-timing-function: ease-in-out;
+      animation-iteration-count: 3;
+      animation-fill-mode: backwards;
 
-
-
+    }
 
 
   }
 
   &__links {
-    padding: $left-margin;
+    display: inline-block;
 
     &-item {
       list-style: none;
-      margin-bottom: 1rem;
+      padding-top: 1rem;
       font-weight: bolder;
       justify-content: flex-start;
       vertical-align: center;
@@ -104,9 +105,13 @@
   }
 
   &__copyright {
+
     font-size: 1rem;
     color: $color-white;
     text-align: center;
+    padding-top: $left-margin;
     padding-bottom: 6rem;
+    display: inline-block;
+    margin-left: $left-margin;
   }
 }

@@ -67,6 +67,11 @@
       overflow: hidden;
       margin-left: $left-margin;
       margin-right: $left-margin;
+      @include respond(mobile) {
+        margin-left: $gutter-sm;
+        margin-right: $gutter-sm;
+      }
+
       margin-bottom: $gutter-sm;
       display: inline-block;
 
@@ -93,7 +98,6 @@
 
       @include respond(tab-port) {
 
-        @include animation-fadeIn;
         margin-left: 0;
         margin-right: 0;
         margin-top: 0;

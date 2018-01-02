@@ -1,13 +1,15 @@
 .header {
   position: fixed;
   background-color: $color-white;
-  width: 100%;
+  width: 100vw;
   height: $nav-top-margin;
   opacity: .99;
   z-index: map-get($zindex, header);
 
 
+
   &__logo-nav {
+
     position: sticky;
     width: 100%;
     display: inline-block;
@@ -22,6 +24,13 @@
     position: absolute;
     top: 0;
     left: $left-margin;
+    // Remove left/right margins for mobile
+    @include respond(mobile) {
+      left: 0;
+    }
+
+
+
     height: 6rem;
     width: 6rem;
     background-color: $color-primary-dark;
@@ -81,7 +90,7 @@
     position: absolute;
     top: 0;
     right: 0;
-    width: calc(100% - (6rem + #{$left-margin} + 1rem));
+    // width: calc(100% - (6rem + #{$left-margin} + 1rem));
     height: 6rem;
     display: flex;
     flex-direction: row;
@@ -95,6 +104,11 @@
       font-weight: bold;
 
       margin-right: $left-margin;
+      // Remove left/right margins for mobile
+      @include respond(mobile) {
+        margin-right: $gutter-sm;
+      }
+
       height: 4rem;
       padding-left: .5rem;
       padding-right: .5rem;
