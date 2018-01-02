@@ -4,6 +4,10 @@
      <!-- Fonts -->
      <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 
+     <!-- AOS LIBRARY -->
+     <!-- Credit to https://github.com/michalsnik/aos -->
+     <link rel="stylesheet" href="vendor/aos/aos.css" />
+
      <link rel="stylesheet" type="text/css" href="css/style.min.css">
 
      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -54,7 +58,7 @@
   <main>
 
 
-    <section class="section-hero">
+    <section class="section-hero" data-aos="fade-down" data-aos-delay="500">
 
       <div class="row u-margin-bottom-med u-height-100">
         <div class="hero">
@@ -77,9 +81,9 @@
             </div>
           </div>
           <div class="haiku__text">
-            <p class="haiku__text-single">Time, money, the &ldquo;what&rdquo;...</p>
-            <p class="haiku__text-single">Became hohum... Reinvent!</p>
-            <p class="haiku__text-single">Create. Code. Improve. :-)</p>
+            <p class="haiku__text-single" data-aos="fade-left">Time, money, the &ldquo;what&rdquo;...</p>
+            <p class="haiku__text-single" data-aos="fade-left" data-aos-delay="500">Became hohum... Reinvent!</p>
+            <p class="haiku__text-single" data-aos="fade-left" data-aos-delay="1000">Create. Code. Improve. :-)</p>
           </div>
 
         </div>
@@ -94,7 +98,7 @@
             alt="Tree in shadow with plastic bag, tree in light">
           </figure>
           <!-- TODO NEED SOLUTION FOR FIREFOX -->
-          <div class="purpose__text">
+          <div class="purpose__text"   data-aos="fade-left">
             <p>After years of digital product and project management experience,
             I am branching out&mdash;to hands-on web development.</p>
           </div>
@@ -117,7 +121,7 @@
             <div class="col-1-of-2">
 
 
-             <div class="latest__first">
+             <div class="latest__first" data-aos="fade-up">
               <div class="latest__titles">
                 <h3 class="heading-tertiary u-margin-header-wrap">
                   <a href="captions.html" target="_new">Caption Generator</a>
@@ -149,7 +153,7 @@
 
 
           <div class="col-1-of-2">
-            <div class="latest__second">
+            <div class="latest__second"  data-aos="fade-up" data-aos-delay="300">
               <div class="latest__titles">
                 <h3 class="heading-tertiary">
                   <a href="../retirement-calculator" target="_new">Practical Retirement Calculator</a>
@@ -178,7 +182,7 @@
  <footer class="footer">
    <div class="row">
      <div class="footer__bg-image">&nbsp;</div>
-     <ul class="footer__links">
+     <ul class="footer__links"  data-aos="fade-up">
        <li class="footer__links-item">
            <!-- TODO Use JS snippet to hide email -->
            <!-- http://joemaller.com/js-mailer.shtml -->
@@ -190,13 +194,17 @@
        <li class="footer__links-item">
          <a href="https://www.linkedin.com/in/jessica-bodie-richards-11b9401" target="_new"><img src="vendor/img/LinkedIn/Screen/White/In-White-66px-TM.png" alt="Jess on LinkedIn"></a>
        </li>
+       <div class="footer__copyright"  data-aos="fade-up" data-aos-delay="300">&copy; 2017 Jess Bodie Richards. All rights reserved.</div>
      </ul>
-     <div class="footer__copyright">&copy; 2017 Jess Bodie Richards. All rights reserved.</div>
    </div>
   </footer>
 
 </div>
 
+<!-- AOS LIBRARY -->
+<!-- Credit to https://github.com/michalsnik/aos -->
+<script src="vendor/aos/aos.js"></script>
+<script src="vendor/aos/aos-init.js"></script>
 
 <script src="js/captions.js"></script>
 

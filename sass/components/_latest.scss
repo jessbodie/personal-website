@@ -58,9 +58,6 @@
       @include dropshadow-vertical;
       background-color: $color-primary;
 
-
-
-
       @include respond(tab-port) {
         top: 0;
 

@@ -40,7 +40,7 @@ main {
       transform: translateY(1px); }
 
 ul, p {
-  font-size: 1.4rem;
+  font-size: 1.25rem;
   margin-top: .8rem; }
 
 li {
@@ -164,9 +164,17 @@ img {
   100% {
     opacity: 1; } }
 
-@keyframes bag {
+@keyframes fadeInRight {
   0% {
     opacity: 0;
+    transform: translateX(4rem); }
+  100% {
+    opacity: 1;
+    transform: translateX(0); } }
+
+@keyframes bag {
+  0% {
+    opacity: 0.05;
     transform: rotate(90deg) scaleY(0.5) skewX(0) skewY(0); }
   15% {
     opacity: .15;
@@ -177,9 +185,8 @@ img {
     transform: rotate(88deg) scaleY(1.3) skewX(27deg) skewY(2deg); }
   60% {
     transform: rotate(90deg) scaleY(1) skewX(-35deg) skewY(2deg); }
-  100% {
-    opacity: 0;
-    transform: rotate(90deg) scaleY(0.5) skewX(0) skewY(0); } }
+  90% {
+    transform: rotate(90deg) scaleY(0.85) skewX(0) skewY(0); } }
 
 .hero {
   width: 100%;
@@ -277,12 +284,7 @@ img {
       line-height: 2.8rem;
       position: relative;
       top: 0;
-      vertical-align: top;
-      opacity: 0;
-      animation-name: fadeIn;
-      animation-duration: 1s;
-      animation-timing-function: ease-in;
-      animation-fill-mode: forwards; }
+      vertical-align: top; }
       .haiku__text-single:nth-child(1) {
         animation-delay: 3s; }
       .haiku__text-single:nth-child(2) {
@@ -363,8 +365,12 @@ img {
     display: block;
     position: relative; }
     .purpose__text p {
-      font-size: 2.2rem;
-      line-height: 160%; }
+      font-size: 1.9rem;
+      line-height: 155%; }
+      @media only screen and (min-width: 37.5em) {
+        .purpose__text p {
+          font-size: 2.2rem;
+          line-height: 160%; } }
       @media only screen and (min-width: 75em) {
         .purpose__text p {
           font-size: 2.5rem;
@@ -426,7 +432,7 @@ img {
           top: 0; } }
   .latest__text {
     color: #372248;
-    font-size: 1.4rem;
+    font-size: 1.25rem;
     margin-bottom: 1rem;
     margin-top: 1rem; }
   .latest__image {
@@ -477,7 +483,7 @@ img {
   display: block;
   width: 100%;
   font-family: inherit;
-  font-size: 1.4rem;
+  font-size: 1.25rem;
   color: #372248;
   background: transparent;
   padding: .5rem;
@@ -529,14 +535,9 @@ img {
     display: inline-block;
     line-height: 0;
     height: 100%;
-    max-width: 10rem;
+    max-width: 8rem;
     float: left;
-    margin-right: 4rem;
-    opacity: 0;
-    animation-name: fadeIn;
-    animation-duration: 1s;
-    animation-timing-function: ease-in;
-    animation-fill-mode: forwards; }
+    margin-right: 4rem; }
     @media only screen and (min-width: 56.25em) {
       .obligatory__image {
         margin-right: 0;
@@ -565,24 +566,17 @@ img {
       width: 100%;
       margin-left: 4rem; } }
   @media only screen and (min-width: 56.25em) {
-    .obligatory__text-wrapper {
-      opacity: 0;
-      animation-name: fadeIn;
-      animation-duration: 1s;
-      animation-timing-function: ease-in;
-      animation-fill-mode: forwards; }
-      .obligatory__text-wrapper:nth-child(1) {
-        margin-left: 0rem;
-        animation-delay: 1s; }
-      .obligatory__text-wrapper:nth-child(2) {
-        margin-left: 4rem;
-        animation-delay: 2s; }
-      .obligatory__text-wrapper:nth-child(3) {
-        margin-left: 8rem;
-        animation-delay: 3s; }
-      .obligatory__text-wrapper:nth-child(4) {
-        margin-left: 12rem;
-        animation-delay: 4s; } }
+    .obligatory__text-wrapper:nth-child(1) {
+      margin-left: 0rem; } }
+  @media only screen and (min-width: 56.25em) {
+    .obligatory__text-wrapper:nth-child(2) {
+      margin-left: 4rem; } }
+  @media only screen and (min-width: 56.25em) {
+    .obligatory__text-wrapper:nth-child(3) {
+      margin-left: 8rem; } }
+  @media only screen and (min-width: 56.25em) {
+    .obligatory__text-wrapper:nth-child(4) {
+      margin-left: 12rem; } }
   .obligatory__text-single {
     color: #372248;
     font-size: 1.5rem;
@@ -607,18 +601,25 @@ img {
         align-items: space-between; } }
 
 .DnD {
-  border: 2px solid green; }
+  border: 2px solid red; }
   .DnD__toDrag {
-    draggable: true; }
+    draggable: true;
+    border: 1px solid orange;
+    width: 100px;
+    height: 100px; }
     .DnD__toDrag-img {
       width: 16rem;
       height: 12rem;
       border: 1px solid red;
       background-color: #414770; }
-  .DnD__dropzone-drophere {
-    background-color: rgba(91, 133, 170, 0.4);
-    width: 8rem;
-    height: 6rem; }
+  .DnD__dropZone {
+    border: 5px solid yellow;
+    width: 200px;
+    height: 200px; }
+    .DnD__dropZone-drophere {
+      background-color: rgba(91, 133, 170, 0.4);
+      width: 8rem;
+      height: 6rem; }
 
 .list {
   display: flex;
@@ -658,6 +659,10 @@ img {
       margin-right: 4rem;
       margin-bottom: 2rem;
       display: inline-block; }
+      @media only screen and (max-width: 37.5em) {
+        .list__container-image {
+          margin-left: 2rem;
+          margin-right: 2rem; } }
       .list__container-image:hover, .list__container-image:focus {
         transform: translateY(-2px);
         text-shadow: 0px 1px 4px rgba(55, 34, 72, 0.3); }
@@ -673,11 +678,6 @@ img {
           box-shadow: 0.2rem 0.5rem 1rem rgba(65, 71, 112, 0.6); }
       @media only screen and (min-width: 37.5em) {
         .list__container-image {
-          opacity: 0;
-          animation-name: fadeIn;
-          animation-duration: 1s;
-          animation-timing-function: ease-in;
-          animation-fill-mode: forwards;
           margin-left: 0;
           margin-right: 0;
           margin-top: 0;
@@ -887,7 +887,7 @@ img {
     .list__featured-text {
       flex: 1 3 auto; }
       .list__featured-text ul, .list__featured-text li, .list__featured-text p {
-        font-size: 1.4rem; }
+        font-size: 1.25rem; }
       .list__featured-text h3 {
         font-size: 1.8rem; } }
   @media only screen and (min-width: 75em) {
@@ -1019,7 +1019,7 @@ img {
 .header {
   position: fixed;
   background-color: #eeeff5;
-  width: 100%;
+  width: 100vw;
   height: 4rem;
   opacity: .99;
   z-index: 4000; }
@@ -1049,6 +1049,9 @@ img {
     animation-timing-function: ease-in;
     animation-delay: 0s;
     animation-fill-mode: forwards; }
+    @media only screen and (max-width: 37.5em) {
+      .header__logo {
+        left: 0; } }
 
 @keyframes moveDown {
   0% {
@@ -1080,7 +1083,6 @@ img {
     position: absolute;
     top: 0;
     right: 0;
-    width: calc(100% - (6rem + 4rem + 1rem));
     height: 6rem;
     display: flex;
     flex-direction: row;
@@ -1104,6 +1106,9 @@ img {
       animation-timing-function: ease-in;
       animation-delay: 300ms;
       animation-fill-mode: forwards; }
+      @media only screen and (max-width: 37.5em) {
+        .header__nav-link {
+          margin-right: 2rem; } }
 
 @keyframes moveDown {
   0% {
@@ -1159,7 +1164,7 @@ img {
   display: block;
   position: relative;
   width: 100%;
-  max-height: 60vh;
+  height: 27rem;
   color: #eeeff5;
   background-image: linear-gradient(to right bottom, rgba(55, 34, 72, 0.95), #372248);
   max-width: 100%;
@@ -1169,27 +1174,28 @@ img {
     background-image: url("../vendor/img/plastic_bag_outline_cc.svg");
     background-size: cover;
     width: 30rem;
-    height: 100%;
+    height: 30rem;
     position: absolute;
     top: 0;
     right: 0;
     transform-origin: top right;
     transform: rotate(90deg) scaleY(1) skewX(10deg) skewY(0);
+    padding-top: 4rem;
     opacity: .1;
     margin-top: 26rem;
-    margin-right: -6rem;
-    transition: all 1s;
-    animation-name: bag;
-    animation-delay: 3s;
-    animation-duration: 6s;
-    animation-timing-function: ease-in-out;
-    animation-iteration-count: 1;
-    animation-fill-mode: backwards; }
+    margin-right: -6rem; }
+    .footer__bg-image:hover {
+      animation-name: bag;
+      animation-delay: 500ms;
+      animation-duration: 6s;
+      animation-timing-function: ease-in-out;
+      animation-iteration-count: 3;
+      animation-fill-mode: backwards; }
   .footer__links {
-    padding: 4rem; }
+    display: inline-block; }
     .footer__links-item {
       list-style: none;
-      margin-bottom: 1rem;
+      padding-top: 1rem;
       font-weight: bolder;
       justify-content: flex-start;
       vertical-align: center;
@@ -1219,4 +1225,7 @@ img {
     font-size: 1rem;
     color: #eeeff5;
     text-align: center;
-    padding-bottom: 6rem; }
+    padding-top: 4rem;
+    padding-bottom: 6rem;
+    display: inline-block;
+    margin-left: 4rem; }
