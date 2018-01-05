@@ -1,10 +1,52 @@
 /////////////////////////////////
-// TOP FEATURE AREA - 600PX +  //
+// PROJECTS - TOP FEATURE AREA - 600PX +  //
 /////////////////////////////////
 
 .list__featured {
   position: relative;
   margin: $gutter-sm 0 0 0;
+
+  &-next,
+  &-prev {
+    @include respond(tab-port) {
+        color: $color-secondary-light;
+        font-size: 6rem;
+        line-height: .6;
+        font-weight: 500;
+        display: inline-block;
+        padding: 0 .5rem;
+        cursor: pointer;
+        transform: scaleX(.5);
+
+
+        &:hover,
+        &:focus {
+          color: $color-white;
+          background-color: $color-secondary-light;
+          border-radius: 1px;
+          transform: scaleX(.5) translateY(-5px);
+          transition: transform 300ms, background-color 300ms;
+          @include dropshadow;
+        }
+      }
+    }
+
+
+    &-prev {
+      @include respond(tab-port) {
+        position: relative;
+        top: 50%;
+        left: 0;
+      }
+    }
+
+    &-next {
+      @include respond(tab-port) {
+        position: relative;
+        top: 50%;
+        right: 0;
+      }
+    }
 
   &-container {
 
@@ -18,8 +60,10 @@
       max-height: $proj-featured-y;
       max-width: 90rem;
       margin: 0 auto;
+
+      }
+
     }
-  }
 
 
     // CLOSE ICON
@@ -43,7 +87,7 @@
             background-color: $color-secondary-light;
             display: inline-block;
             transform: rotate(135deg);
-            transition: all .3s;
+            transition: all .6s;
           }
 
         &::after {
@@ -58,15 +102,17 @@
       background-color: $color-secondary-light;
       border-radius: 1px;
       @include dropshadow;
+      transform: translateY(-5px);
+      transition: transform 300ms, background-color 300ms;
 
       & > div {
         background-color: $color-white;
-        transform: rotate(-45deg);
+        // transform: rotate(-45deg);
       }
 
       &::after {
         background-color: $color-white;
-        transform: rotate(-135deg);
+        // transform: rotate(-135deg);
         }
       }
     }
@@ -93,6 +139,8 @@
       flex: 1 0 auto;
     }
 
+
+
     img {
       @include animation-fadeIn;
 
@@ -112,6 +160,7 @@
 
   // FEATURED TEXT
   &-text {
+
     @include respond(tab-port) {
 
       flex: 1 1 auto;

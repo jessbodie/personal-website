@@ -75,11 +75,6 @@
       margin-bottom: $gutter-sm;
       display: inline-block;
 
-      &:hover,
-      &:focus {
-        @include link-hover;
-      }
-
       img {
         object-fit: cover;
         object-position: 0% 0%;
@@ -90,7 +85,8 @@
         &:hover,
         &:focus {
           opacity: .7;
-          transform: translateY(-2px);
+          transform: scale(1.1);
+          transition: transform 300ms;
           box-shadow: .2rem .5rem 1rem rgba($color-primary, .6);
         }
       }

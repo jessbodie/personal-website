@@ -1,42 +1,81 @@
 var dataController = (function() {
 
-     var prev = {
+     var curFeature = {
        image: '',
        title: '',
        descrip: ''
      };
 
+     var prevClickedFeature = {
+       image: '',
+       title: '',
+       descrip: ''
+     };
 
-
+     var projToggleID;
+     var prevFeature;
+     var nextFeature;
 
 
      return {
 
-       getPrev: function() {
-         return prev;
-
+       getCurFeature: function() {
+         return curFeature;
        },
 
-      updatePrev: function(cur) {
+       getPrevFeature: function() {
+         return prevFeature;
+       },
 
-         var projToggleID = cur.parentNode.parentNode;
+       getNextFeature: function() {
+         return nextFeature;
+       },
 
-         // Title text (displayed on  mobile) from list for feature area
-         var curProjTitle = projToggleID.nextSibling.nextSibling.childNodes[1].childNodes[1];
+       getPrevClickedFeature: function() {
+         return prevClickedFeature;
+       },
 
-         // Descriptive text (displayed on  mobile) from list for feature area
-         var curProjDescrip = projToggleID.nextSibling.nextSibling.childNodes[1].childNodes[3];
+       getCurNode: function() {
+         return projToggleID;
+       },
 
-         prev.image = cur;
-         prev.title = curProjTitle;
-         prev.descrip = curProjDescrip;
-        //  console.log(prev);
+      updateFeature: function(cur) {
+
+          // Set the previous feature data to what was current feature
+          prevClickedFeature.image = curFeature.image;
+          prevClickedFeature.title = curFeature.title;
+          prevClickedFeature.descrip = curFeature.descrip;
+
+          // Currently selected node
+          projToggleID = cur.parentNode.parentNode;
+
+          // If there is node BEFORE current, set data for it, else set to null
+          if (projToggleID.parentNode.previousElementSibling) {
+            prevFeature = projToggleID.parentNode.previousElementSibling.children[1];
+          } else {
+            prevFeature = null;
+          }
+
+          // If there is node AFTER current, set data for it, else set to null
+          if (projToggleID.parentNode.nextElementSibling) {
+            nextFeature = projToggleID.parentNode.nextElementSibling.children[1];
+          } else  {
+            nextFeature = null;
+          }
+
+          // Title text (displayed on  mobile) from list for feature area
+          var curProjTitle = projToggleID.nextSibling.nextSibling.childNodes[1].childNodes[1];
+
+          // Descriptive text (displayed on  mobile) from list for feature area
+          var curProjDescrip = projToggleID.nextSibling.nextSibling.childNodes[1].childNodes[3];
+          // Update data for current feature
+          curFeature.image = cur;
+          curFeature.title = curProjTitle;
+          curFeature.descrip = curProjDescrip;
+
        }
 
-
-
      }
-
 
 })();
 
@@ -57,8 +96,8 @@ var UIController = (function() {
 
 
       // Define where featured image and text should appear
-      var featuredImageDiv = document.getElementById("feature-container").childNodes[1];
-      var featuredTextDiv = document.getElementById("feature-container").childNodes[3];
+      var featuredImageDiv = document.getElementById("feature-container").childNodes[3];
+      var featuredTextDiv = document.getElementById("feature-container").childNodes[5];
 
 
       // Clone image, title, descrip that was selected from list
@@ -101,7 +140,17 @@ var UIController = (function() {
       document.getElementById("section-featured").classList.remove('u-visible');
       document.getElementById("section-featured").className += ' u-hidden';
 
+    },
+
+    hideBtn: function (id) {
+      document.getElementById(id).className += ' u-visibility';
+    },
+
+    showBtn: function (id) {
+      document.getElementById(id).classList.remove('u-visibility');
     }
+
+
   }
 
 })();
@@ -110,24 +159,84 @@ var UIController = (function() {
 
 var controller = (function(dataCtrl, UICtrl){
 
-
-    var updateFeature = function(div) {
-
-      // Get previous featured
-      curFeature = dataCtrl.getPrev();
-      // Show new featured
-      UICtrl.showFeature(div.target, curFeature);
-      // Set currently selected to previous featured
-      dataCtrl.updatePrev(div.target);
+    // Convert the event's target in order to call updateFeature with the target var
+    var evTarget = function (ev) {
+      updateFeat(ev.target);
 
     }
 
+    // Update the feature section
+    var updateFeat = function(feat) {
+      console.log(feat);
+
+      // Get previous featured
+      var curFeat = dataCtrl.getCurFeature();
+      console.log(curFeat);
+
+      var prevClickedFeat = dataCtrl.getPrevClickedFeature(); // TODO Don't reload feature if already selected
+
+      // Set currently selected, previous node, next node
+      dataCtrl.updateFeature(feat);
+
+      // Show new featured
+      UICtrl.showFeature(feat, curFeat);
+
+      // If current feature is first, hide previous button
+      var prevFeat = dataCtrl.getPrevFeature();
+      var prevBtn = document.getElementById("list__featured-prev");
+      var prevBtnID = "list__featured-prev";
+
+      if (prevFeat == null) {
+        UICtrl.hideBtn(prevBtnID);
+      } else if (prevBtn.className === "list__featured-prev u-visibility") {
+        UICtrl.showBtn(prevBtnID);
+      }
+
+      // If current feature is last, hide last button
+      var nextFeat = dataCtrl.getNextFeature();
+      var nextBtn = document.getElementById("list__featured-next");
+      var nextBtnID = "list__featured-next";
+
+      if (nextFeat == null) {
+        UICtrl.hideBtn(nextBtnID);
+      } else if (nextBtn.className === "list__featured-next u-visibility") {
+        UICtrl.showBtn(nextBtnID);
+      }
+    }
+
+    // When Previous Button clicked, check for Previous, then update
+    var prevFeat = function () {
+      var prev = dataCtrl.getPrevFeature();
+      if (prev) {
+        var prevImage = prev.children[0].children[1];
+        updateFeat(prevImage);
+
+        // If Previous Button clicked, re-display Next button
+        var nextBtnID = "list__featured-next";
+        UICtrl.showBtn(nextBtnID);
+      }
+    }
+
+
+    // When Previous Button clicked, check for Previous, then update
+    var nextFeat = function () {
+      var next = dataCtrl.getNextFeature();
+      if (next) {
+        var nextImage = next.children[0].children[1];
+        updateFeat(nextImage);
+
+        // If Next Button clicked, re-display Previous button
+        var prevBtnID = "list__featured-prev";
+        UICtrl.showBtn(prevBtnID);
+      }
+    }
+
     var setupEventListeners = function() {
-      console.log("eventlisteners");
+      // console.log("eventlisteners");
       // Setup to detect window width
       var w = window.innerWidth;
 
-      // TODO On resize, update event listeners
+      // On resize, update event listeners
       window.addEventListener('resize', resizeReset);
 
       // Listeners for showing project in featured area
@@ -136,8 +245,8 @@ var controller = (function(dataCtrl, UICtrl){
         // console.log(divList[i]);
         // If window width greater than 600, listener to show top feature area
         if (w >= 600) {
-          divList[i].addEventListener('click', updateFeature);
-          divList[i].addEventListener('focus', updateFeature);
+          divList[i].addEventListener('click', evTarget);
+          divList[i].addEventListener('focus', evTarget);
         } else {
           // Less than 600px, listener to scroll current project into view
           divList[i].addEventListener('click', function(el) {
@@ -148,19 +257,26 @@ var controller = (function(dataCtrl, UICtrl){
 
       // Listener for close button
       document.getElementById('list__featured-close').addEventListener('click', UICtrl.closeFeature);
+
+      // Listener for previous button
+      document.getElementById('list__featured-prev').addEventListener('click', prevFeat);
+
+      // Listener for next button
+      document.getElementById('list__featured-next').addEventListener('click', nextFeat);
+
     }
 
     // When user resizes window, reset the listeners. Probably an edge case.
     var resizeReset = function() {
-      console.log("replace eventlisteners");
+      // console.log("replace eventlisteners");
 
       // Listeners for showing project in featured area
       var divList = document.querySelectorAll('.list__container-image > img');
       for (var i = 0; i < divList.length; i++) {
 
         // Remove listeners
-          divList[i].removeEventListener('click', updateFeature);
-          divList[i].removeEventListener('focus', updateFeature);
+          divList[i].removeEventListener('click', evTarget);
+          divList[i].removeEventListener('focus', evTarget);
           divList[i].removeEventListener('click', function(el) {
             el.target.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
           });
@@ -173,7 +289,7 @@ var controller = (function(dataCtrl, UICtrl){
 
     return {
       init: function() {
-        console.log("Project Features JS started");
+        // console.log("Project Features JS started");
         setupEventListeners();
       }
     }
