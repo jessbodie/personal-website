@@ -28,6 +28,11 @@
           transition: transform 300ms, background-color 300ms;
           @include dropshadow;
         }
+
+        &:active {
+          background-color: $color-primary;
+        }
+
       }
     }
 

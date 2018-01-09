@@ -167,11 +167,9 @@ var controller = (function(dataCtrl, UICtrl){
 
     // Update the feature section
     var updateFeat = function(feat) {
-      console.log(feat);
 
       // Get previous featured
       var curFeat = dataCtrl.getCurFeature();
-      console.log(curFeat);
 
       var prevClickedFeat = dataCtrl.getPrevClickedFeature(); // TODO Don't reload feature if already selected
 

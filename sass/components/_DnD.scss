@@ -1,39 +1,110 @@
+
 .DnD {
-  border: 2px solid red;
+  margin-top: 3rem;
+  @include basic-flex;
+  margin-right: 0;
+  @include respond(desktop) {
+    justify-content: space-around;
+  }
+
+  li { margin-left: 0; }
 
   &__toDrag {
 
-    draggable: true;
-    border: 1px solid orange;
-    width: 100px;
-    height: 100px;
+    touch-action: pan-x;
 
-
-    &-img {
-      width: 16rem;
-      height: 12rem;
-      border: 1px solid red;
-      background-color: $color-primary;
-
+    flex: 0 1 auto;
+    width: 30rem;
+    @include respond(tab-port) {
+      height: 37rem;
     }
 
+    margin-top: 0;
+    @include respond(tab-land) {
+      margin-left: 6rem;
+      margin-top: 9rem;
+    }
+
+    &-img {
+      cursor: move;
+      margin-bottom: 5rem;
+      @include respond(tab-port) {
+        height: 37rem;
+      }
+
+      img {
+        width: 30rem;
+        overflow-x: hidden;
+        @include respond(tab-port) {
+          width: 37rem;
+        }
+        @include dropshadow;
+      }
+    }
   }
 
   &__dropZone {
+    flex: 0 1 auto;
+    overflow-y: auto;
+    overflow-x: hidden;
+    margin-left: 2rem;
 
-    border: 5px solid yellow;
-    width: 200px;
-    height: 200px;
+    @include respond(tab-port) {
+      margin-left: 4rem;
+      margin-right: 0;
+    }
+
+    @include respond(tab-land) {
+      margin-left: 6rem;
+      margin-right: 0;
+    }
+
+    @include respond(desktop) {
+      margin-left: 18rem;
+    }
+
 
     &-wrapper {
 
+      @for $i from 1 through 5 {
+        &:nth-child(#{$i}) {
+          @include respond (tab-port) {
+            margin-left: (#{($i * 2rem) - 3rem});
+          }
+
+          @include respond (tab-land) {
+            margin-left: (#{($i * $left-margin) - $left-margin});
+          }
+        }
+      }
+
+      figcaption {
+        font-size: $body-default;
+        padding: .5rem 0 1rem 1rem;
+      }
+
     }
 
-    &-drophere {
+    &-dropHere {
       background-color: rgba($color-secondary, .4);
       width: 8rem;
       height: 6rem;
+      overflow-y: hidden;
+      border-radius: 1px;
+      @include dropshadow;
+      @include respond(tab-port) {
+        width: 12rem;
+        height: 7rem;
+      }
+    }
 
+    &-active {
+      background-color: $color-primary;
+      transition: background-color 500ms;
+    }
+
+    &-wrong {
+      background-color: $color-white;
     }
   }
 

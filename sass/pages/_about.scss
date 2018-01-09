@@ -20,14 +20,13 @@
 
   }
 
-.section-the-basics {
+.section-obligatory {
   @include section-block;
-  max-height: 80vh;
   background-color: $color-white-true;
   color: $color-black;
   padding-top: 2rem;
-  padding-bottom: 4rem;
-
+  padding-bottom: $left-margin;
+  @include dropshadow;
 }
 
 .section-DnD {
@@ -35,8 +34,8 @@
   background-color: rgba($color-primary, .2);
   color: $color-black;
   padding-top: 2rem;
-  padding-bottom: 4rem;
-  border: 1px solid black;
+  padding-bottom: $left-margin;
+  @include dropshadow;
   // max-height: 80vh;
 
 
