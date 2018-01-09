@@ -604,25 +604,114 @@ img {
         align-items: space-between; } }
 
 .DnD {
-  border: 2px solid red; }
+  margin-top: 3rem;
+  margin-left: 4rem;
+  margin-right: 4rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: flex-start;
+  flex-wrap: nowrap;
+  margin-right: 0; }
+  @media only screen and (min-width: 75em) {
+    .DnD {
+      margin-right: calc(4rem + 1.5rem); } }
+  @media only screen and (min-width: 75em) {
+    .DnD {
+      justify-content: space-around; } }
+  .DnD li {
+    margin-left: 0; }
   .DnD__toDrag {
-    draggable: true;
-    border: 1px solid orange;
-    width: 100px;
-    height: 100px; }
+    touch-action: pan-x;
+    flex: 0 1 auto;
+    width: 30rem;
+    margin-top: 0; }
+    @media only screen and (min-width: 37.5em) {
+      .DnD__toDrag {
+        height: 37rem; } }
+    @media only screen and (min-width: 56.25em) {
+      .DnD__toDrag {
+        margin-left: 6rem;
+        margin-top: 9rem; } }
     .DnD__toDrag-img {
-      width: 16rem;
-      height: 12rem;
-      border: 1px solid red;
-      background-color: #414770; }
+      cursor: move;
+      margin-bottom: 5rem; }
+      @media only screen and (min-width: 37.5em) {
+        .DnD__toDrag-img {
+          height: 37rem; } }
+      .DnD__toDrag-img img {
+        width: 30rem;
+        overflow-x: hidden;
+        box-shadow: 0.2rem 0.5rem 0.5rem rgba(65, 71, 112, 0.6); }
+        @media only screen and (min-width: 37.5em) {
+          .DnD__toDrag-img img {
+            width: 37rem; } }
   .DnD__dropZone {
-    border: 5px solid yellow;
-    width: 200px;
-    height: 200px; }
-    .DnD__dropZone-drophere {
+    flex: 0 1 auto;
+    overflow-y: auto;
+    overflow-x: hidden;
+    margin-left: 2rem; }
+    @media only screen and (min-width: 37.5em) {
+      .DnD__dropZone {
+        margin-left: 4rem;
+        margin-right: 0; } }
+    @media only screen and (min-width: 56.25em) {
+      .DnD__dropZone {
+        margin-left: 6rem;
+        margin-right: 0; } }
+    @media only screen and (min-width: 75em) {
+      .DnD__dropZone {
+        margin-left: 18rem; } }
+    @media only screen and (min-width: 37.5em) {
+      .DnD__dropZone-wrapper:nth-child(1) {
+        margin-left: -1rem; } }
+    @media only screen and (min-width: 56.25em) {
+      .DnD__dropZone-wrapper:nth-child(1) {
+        margin-left: 0rem; } }
+    @media only screen and (min-width: 37.5em) {
+      .DnD__dropZone-wrapper:nth-child(2) {
+        margin-left: 1rem; } }
+    @media only screen and (min-width: 56.25em) {
+      .DnD__dropZone-wrapper:nth-child(2) {
+        margin-left: 4rem; } }
+    @media only screen and (min-width: 37.5em) {
+      .DnD__dropZone-wrapper:nth-child(3) {
+        margin-left: 3rem; } }
+    @media only screen and (min-width: 56.25em) {
+      .DnD__dropZone-wrapper:nth-child(3) {
+        margin-left: 8rem; } }
+    @media only screen and (min-width: 37.5em) {
+      .DnD__dropZone-wrapper:nth-child(4) {
+        margin-left: 5rem; } }
+    @media only screen and (min-width: 56.25em) {
+      .DnD__dropZone-wrapper:nth-child(4) {
+        margin-left: 12rem; } }
+    @media only screen and (min-width: 37.5em) {
+      .DnD__dropZone-wrapper:nth-child(5) {
+        margin-left: 7rem; } }
+    @media only screen and (min-width: 56.25em) {
+      .DnD__dropZone-wrapper:nth-child(5) {
+        margin-left: 16rem; } }
+    .DnD__dropZone-wrapper figcaption {
+      font-size: 1.25rem;
+      padding: .5rem 0 1rem 1rem; }
+    .DnD__dropZone-dropHere {
       background-color: rgba(91, 133, 170, 0.4);
       width: 8rem;
-      height: 6rem; }
+      height: 6rem;
+      overflow-y: hidden;
+      border-radius: 1px;
+      box-shadow: 0.2rem 0.5rem 0.5rem rgba(65, 71, 112, 0.6); }
+      @media only screen and (min-width: 37.5em) {
+        .DnD__dropZone-dropHere {
+          width: 12rem;
+          height: 7rem; } }
+    .DnD__dropZone-active {
+      background-color: #414770;
+      transition: background-color 500ms; }
+    .DnD__dropZone-wrong {
+      background-color: #eeeff5; }
 
 .list {
   display: flex;
@@ -800,7 +889,9 @@ img {
         border-radius: 1px;
         transform: scaleX(0.5) translateY(-5px);
         transition: transform 300ms, background-color 300ms;
-        box-shadow: 0.2rem 0.5rem 0.5rem rgba(65, 71, 112, 0.6); } }
+        box-shadow: 0.2rem 0.5rem 0.5rem rgba(65, 71, 112, 0.6); }
+      .list__featured-next:active, .list__featured-prev:active {
+        background-color: #414770; } }
   @media only screen and (min-width: 37.5em) {
     .list__featured-prev {
       position: relative;
@@ -989,15 +1080,15 @@ img {
   max-height: 100%;
   z-index: 2000; }
 
-.section-the-basics {
+.section-obligatory {
   display: block;
   position: relative;
   width: 100%;
-  max-height: 80vh;
   background-color: #fff;
   color: #372248;
   padding-top: 2rem;
-  padding-bottom: 4rem; }
+  padding-bottom: 4rem;
+  box-shadow: 0.2rem 0.5rem 0.5rem rgba(65, 71, 112, 0.6); }
 
 .section-DnD {
   display: block;
@@ -1007,7 +1098,7 @@ img {
   color: #372248;
   padding-top: 2rem;
   padding-bottom: 4rem;
-  border: 1px solid black; }
+  box-shadow: 0.2rem 0.5rem 0.5rem rgba(65, 71, 112, 0.6); }
 
 .section-hero-text-only {
   display: block;

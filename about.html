@@ -8,7 +8,6 @@
      <!-- Credit to https://github.com/michalsnik/aos -->
      <link rel="stylesheet" href="vendor/aos/aos.css" />
 
-     <!-- <link rel="stylesheet" type="text/css" href="vendor/dist/dragula.min.css"> -->
      <link rel="stylesheet" type="text/css" href="css/style.min.css">
 
      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -29,6 +28,9 @@
       <meta name="theme-color" content="#414770">
 
      <title>Jess Bodie Richards - About - Fascinating Stuff!</title>
+
+
+
 
 </head>
 <body>
@@ -78,10 +80,10 @@
 
             <div class="obligatory__image" data-aos="fade-up">
               <figure>
-                <div class="obligatory__image-only">
-                  <img src="img/profile_crazy_cropped.jpg"
+                <div class="obligatory__image-only" id="obligatory__image-only">
+                  <!-- <img src="img/profile_crazy_cropped.jpg"
                     class="obligatory__image-crazy"
-                    alt="Wacky Jess">
+                    alt="Wacky Jess"> -->
                 </div>
                 <figcaption>J Boh the Damager</figcaption>
                 <!-- TODO ADD IN CAPTION GENERATOR, NEEDS CUSTOM SIZING -->
@@ -112,12 +114,12 @@
             </div>
             <div class="obligatory__text-wrapper" data-aos="fade-left">
               <h3 class="heading-tertiary">Airing of Greivances</h3>
-              <p class="obligatory__text-single">Airing of Greivances</h4> Why can't I eat the chocolate chip oatmeal and walnut cookies from Bread Alone for every meal?
+              <p class="obligatory__text-single">Why can't I eat the chocolate chip oatmeal and walnut cookies from Bread Alone for every meal?
                 Why can't I sleep on a bed of these cookies? Bathe in them?</p>
             </div>
             <div class="obligatory__text-wrapper" data-aos="fade-left">
-              <h3 class="heading-tertiary">Festivus Miracle</h3>
-              <p class="obligatory__text-single">Every night, PBS NewsHour beams a fantastic news program into my living room! Amazing!</p>
+              <h3 class="heading-tertiary" draggable="true">Festivus Miracle</h3>
+              <p class="obligatory__text-single">Every single night, PBS NewsHour beams a fantastic news program into my living room! It isn't sexy but it sure is fantastic!</p>
             </div>
           </div>
         </div>
@@ -128,42 +130,39 @@
 
 
 
-
-<!-- TODO -->
-<!-- UPDATED WITH NEW STYLE DIVS -->
-<!--    <section class="section-DnD">
+   <section class="section-DnD">
      <div class="row u-margin-bottom-med">
        <div class="DnD">
          <div class="DnD__toDrag">
-           <h3>Many Hats</h3>
-           <p>Drag the photo to the corresponding role.</p>
-               <figure class="DnD__toDrag-img">to drag
-
+           <h3 class="heading-tertiary">Many Hats</h3>
+           <p class="obligatory__text-single">Drag the photo to the corresponding role.</p>
+               <figure class="DnD__toDrag-img"  draggable="true">
+<!-- <img src="img/roles/marcia.jpg" id="colleague" alt="Liz Lemon (Tina Fey)"> -->
                </figure>
          </div>
 
-         <div class="DnD__dropzone">
-           <li class="DnD__dropzone-wrapper">
-               <figure class="DnD__dropzone-drophere" id="mom">mom</figure>
+         <div class="DnD__dropZone">
+           <li class="DnD__dropZone-wrapper">
+               <figure class="DnD__dropZone-dropHere" id="mom"></figure>
                <figcaption>Mom</figcaption>
            </li>
-           <li class="DnD__dropzone-wrapper">
-               <figure class="DnD__dropzone-drophere" id="wife">wife
+           <li class="DnD__dropZone-wrapper">
+               <figure class="DnD__dropZone-dropHere" id="wife">
                </figure>
                <figcaption>Wife</figcaption>
             </li>
-            <li class="DnD__dropzone-wrapper">
-               <figure class="DnD__dropzone-drophere" id="colleague">colleague
+            <li class="DnD__dropZone-wrapper">
+               <figure class="DnD__dropZone-dropHere" id="colleague">
                </figure>
                <figcaption>Colleague</figcaption>
             </li>
-            <li class="DnD__dropzone-wrapper">
-               <figure class="DnD__dropzone-drophere" id="friend">friend
+            <li class="DnD__dropZone-wrapper">
+               <figure class="DnD__dropZone-dropHere" id="friend">
                </figure>
                <figcaption>Friend</figcaption>
             </li>
-            <li class="DnD__dropzone-wrapper">
-               <figure class="DnD__dropzone-drophere" id="daughter">daughter
+            <li class="DnD__dropZone-wrapper">
+               <figure class="DnD__dropZone-dropHere" id="daughter">
                </figure>
                <figcaption>Daughter, Sister</figcaption>
             </li>
@@ -174,53 +173,6 @@
        </div>
      </div>
     </section>
-
--->
-
-
-
-
-    <!-- PASTED FROM ORIGINAL DRAG AND DROP -->
-        <!-- <div class="o-main-bottom">
-             <div class="o-main-drag-top">
-               <h3>Many Hats</h3>
-               <p>Drag the photo to the corresponding role.</p>
-                   <figure class="pic-to-drag o-main-role-item">
-
-                   </figure>
-            </div>
-            <div class="o-main-drag-bottom">
-                 <li class="o-main-role-item">
-                     <figure class="drop-here" id="mom"> </figure>
-                     <figcaption>Mom</figcaption>
-                 </li>
-                 <li class="o-main-role-item">
-                     <figure class="drop-here" id="wife">
-                     </figure>
-                     <figcaption>Wife</figcaption>
-                  </li>
-                  <li class="o-main-role-item">
-                     <figure class="drop-here" id="colleague">
-                     </figure>
-                     <figcaption>Colleague</figcaption>
-                  </li>
-                  <li class="o-main-role-item">
-                     <figure class="drop-here" id="friend">
-                     </figure>
-                     <figcaption>Friend</figcaption>
-                  </li>
-                  <li class="o-main-role-item">
-                     <figure class="drop-here" id="daughter">
-                     </figure>
-                     <figcaption>Daughter, Sister</figcaption>
-                  </li>
-             </div>
-        </div> -->
-
-
-
-
-
 
 
 
@@ -250,9 +202,8 @@
 
 
 <!-- TODO -->
-<!-- <script src="vendor/dist/dragula.js"></script> -->
-<!-- <script src="vendor/scripts/DragDropTouch.js"></script> -->
-
+<script src="js/dragndrop.js"></script>
+<script src="js/load_image.js"></script>
 
 <!-- AOS LIBRARY -->
 <!-- Credit to https://github.com/michalsnik/aos -->
