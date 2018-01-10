@@ -1,5 +1,6 @@
 
 .DnD {
+
   margin-top: 3rem;
   @include basic-flex;
   margin-right: 0;
@@ -22,11 +23,12 @@
     margin-top: 0;
     @include respond(tab-land) {
       margin-left: 6rem;
-      margin-top: 9rem;
+      margin-top: 6.5rem;
     }
 
     &-img {
       cursor: move;
+      margin-top: 0;
       margin-bottom: 5rem;
       @include respond(tab-port) {
         height: 37rem;
@@ -65,6 +67,10 @@
 
 
     &-wrapper {
+      margin-bottom: 0;
+      margin-top: 0;
+
+      padding-right: .5rem;
 
       @for $i from 1 through 5 {
         &:nth-child(#{$i}) {
@@ -81,9 +87,11 @@
       figcaption {
         font-size: $body-default;
         padding: .5rem 0 1rem 1rem;
+        @include respond (tab-land) {
+          padding: .5rem 0 .5rem 1rem;
+          }
+        }
       }
-
-    }
 
     &-dropHere {
       background-color: rgba($color-secondary, .4);
@@ -94,18 +102,14 @@
       @include dropshadow;
       @include respond(tab-port) {
         width: 12rem;
-        height: 7rem;
+        height: 6.5rem;
+        }
       }
-    }
 
     &-active {
       background-color: $color-primary;
       transition: background-color 500ms;
-    }
+      }
 
-    &-wrong {
-      background-color: $color-white;
     }
-  }
-
 }
