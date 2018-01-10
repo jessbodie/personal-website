@@ -633,7 +633,7 @@ img {
     @media only screen and (min-width: 56.25em) {
       .DnD__toDrag {
         margin-left: 6rem;
-        margin-top: 9rem; } }
+        margin-top: 6rem; } }
     .DnD__toDrag-img {
       cursor: move;
       margin-bottom: 5rem; }
@@ -663,39 +663,46 @@ img {
     @media only screen and (min-width: 75em) {
       .DnD__dropZone {
         margin-left: 18rem; } }
-    @media only screen and (min-width: 37.5em) {
-      .DnD__dropZone-wrapper:nth-child(1) {
-        margin-left: -1rem; } }
-    @media only screen and (min-width: 56.25em) {
-      .DnD__dropZone-wrapper:nth-child(1) {
-        margin-left: 0rem; } }
-    @media only screen and (min-width: 37.5em) {
-      .DnD__dropZone-wrapper:nth-child(2) {
-        margin-left: 1rem; } }
-    @media only screen and (min-width: 56.25em) {
-      .DnD__dropZone-wrapper:nth-child(2) {
-        margin-left: 4rem; } }
-    @media only screen and (min-width: 37.5em) {
-      .DnD__dropZone-wrapper:nth-child(3) {
-        margin-left: 3rem; } }
-    @media only screen and (min-width: 56.25em) {
-      .DnD__dropZone-wrapper:nth-child(3) {
-        margin-left: 8rem; } }
-    @media only screen and (min-width: 37.5em) {
-      .DnD__dropZone-wrapper:nth-child(4) {
-        margin-left: 5rem; } }
-    @media only screen and (min-width: 56.25em) {
-      .DnD__dropZone-wrapper:nth-child(4) {
-        margin-left: 12rem; } }
-    @media only screen and (min-width: 37.5em) {
-      .DnD__dropZone-wrapper:nth-child(5) {
-        margin-left: 7rem; } }
-    @media only screen and (min-width: 56.25em) {
-      .DnD__dropZone-wrapper:nth-child(5) {
-        margin-left: 16rem; } }
-    .DnD__dropZone-wrapper figcaption {
-      font-size: 1.25rem;
-      padding: .5rem 0 1rem 1rem; }
+    .DnD__dropZone-wrapper {
+      margin-bottom: 0;
+      margin-top: 0;
+      padding-right: .5rem; }
+      @media only screen and (min-width: 37.5em) {
+        .DnD__dropZone-wrapper:nth-child(1) {
+          margin-left: -1rem; } }
+      @media only screen and (min-width: 56.25em) {
+        .DnD__dropZone-wrapper:nth-child(1) {
+          margin-left: 0rem; } }
+      @media only screen and (min-width: 37.5em) {
+        .DnD__dropZone-wrapper:nth-child(2) {
+          margin-left: 1rem; } }
+      @media only screen and (min-width: 56.25em) {
+        .DnD__dropZone-wrapper:nth-child(2) {
+          margin-left: 4rem; } }
+      @media only screen and (min-width: 37.5em) {
+        .DnD__dropZone-wrapper:nth-child(3) {
+          margin-left: 3rem; } }
+      @media only screen and (min-width: 56.25em) {
+        .DnD__dropZone-wrapper:nth-child(3) {
+          margin-left: 8rem; } }
+      @media only screen and (min-width: 37.5em) {
+        .DnD__dropZone-wrapper:nth-child(4) {
+          margin-left: 5rem; } }
+      @media only screen and (min-width: 56.25em) {
+        .DnD__dropZone-wrapper:nth-child(4) {
+          margin-left: 12rem; } }
+      @media only screen and (min-width: 37.5em) {
+        .DnD__dropZone-wrapper:nth-child(5) {
+          margin-left: 7rem; } }
+      @media only screen and (min-width: 56.25em) {
+        .DnD__dropZone-wrapper:nth-child(5) {
+          margin-left: 16rem; } }
+      .DnD__dropZone-wrapper figcaption {
+        font-size: 1.25rem;
+        padding: .5rem 0 1rem 1rem; }
+        @media only screen and (min-width: 56.25em) {
+          .DnD__dropZone-wrapper figcaption {
+            padding: .5rem 0 .5rem 1rem; } }
     .DnD__dropZone-dropHere {
       background-color: rgba(91, 133, 170, 0.4);
       width: 8rem;
@@ -706,12 +713,10 @@ img {
       @media only screen and (min-width: 37.5em) {
         .DnD__dropZone-dropHere {
           width: 12rem;
-          height: 7rem; } }
+          height: 6.5rem; } }
     .DnD__dropZone-active {
       background-color: #414770;
       transition: background-color 500ms; }
-    .DnD__dropZone-wrong {
-      background-color: #eeeff5; }
 
 .list {
   display: flex;
@@ -1099,6 +1104,9 @@ img {
   padding-top: 2rem;
   padding-bottom: 4rem;
   box-shadow: 0.2rem 0.5rem 0.5rem rgba(65, 71, 112, 0.6); }
+  @media only screen and (max-width: 37.5em) and (pointer: coarse) {
+    .section-DnD {
+      display: none; } }
 
 .section-hero-text-only {
   display: block;

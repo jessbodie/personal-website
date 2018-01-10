@@ -14,106 +14,61 @@ var rolePics = [
      roleBowie = new RolePic(null,"bowie_you_awesome.gif", "David Bowie thinks you are awesome!")
 ];
 
-// Set up for drop zones on the page
-var dropZones = [];
+var draggedPic;
 
-// Sets up event listeners
-function init () {
-     // Show first pic to drag
-     document.addEventListener('DOMContentLoaded', showPic);
-     dragNDrop();
+
+// When drag event starts, setup to allow drag and drop
+function drag (event) {
+     console.log("drag FN start");
+     console.log(event);
+     draggedPic = event.target; // TODO draggedPic
+     event.dataTransfer.setData("text", event.target.id);
+     event.dataTransfer.effectAllowed = "move";
 }
 
-function dragNDrop() {
-     // The pic that is being dragged
-     var draggedPic;
 
-     // When drag event starts, assign variable, set up to allow drag and drop
-     document.querySelector(".DnD__toDrag-img").addEventListener("dragstart", function(event) {
-          draggedPic = event.target;
-          event.dataTransfer.setData("text", event.target.id);
-          event.dataTransfer.effectAllowed = "move";
-     }, false);
+// onDrop: allow drop (default is prevent), reset box color
+function drop (event) {
+  console.log("drop");
+     event.stopPropagation();
+     event.stopImmediatePropagation();
+     event.preventDefault();
 
+     // Check if box id matches pic id and allow drop and then
+     // Remove dragged pic from top space and data and add to correct box
+     if (this.classList.contains("DnD__dropZone-dropHere")
+        && this.id === draggedPic.id) {
+          this.classList.remove("DnD__dropZone-active");
+          var picID = event.dataTransfer.getData("text");
+          event.target.appendChild(document.getElementById(picID));
 
-     ////////////////TODO ADD TOUCH ////////////////////
-     // Need to do touchstart, touchend, touchmove, touchcancel
-/*     document.querySelector(".pic-to-drag").addEventListener("touchstart", function(event) {
-          draggedPic = event.target;
-          console.log(draggedPic);
-          console.log(event);
-          event.dataTransfer.setData("text/uri-list", null);
-          event.dataTransfer.setData("text/plain", null);
-          event.dataTransfer.effectAllowed = "move";
-     }, false);
-*/
-     // Add listeners for all the boxes that are drop zones
-     dropZones = document.querySelectorAll(".DnD__dropZone-dropHere");
-     for (i = 0; i < dropZones.length; i++) {
-
-          // onDragover: allow drop (default is not to allow it)
-          dropZones[i].addEventListener("dragover", function(event) {
-             if (this.classList.contains("DnD__dropZone-dropHere")) {
-                  this.className += " DnD__dropZone-active";
-                  event.preventDefault();
-             }
-          }, false);
-
-
-          // onDragenter: change box color
-          dropZones[i].addEventListener("dragenter", function(event) {
-              if (this.classList.contains("DnD__dropZone-dropHere")) {
-                   this.className += " DnD__dropZone-active";
-                   event.preventDefault();
-              }
-          }, false);
-
-          // onDragleave: reset box color
-          dropZones[i].addEventListener("dragleave", function(event) {
-              if (this.classList.contains("DnD__dropZone-active")) {
-                   this.classList.remove("DnD__dropZone-active");
-                   event.preventDefault();
-              }
-          }, false);
-
-          // onDragleave: reset box color // TODO NOT WORKING
-          // dropZones[i].addEventListener("dragend", function(event) {
-          //   console.log("end");
-          //      if (event.target.className == "DnD__dropZone-dropHere") {
-          //        event.target.classList.remove("DnD__dropZone-active");
-          //      }
-          // }, false);
-
-
-          // onDrop: allow drop (default is prevent), reset box color
-          dropZones[i].addEventListener("drop", function(event) {
-            console.log("drop");
-               event.stopPropagation();
-               event.stopImmediatePropagation();
-               event.preventDefault();
-
-               // Check if box id matches pic id and allow drop and then
-               // Remove dragged pic from top space and data and add to correct box
-               if (this.classList.contains("DnD__dropZone-dropHere")
-                  && this.id === draggedPic.id) {
-                    this.classList.remove("DnD__dropZone-active");
-                    var picID = event.dataTransfer.getData("text");
-                    event.target.appendChild(document.getElementById(picID));
-
-                    // Show next pic to drag again
-                    rolePics.shift();
-                    showPic();
-               } else {
-                 this.classList.remove("DnD__dropZone-active");
-               }
-          }, false);
-
+          // Show next pic to drag again
+          rolePics.shift();
+          showPic();
+     } else {
+       this.classList.remove("DnD__dropZone-active");
      }
-}
+   }
+
+// onDragOver and onDragEnter: UI update, box color
+function showHover(event) {
+    if (this.classList.contains("DnD__dropZone-dropHere")) {
+         this.className += " DnD__dropZone-active";
+         event.preventDefault();
+    }
+  }
+
+// onDragleave: UI update, box color
+function hideHover(event) {
+   if (this.classList.contains("DnD__dropZone-active")) {
+        this.classList.remove("DnD__dropZone-active");
+        event.preventDefault();
+      }
+  }
+
 
 // Show pic from array
 function showPic() {
-
      var nextImage = document.createElement("img");
      nextImage.src = "img/roles/" + rolePics[0].fileName;
      nextImage.id = rolePics[0].id;
@@ -122,6 +77,26 @@ function showPic() {
 }
 
 
+// Sets up event listeners
+function init() {
+     // Show first pic to drag
+     document.addEventListener('DOMContentLoaded', showPic);
+     // Listen for drag
+     document.querySelector(".DnD__toDrag-img").addEventListener("dragstart", drag, false);
+     // Set up for drop zones on the page
+     var dropZones = document.querySelectorAll(".DnD__dropZone-dropHere");
+     // Add listeners for all the boxes that are drop zones
+     for (i = 0; i < dropZones.length; i++) {
+          dropZones[i].addEventListener("dragover", showHover, false);
+          dropZones[i].addEventListener("dragenter", showHover, false);
+          dropZones[i].addEventListener("dragleave", hideHover, false);
+          dropZones[i].addEventListener("dragend", hideHover, false); // TODO
+          dropZones[i].addEventListener("drop", drop, false);
+      }
+     // dragNDrop();
+}
 
+
+console.log("started");
 // Begin
 init();
