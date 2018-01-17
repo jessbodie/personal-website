@@ -323,21 +323,11 @@ img {
       height: 50rem; } }
   .purpose__image {
     width: 100%;
-    height: inherit;
-    max-height: inherit;
-    background-color: rgba(91, 133, 170, 0.6);
-    object-fit: cover;
-    object-position: 0 0;
-    overflow: hidden;
+    height: 101%;
     position: relative;
     line-height: 0;
-    filter: brightness(125%);
-    display: block;
     float: left;
-    clip-path: polygon(55% 0, 66% 50%, 55% 100%, 0% 100%, 0 0);
-    shape-outside: polygon(55% 0, 66% 50%, 55% 100%, 0% 100%, 0 0);
-    margin-right: -2rem;
-    margin-left: -15rem; }
+    display: none; }
     .purpose__image::before {
       display: inline-block;
       vertical-align: top;
@@ -352,21 +342,35 @@ img {
       content: '';
       z-index: 1000;
       background-image: linear-gradient(to right bottom, rgba(238, 239, 245, 0.05), rgba(238, 239, 245, 0.33)); }
+    @supports (clip-path: polygon(55% 0, 66% 50%, 55% 100%, 0% 100%, 0 0)) and (shape-outside: polygon(55% 0, 66% 50%, 55% 100%, 0% 100%, 0 0)) {
+      .purpose__image {
+        clip-path: polygon(55% 0, 66% 50%, 55% 100%, 0% 100%, 0 0);
+        shape-outside: polygon(55% 0, 66% 50%, 55% 100%, 0% 100%, 0 0);
+        display: block;
+        margin-right: -2rem;
+        margin-left: -15rem; } }
     @media only screen and (min-width: 37.5em) {
-      .purpose__image {
-        margin-left: -10rem; } }
+      @supports (clip-path: polygon(55% 0, 66% 50%, 55% 100%, 0% 100%, 0 0)) and (shape-outside: polygon(55% 0, 66% 50%, 55% 100%, 0% 100%, 0 0)) {
+        .purpose__image {
+          margin-left: -10rem; } } }
     @media only screen and (min-width: 56.25em) {
-      .purpose__image {
-        margin-left: 0;
-        margin-right: 4rem; } }
+      @supports (clip-path: polygon(55% 0, 66% 50%, 55% 100%, 0% 100%, 0 0)) and (shape-outside: polygon(55% 0, 66% 50%, 55% 100%, 0% 100%, 0 0)) {
+        .purpose__image {
+          margin-left: 0;
+          margin-right: 4rem; } } }
   .purpose__text {
     padding: 1rem 2rem 2rem 2rem;
     z-index: 1000;
     color: #372248;
     text-shadow: none;
     background: transparent;
-    display: block;
-    position: relative; }
+    display: block; }
+    @supports not ((clip-path: polygon(55% 0, 66% 50%, 55% 100%, 0% 100%, 0 0)) and (shape-outside: polygon(55% 0, 66% 50%, 55% 100%, 0% 100%, 0 0))) {
+      .purpose__text {
+        position: absolute;
+        bottom: 0;
+        margin-left: 4rem;
+        background: linear-gradient(-60deg, rgba(91, 133, 170, 0.7) 0%, rgba(238, 239, 245, 0.6) 15%, rgba(238, 239, 245, 0.7) 55%, rgba(91, 133, 170, 0.8) 100%); } }
     .purpose__text p {
       font-size: 1.9rem;
       line-height: 155%; }
@@ -633,9 +637,10 @@ img {
     @media only screen and (min-width: 56.25em) {
       .DnD__toDrag {
         margin-left: 6rem;
-        margin-top: 6rem; } }
+        margin-top: 6.5rem; } }
     .DnD__toDrag-img {
       cursor: move;
+      margin-top: 0;
       margin-bottom: 5rem; }
       @media only screen and (min-width: 37.5em) {
         .DnD__toDrag-img {
@@ -1052,9 +1057,13 @@ img {
   width: 100%;
   background: linear-gradient(-60deg, rgba(91, 133, 170, 0.6) 0%, rgba(91, 133, 170, 0) 15%, rgba(91, 133, 170, 0) 55%, rgba(91, 133, 170, 0.7) 100%);
   box-shadow: 0.2rem 0.5rem 0.5rem rgba(65, 71, 112, 0.6); }
-  @media only screen and (min-width: 56.25em) {
+  @supports not ((clip-path: polygon(55% 0, 66% 50%, 55% 100%, 0% 100%, 0 0)) and (shape-outside: polygon(55% 0, 66% 50%, 55% 100%, 0% 100%, 0 0))) {
     .section-purpose {
-      background: linear-gradient(-60deg, rgba(91, 133, 170, 0.6) 0%, rgba(91, 133, 170, 0) 7%, rgba(91, 133, 170, 0) 11%, rgba(91, 133, 170, 0.7) 100%); } }
+      background: linear-gradient(-60deg, rgba(91, 133, 170, 0.6) 0%, rgba(91, 133, 170, 0) 15%, rgba(91, 133, 170, 0) 55%, rgba(91, 133, 170, 0.7) 100%), url("../img/tree-dark_tree-light.jpg");
+      background-size: cover;
+      background-position: top left;
+      background-repeat: no-repeat;
+      max-width: 100%; } }
   .section-purpose::after {
     content: "";
     display: table;
