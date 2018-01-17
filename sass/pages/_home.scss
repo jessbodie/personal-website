@@ -19,10 +19,7 @@
 
   @include respond(tab-port) {
     height: 42rem;
-
   }
-
-
 }
 
 
@@ -37,29 +34,31 @@
 
 .section-purpose {
   @include section-block;
-  background: linear-gradient(
-       -60deg,
-       rgba($color-secondary, .6) 0%,
-       rgba($color-secondary, .0) 15%,
-       rgba($color-secondary, .0) 55%,
-       rgba($color-secondary, .7) 100%);
-
-
-  @include respond (tab-land) {
+  // Show background image when Clip Path and Shape Outside not supported
+  @supports not ((clip-path: polygon(55% 0, 66% 50%, 55% 100%, 0% 100%, 0 0))
+            and (shape-outside: polygon(55% 0, 66% 50%, 55% 100%, 0% 100%, 0 0))) {
     background: linear-gradient(
          -60deg,
          rgba($color-secondary, .6) 0%,
-         rgba($color-secondary, .0) 7%,
-         rgba($color-secondary, .0) 11%,
-         rgba($color-secondary, .7) 100%);
-  }
+         rgba($color-secondary, .0) 15%,
+         rgba($color-secondary, .0) 55%,
+         rgba($color-secondary, .7) 100%),
+         url('../img/tree-dark_tree-light.jpg');
+    background-size: cover;
+    background-position: top left;
+    background-repeat: no-repeat;
+    max-width: 100%;
+    }
 
+    background: linear-gradient(
+         -60deg,
+         rgba($color-secondary, .6) 0%,
+         rgba($color-secondary, .0) 15%,
+         rgba($color-secondary, .0) 55%,
+         rgba($color-secondary, .7) 100%);
 
   @include dropshadow;
-
   @include clearfix;
-
-
 }
 
 .section-latest {
@@ -69,7 +68,4 @@
   @include dropshadow;
   padding-top: 2rem;
   padding-bottom: 4rem;
-
-
-
 }
