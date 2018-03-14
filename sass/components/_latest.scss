@@ -42,6 +42,8 @@
       flex: 0 1 4rem;
       margin-top: 14rem;
       width: 4rem;
+      max-width: 4rem;
+      margin-right: $gutter-sm;
     }
 
 
@@ -69,16 +71,22 @@
   &__text {
     color: $color-black;
     font-size: $body-default;
-    margin-bottom: 1rem;
-    margin-top: 1rem;
+    margin-top: .4rem;
+    margin-bottom: 2rem;
+  }
 
+  &__pics {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
   }
 
 
 
   &__image {
     max-width: 100%;
-    max-height: 50rem;
     object-fit: scale-down;
     @include dropshadow;
     display: inline-block;
@@ -87,28 +95,32 @@
     position: relative;
     top: 0;
     margin-top: 0;
+    margin-bottom: .8rem;
 
     @include overlay($color-tertiary);
 
     img {
-      max-height: 50rem;
       object-fit: scale-down;
-
     }
 
   }
 
   &__titles {
-    height: 7rem;
+    height: 6rem;
     width: 100%;
 
   }
 
 
   &__first {
-    // border: 1px solid yellow;
-    flex: 3 1 auto;
-    width: 100%;
+    flex: 1 1 auto;
+    margin-bottom: 2rem;
+
+    @include respond(tab-port) {
+      max-width: 50vw;
+      order: 3;
+    }
+  
   }
 
 
@@ -116,13 +128,11 @@
   &__second {
     flex: 1 1 auto;
 
-    // h3 {
-    //   width: 60%;
-    // }
+    @include respond(tab-port) {
+      max-width: 35vw;
+      margin-right: $gutter-sm;
+      order: 2;
+    }
   }
-
-  &__calculator {
-
-  }
-
 }
+
