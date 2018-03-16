@@ -1,6 +1,7 @@
 .section-hero {
   @include section-block;
   height: 36rem;
+  max-height: 80vh;
   background-color: $color-primary;
   @include dropshadow;
 

@@ -11,8 +11,8 @@
   li { margin-left: 0; }
 
   &__toDrag {
-
     touch-action: pan-x;
+    align-self: flex-start;
 
     flex: 0 1 auto;
     width: 30rem;
@@ -23,7 +23,6 @@
     margin-top: 0;
     @include respond(tab-land) {
       margin-left: 6rem;
-      margin-top: 6.5rem;
     }
 
     &-img {

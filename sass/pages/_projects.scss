@@ -2,16 +2,19 @@
   @include section-block;
   background-color: $color-primary;
   @include dropshadow;
-
-
   background-image: linear-gradient(
        to right bottom,
        rgba($color-primary, 0.8),
        rgba($color-primary-dark, .95));
-
-  height: 14rem;
   max-width: 100%;
   z-index: map-get($zindex, text-over);
+  height: 14rem;
+  max-height: 20vmin;
+
+  @include respond(tab-port) {
+    max-height: 25vmin;
+  }
+
 
 
 }

@@ -114,7 +114,7 @@
 
   &__first {
     flex: 1 1 auto;
-    margin-bottom: 2rem;
+    margin-bottom: 4rem;
 
     @include respond(tab-port) {
       max-width: 50vw;
