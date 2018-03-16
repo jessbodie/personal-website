@@ -34,8 +34,8 @@ main {
   width: 100%;
 
   a {
-    display: inline-block;
-    transition: all 300ms;
+    display: inline;
+    transition: transform 300ms, text-shadow 300ms;
 
     &:link,
     &:visited {

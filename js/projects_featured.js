@@ -94,7 +94,6 @@ var UIController = (function() {
       var projTitle = projToggleID.nextSibling.nextSibling.childNodes[1].childNodes[1];
       var projDescrip = projToggleID.nextSibling.nextSibling.childNodes[1].childNodes[3];
 
-
       // Define where featured image and text should appear
       var featuredImageDiv = document.getElementById("feature-container").childNodes[3];
       var featuredTextDiv = document.getElementById("feature-container").childNodes[5];
@@ -104,12 +103,21 @@ var UIController = (function() {
       var featuredImage = projImage.cloneNode();
       var featuredTitle = projTitle.cloneNode(true);
       var featuredDescrip = projDescrip.cloneNode(true);
-
+      // If project has a link, make featured image clickable
+      var featuredLink;
+      if (projTitle.tagName === "A") {
+        featuredLink = projTitle.cloneNode(false);
+        featuredLink.appendChild(featuredImage);
+        } else {
+        featuredLink = featuredImage;
+        console.log(featuredLink);
+        }
+    
       //Remove u-hidden and add u-visible
       document.getElementById("section-featured").classList.remove('u-hidden');
       document.getElementById("section-featured").className += ' u-visible';
 
-
+    
       // Check if featured image already
       if (featuredImageDiv.childNodes[1]) {
 
@@ -120,7 +128,8 @@ var UIController = (function() {
         featuredTextDiv.removeChild(featuredTextDiv.childNodes[1]);
 
         // Add newly featured
-        featuredImageDiv.appendChild(featuredImage);
+        featuredImageDiv.appendChild(featuredLink);
+
         featuredTextDiv.appendChild(featuredTitle);
         featuredTextDiv.appendChild(featuredDescrip);
         featuredImageDiv.scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});
@@ -128,7 +137,7 @@ var UIController = (function() {
       } else {
         // If no featured image already
         // Add cloned image, title, descrip to featured area
-        featuredImageDiv.appendChild(featuredImage);
+        featuredImageDiv.appendChild(featuredLink);
         featuredTextDiv.appendChild(featuredTitle);
         featuredTextDiv.appendChild(featuredDescrip);
         featuredImageDiv.scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});
@@ -180,31 +189,54 @@ var controller = (function(dataCtrl, UICtrl){
       UICtrl.showFeature(feat, curFeat);
 
       // If current feature is first, hide previous button
-      var prevFeat = dataCtrl.getPrevFeature();
+      var isPrevFeat = dataCtrl.getPrevFeature();
       var prevBtn = document.getElementById("list__featured-prev");
       var prevBtnID = "list__featured-prev";
 
-      if (prevFeat == null) {
+      if (isPrevFeat == null) {
         UICtrl.hideBtn(prevBtnID);
       } else if (prevBtn.className === "list__featured-prev u-visibility") {
         UICtrl.showBtn(prevBtnID);
       }
 
       // If current feature is last, hide last button
-      var nextFeat = dataCtrl.getNextFeature();
+      var isNextFeat = dataCtrl.getNextFeature();
       var nextBtn = document.getElementById("list__featured-next");
       var nextBtnID = "list__featured-next";
 
-      if (nextFeat == null) {
+      if (isNextFeat == null) {
         UICtrl.hideBtn(nextBtnID);
       } else if (nextBtn.className === "list__featured-next u-visibility") {
         UICtrl.showBtn(nextBtnID);
       }
+
+      // Add listener for previous/next on arrow keys
+      document.addEventListener("keydown", function(e) {
+        if (e.defaultPrevented) {
+          return; // Return if the event was already processed
+        }
+
+        switch (e.key) {
+          case "ArrowLeft": 
+            prevFeat();
+            console.log('left arrow');
+            break;
+          case "ArrowRight": 
+            nextFeat();
+            console.log('right arrow');
+            break;
+        }
+
+        // Cancel the default action to avoid it being handled more than once
+        e.preventDefault();
+      }, true);
+      
     }
 
     // When Previous Button clicked, check for Previous, then update
     var prevFeat = function () {
       var prev = dataCtrl.getPrevFeature();
+      console.log(prev);
       if (prev) {
         var prevImage = prev.children[0].children[1];
         updateFeat(prevImage);
@@ -216,7 +248,7 @@ var controller = (function(dataCtrl, UICtrl){
     }
 
 
-    // When Previous Button clicked, check for Previous, then update
+    // When Next Button clicked, check for Next, then update
     var nextFeat = function () {
       var next = dataCtrl.getNextFeature();
       if (next) {
