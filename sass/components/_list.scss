@@ -5,6 +5,7 @@
 
 
 
+
   @include respond(tab-port) {
     flex-direction: row;
     justify-content: space-between;
@@ -74,6 +75,7 @@
 
       margin-bottom: $gutter-sm;
       display: inline-block;
+      position: relative;
 
       img {
         object-fit: cover;
@@ -81,6 +83,7 @@
         width: 100%;
         height: $proj-header-mobile;
         cursor: pointer;
+        position: relative;
 
         &:hover,
         &:focus {
@@ -115,6 +118,9 @@
       margin: 0;
       padding: 0;
       text-align: left;
+      position: relative;
+      top: 0;
+      left: 0;
 
       &-rotate {
         height: 4rem;
@@ -128,6 +134,13 @@
         z-index: map-get($zindex, text-over);
         text-align: right;
         @include dropshadow-vertical;
+
+        h2 {
+          position: absolute;
+          top: 0;
+          right: 0;
+
+        }
 
         @include respond(tab-port) {
           width: $proj-header-tab;

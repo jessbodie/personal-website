@@ -3,11 +3,17 @@
   margin-left: $left-margin;
   margin-right: $left-margin;
 
+  & .captions {
+    display: none;
+
+    @include respond (tab-land) {
+      display: block;
+    }
+  }
+
 
   @include respond (tab-land) {
-
     @include basic-flex;
-
   }
 
   &__image {
@@ -16,11 +22,7 @@
     height: 100%;
     max-width: 8rem;
     float: left;
-    // position: relative;
     margin-right: $left-margin;
-    // REPLACE WITH AOS
-    // @include animation-fadeIn;
-    // animation-delay: 750ms;
 
 
     @include respond (tab-land) {
@@ -31,6 +33,12 @@
     &-only {
       @include dropshadow;
       width: 100%;
+      margin-bottom: 2rem;
+
+      @include respond (tab-land) {
+        margin-bottom: 0;
+        }
+  
     }
 
     &-crazy {
@@ -44,11 +52,29 @@
     }
 
     figcaption {
-      font-size: 1.2rem;
-      max-width: 20rem;
-      height: 5rem;
-      padding-top: 1rem;
-      line-height: normal;
+      @include respond (tab-land) {
+        max-width: 20rem;
+        padding: 0;
+      }
+    }
+
+    textarea {
+      padding: 0;
+      height: 4rem;
+    }
+
+    form {
+      width: 100%;
+    }
+
+    button {
+      @include respond (tab-land) {
+        font-size: 1rem;
+        padding: .3rem;
+        position: relative;
+        margin: 0 auto;
+        display: block;
+      }  
     }
 
   }

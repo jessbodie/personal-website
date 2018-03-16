@@ -10,7 +10,6 @@
 
     // TODO PASS TO USE VAR
     max-width: 100%;
-    // height: 60vh;
     position: relative;
   }
 
@@ -18,7 +17,6 @@
     position: absolute;
     bottom: 0;
     right: 0;
-    // height: 100%;
     vertical-align: bottom;
     text-align: right;
     background-color: transparent;
@@ -29,7 +27,7 @@
       vertical-align: bottom;
       // height: 100%;
       display: inline-block;
-      line-height: 1;
+      line-height: .8;
       opacity: 0;
 
       animation-name: moveInTopLeft;
@@ -41,8 +39,9 @@
     }
 
     &-2nd {
-      display: inline-block;
+      display: block;
       opacity: 0;
+      line-height: .8;
 
       animation-name: moveInRight;
       animation-duration: 1.25s;

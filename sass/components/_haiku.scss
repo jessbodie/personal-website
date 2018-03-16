@@ -55,7 +55,7 @@
     &-single {
       align-items: space-between;
       color: $color-primary-dark;
-      font-size: 2.8rem;
+      font-size: 2.2rem;
       font-weight: 400;
       word-spacing: 1.05rem;
       margin-bottom: 1.5rem;
@@ -75,7 +75,6 @@
 
 
       @include respond(tab-port) {
-        margin-bottom: 2rem;
 
         @for $i from 1 through 3 {
           &:nth-child(#{$i}) {
@@ -84,6 +83,10 @@
           }
         }
 
+        @include respond(tab-land) {
+          font-size: 2.8rem;
+          margin-bottom: 2rem;
+        }
     }
   }
 }

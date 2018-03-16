@@ -27,6 +27,7 @@ body {
      font-family: 'Montserrat', sans-serif;
      overflow-x: hidden;
      -webkit-text-size-adjust: 100%; // for iOS font resizing
+     width: 100%;
 }
 
 main {
@@ -78,7 +79,7 @@ li {
 
 .heading-primary {
   display: inline-block;
-  font-size: 5.8rem;
+  font-size: 4.5rem;
   line-height: 5.6rem;
   font-weight: 800;
   color: $color-white;
@@ -86,7 +87,7 @@ li {
 
 
   @include respond(tab-port) {
-    font-size: 7rem;
+    font-size: 5rem;
     line-height: 6.5rem;
   }
 
