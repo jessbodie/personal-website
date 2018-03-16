@@ -20,8 +20,8 @@ body {
 main {
   width: 100%; }
   main a {
-    display: inline-block;
-    transition: all 300ms; }
+    display: inline;
+    transition: transform 300ms, text-shadow 300ms; }
     main a:link, main a:visited {
       text-decoration: none;
       color: #414770; }
@@ -921,7 +921,7 @@ img {
   @media only screen and (min-width: 37.5em) {
     .list__featured-next, .list__featured-prev {
       flex: 0 0 auto;
-      color: #a9bfd3;
+      color: rgba(169, 191, 211, 0.5);
       font-size: 6rem;
       line-height: .6;
       font-weight: 500;
