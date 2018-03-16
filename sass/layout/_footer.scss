@@ -35,18 +35,15 @@
     margin-right: -6rem;
     // transition: all 1s;
 
-    &:hover {
+    // &:hover {
       // TODO Make animation look good....
-      animation-name: bag;
-      animation-delay: 500ms;
-      animation-duration: 6s;
-      animation-timing-function: ease-in-out;
-      animation-iteration-count: 3;
-      animation-fill-mode: backwards;
-
-    }
-
-
+      // animation-name: bag;
+      // animation-delay: 500ms;
+      // animation-duration: 6s;
+      // animation-timing-function: ease-in-out;
+      // animation-iteration-count: 3;
+      // animation-fill-mode: backwards;
+    // }
   }
 
   &__links {
