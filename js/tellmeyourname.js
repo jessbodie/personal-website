@@ -1,5 +1,5 @@
 // Replace the introductory question text with actual name/title text
-var name = "Jess Bodie Richards"
+var name = "jess bodie richards"
 var title = "web developer"
 
 // Listen for 1st animations to end, then fade in new text
