@@ -182,8 +182,16 @@
 
       ul, li, p, {
         font-size: 1rem;
+        list-style: none;
         @include animation-fadeIn;
       }
+
+      li {
+        text-indent: -1rem;
+   
+        @include animation-fadeIn;
+      }
+
 
       @include fancy-bullets;
 

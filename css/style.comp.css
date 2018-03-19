@@ -912,7 +912,7 @@ img {
         color: #414770;
         display: inline-block;
         margin-right: 1rem;
-        margin-left: -2rem; }
+        margin-left: 0; }
       @media only screen and (min-width: 37.5em) {
         .list__container-text {
           display: none; } }
@@ -1087,6 +1087,14 @@ img {
       align-self: center; }
       .list__featured-text ul, .list__featured-text li, .list__featured-text p {
         font-size: 1rem;
+        list-style: none;
+        opacity: 0;
+        animation-name: fadeIn;
+        animation-duration: 1s;
+        animation-timing-function: ease-in;
+        animation-fill-mode: forwards; }
+      .list__featured-text li {
+        text-indent: -1rem;
         opacity: 0;
         animation-name: fadeIn;
         animation-duration: 1s;
@@ -1097,7 +1105,7 @@ img {
         color: #414770;
         display: inline-block;
         margin-right: 1rem;
-        margin-left: -2rem; }
+        margin-left: 0; }
       .list__featured-text h3 {
         font-size: 1.2rem;
         opacity: 0;
