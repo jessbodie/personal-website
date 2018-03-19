@@ -1,7 +1,7 @@
 .section-hero {
   @include section-block;
-  height: 36rem;
-  max-height: 80vh;
+  height: 42rem;
+  max-height: 80vmin;
   background-color: $color-primary;
   @include dropshadow;
 
@@ -18,9 +18,9 @@
   max-width: 100%;
   z-index: map-get($zindex, text-over);
 
-  @include respond(tab-port) {
-    height: 42rem;
-  }
+  // @include respond(tab-port) {
+  //   height: 42rem;
+  // }
 }
 
 

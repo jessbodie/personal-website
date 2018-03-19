@@ -9,7 +9,8 @@
 html {
   box-sizing: border-box;
   /* best practice */
-  font-size: calc(6.5px + .66vw); }
+  font-size: calc(6.5px + .66vw);
+  width: 100%; }
 
 body {
   font-family: 'Montserrat', sans-serif;
@@ -102,7 +103,7 @@ img {
   margin-top: 3rem; }
   @media only screen and (min-width: 37.5em) {
     .u-margin-top-med {
-      margin-top: 5rem; } }
+      margin-top: 4rem; } }
 
 .u-margin-header-wrap {
   margin-left: 6rem; }
@@ -142,6 +143,23 @@ img {
     opacity: 1;
     transform: translateX(0) translateY(0) scale(1); } }
 
+@keyframes moveInTopLeftHome {
+  0% {
+    opacity: 0;
+    transform: translateX(-15rem) translateY(-20rem) scale(0); }
+  15% {
+    opacity: .9;
+    transform: translateX(5rem) translateY(4rem) scale(3); }
+  20% {
+    opacity: 1;
+    transform: translateX(0) translateY(0) scale(1); }
+  80% {
+    opacity: 1;
+    transform: translateX(0) translateY(0) scale(1); }
+  100% {
+    opacity: 0;
+    transform: translateX(0) translateY(0) scale(1); } }
+
 @keyframes moveInRight {
   0% {
     opacity: 0;
@@ -154,6 +172,26 @@ img {
     transform: translateX(0) skewX(0) scale(0.75); }
   100% {
     opacity: 1;
+    transform: translateX(0) skewX(0) scale(1); } }
+
+@keyframes moveInRightHome {
+  0% {
+    opacity: 0;
+    transform: translateX(30rem) skewX(25deg) scale(0.25); }
+  14% {
+    opacity: .25;
+    transform: translateX(-5rem) skewX(0) scale(3); }
+  17% {
+    opacity: .55;
+    transform: translateX(0) skewX(0) scale(0.75); }
+  20% {
+    opacity: 1;
+    transform: translateX(0) skewX(0) scale(1); }
+  80% {
+    opacity: 1;
+    transform: translateX(0) skewX(0) scale(1); }
+  100% {
+    opacity: 0;
     transform: translateX(0) skewX(0) scale(1); } }
 
 @keyframes fadeIn {
@@ -221,6 +259,25 @@ img {
       animation-duration: 1.25s;
       animation-timing-function: ease;
       animation-delay: 1.25s;
+      animation-fill-mode: forwards; }
+    .hero__text-1sthome {
+      vertical-align: bottom;
+      display: inline-block;
+      line-height: .8;
+      opacity: 0;
+      animation-name: moveInTopLeftHome;
+      animation-duration: 5s;
+      animation-timing-function: ease-in;
+      animation-delay: 600ms;
+      animation-fill-mode: forwards; }
+    .hero__text-2ndhome {
+      display: block;
+      opacity: 0;
+      line-height: .8;
+      animation-name: moveInRightHome;
+      animation-duration: 5s;
+      animation-timing-function: ease-in;
+      animation-delay: 1.5s;
       animation-fill-mode: forwards; }
 
 .haiku {
@@ -855,7 +912,7 @@ img {
         color: #414770;
         display: inline-block;
         margin-right: 1rem;
-        margin-left: -2rem; }
+        margin-left: 0; }
       @media only screen and (min-width: 37.5em) {
         .list__container-text {
           display: none; } }
@@ -1030,6 +1087,14 @@ img {
       align-self: center; }
       .list__featured-text ul, .list__featured-text li, .list__featured-text p {
         font-size: 1rem;
+        list-style: none;
+        opacity: 0;
+        animation-name: fadeIn;
+        animation-duration: 1s;
+        animation-timing-function: ease-in;
+        animation-fill-mode: forwards; }
+      .list__featured-text li {
+        text-indent: -1rem;
         opacity: 0;
         animation-name: fadeIn;
         animation-duration: 1s;
@@ -1040,7 +1105,7 @@ img {
         color: #414770;
         display: inline-block;
         margin-right: 1rem;
-        margin-left: -2rem; }
+        margin-left: 0; }
       .list__featured-text h3 {
         font-size: 1.2rem;
         opacity: 0;
@@ -1059,8 +1124,8 @@ img {
   display: block;
   position: relative;
   width: 100%;
-  height: 36rem;
-  max-height: 80vh;
+  height: 42rem;
+  max-height: 80vmin;
   background-color: #414770;
   box-shadow: 0.2rem 0.5rem 0.5rem rgba(65, 71, 112, 0.6);
   background-image: linear-gradient(to right bottom, rgba(65, 71, 112, 0.8), rgba(55, 34, 72, 0.95)), url("img/tree_bag_bg-600.jpg");
@@ -1070,9 +1135,6 @@ img {
   background-repeat: no-repeat;
   max-width: 100%;
   z-index: 2000; }
-  @media only screen and (min-width: 37.5em) {
-    .section-hero {
-      height: 42rem; } }
 
 .section-haiku {
   display: block;
@@ -1318,7 +1380,8 @@ img {
   flex-wrap: nowrap;
   align-content: flex-start;
   margin: 0;
-  padding: 0; }
+  padding: 0;
+  max-width: 100vw; }
 
 .row {
   max-width: 180rem;
@@ -1395,4 +1458,5 @@ img {
     color: #eeeff5;
     text-align: center;
     padding-top: 4rem;
-    padding-bottom: 6rem; }
+    padding-bottom: 6rem;
+    opacity: .6; }

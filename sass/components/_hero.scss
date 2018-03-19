@@ -26,11 +26,9 @@
 
     &-1st {
       vertical-align: bottom;
-      // height: 100%;
       display: inline-block;
       line-height: .8;
       opacity: 0;
-
       animation-name: moveInTopLeft;
       animation-duration: 1s;
       animation-timing-function: ease-in;
@@ -43,15 +41,36 @@
       display: block;
       opacity: 0;
       line-height: .8;
-
       animation-name: moveInRight;
       animation-duration: 1.25s;
       animation-timing-function: ease;
       animation-delay: 1.25s;
       animation-fill-mode: forwards;
+    }
+
+    &-1sthome {
+      vertical-align: bottom;
+      display: inline-block;
+      line-height: .8;
+      opacity: 0;
+      animation-name: moveInTopLeftHome;
+      animation-duration: 5s;
+      animation-timing-function: ease-in;
+      animation-delay: 600ms;
+      animation-fill-mode: forwards;
 
     }
 
+    &-2ndhome {
+      display: block;
+      opacity: 0;
+      line-height: .8;
+      animation-name: moveInRightHome;
+      animation-duration: 5s;
+      animation-timing-function: ease-in;
+      animation-delay: 1.5s;
+      animation-fill-mode: forwards;
+    }
 
   }
 }
