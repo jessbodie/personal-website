@@ -110,7 +110,7 @@ var UIController = (function() {
         featuredLink.appendChild(featuredImage);
         } else {
         featuredLink = featuredImage;
-        console.log(featuredLink);
+        // console.log(featuredLink);
         }
     
       //Remove u-hidden and add u-visible
@@ -121,26 +121,27 @@ var UIController = (function() {
       // Check if featured image already
       if (featuredImageDiv.childNodes[1]) {
 
-        // Remove previously featured
-        featuredImageDiv.removeChild(featuredImageDiv.childNodes[1]);
-        featuredTextDiv.removeChild(featuredTextDiv.childNodes[1]);
-        // Since first child was just removed, formerly 2nd child now first child
-        featuredTextDiv.removeChild(featuredTextDiv.childNodes[1]);
-
         // Add newly featured
         featuredImageDiv.appendChild(featuredLink);
 
         featuredTextDiv.appendChild(featuredTitle);
         featuredTextDiv.appendChild(featuredDescrip);
-        featuredImageDiv.scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});
+        document.getElementById("hero").scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});
 
+        // Remove previously featured
+        // Add first, then remove to avoid iOS scrolling bug
+        featuredImageDiv.removeChild(featuredImageDiv.childNodes[1]);
+        featuredTextDiv.removeChild(featuredTextDiv.childNodes[1]);
+        // Since first child was just removed, formerly 2nd child now first child
+        featuredTextDiv.removeChild(featuredTextDiv.childNodes[1]);
+        
       } else {
         // If no featured image already
         // Add cloned image, title, descrip to featured area
         featuredImageDiv.appendChild(featuredLink);
         featuredTextDiv.appendChild(featuredTitle);
         featuredTextDiv.appendChild(featuredDescrip);
-        featuredImageDiv.scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});
+        document.getElementById("hero").scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});
       }
     },
 
@@ -219,11 +220,9 @@ var controller = (function(dataCtrl, UICtrl){
         switch (e.key) {
           case "ArrowLeft": 
             prevFeat();
-            console.log('left arrow');
             break;
           case "ArrowRight": 
             nextFeat();
-            console.log('right arrow');
             break;
         }
 
@@ -236,7 +235,7 @@ var controller = (function(dataCtrl, UICtrl){
     // When Previous Button clicked, check for Previous, then update
     var prevFeat = function () {
       var prev = dataCtrl.getPrevFeature();
-      console.log(prev);
+      // console.log(prev);
       if (prev) {
         var prevImage = prev.children[0].children[1];
         updateFeat(prevImage);
@@ -262,7 +261,6 @@ var controller = (function(dataCtrl, UICtrl){
     }
 
     var setupEventListeners = function() {
-      // console.log("eventlisteners");
       // Setup to detect window width
       var w = window.innerWidth;
 
@@ -298,7 +296,6 @@ var controller = (function(dataCtrl, UICtrl){
 
     // When user resizes window, reset the listeners. Probably an edge case.
     var resizeReset = function() {
-      // console.log("replace eventlisteners");
 
       // Listeners for showing project in featured area
       var divList = document.querySelectorAll('.list__container-image > img');
@@ -319,7 +316,6 @@ var controller = (function(dataCtrl, UICtrl){
 
     return {
       init: function() {
-        // console.log("Project Features JS started");
         setupEventListeners();
       }
     }
