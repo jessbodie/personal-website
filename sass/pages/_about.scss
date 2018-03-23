@@ -33,13 +33,13 @@
 }
 
 .section-DnD {
+  border: 1px solid black;
   @include section-block;
   background-color: rgba($color-primary, .2);
   color: $color-black;
   padding-top: 2rem;
   padding-bottom: $left-margin;
   @include dropshadow;
-  // max-height: 80vh;
 
   @media only screen and (max-width: 56.25em) and (hover:none) {
     display: none;
