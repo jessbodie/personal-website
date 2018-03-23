@@ -278,7 +278,9 @@ var controller = (function(dataCtrl, UICtrl){
         } else {
           // Less than 600px, listener to scroll current project into view
           divList[i].addEventListener('click', function(el) {
-            el.target.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
+            var projContainer = el.target.parentNode.parentNode.parentNode;
+            console.log(projContainer);
+            projContainer.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
           });
         }
       }
