@@ -10,6 +10,7 @@
   z-index: map-get($zindex, text-over);
   height: 14rem;
   max-height: 20vmin;
+  min-height: 10rem;
 
   @include respond(tab-port) {
     max-height: 25vmin;
@@ -26,7 +27,7 @@
   @include respond(tab-port) {
 
     @include section-block;
-    height: auto;
+    // height: 0;
     background-color: $color-white-true;
     color: $color-black;
     max-width: 100%;

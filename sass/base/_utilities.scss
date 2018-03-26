@@ -26,21 +26,23 @@
 
 .u-hidden {
     max-height: 0;
+    height: 0;
     overflow-y: hidden;
     opacity: 0;
     transition: all 500ms;
 }
 
 .u-visible {
-  max-height: 60rem;
   opacity: 1;
   padding: $left-margin;
   transition: all 500ms;
-
+  height: auto;
+  max-height: 60rem;
 }
 
 .u-visibility {
   visibility: hidden;
+  height: 0px;
 }
 
 .u-nowrap {

@@ -6,7 +6,7 @@
   align-content: flex-start;
   flex-direction: column;
   justify-content: space-between;
-
+  
   margin-left: $left-margin;
   margin-right: $left-margin;
   padding: 0;
@@ -43,7 +43,7 @@
       margin-top: 14rem;
       width: 4rem;
       max-width: 4rem;
-      margin-right: $gutter-sm;
+      // margin-right: $gutter-sm;
     }
 
 
@@ -87,7 +87,7 @@
 
   &__image {
     max-width: 100%;
-    object-fit: scale-down;
+    // object-fit: scale-down;
     @include dropshadow;
     display: inline-block;
     vertical-align: top;
@@ -100,7 +100,12 @@
     @include overlay($color-tertiary);
 
     img {
-      object-fit: scale-down;
+      width: 100%; // DEBUG
+
+      // IE 11 doesn't support object-fit
+      @supports (object-fit: scale-down) {
+        object-fit: scale-down;
+      }
     }
 
   }
@@ -113,7 +118,7 @@
 
 
   &__first {
-    flex: 1 1 auto;
+    flex: 1 1 50vw;
     margin-bottom: 4rem;
 
     @include respond(tab-port) {
@@ -126,11 +131,12 @@
 
 
   &__second {
-    flex: 1 1 auto;
+    flex: 2 1 35vw;
 
     @include respond(tab-port) {
       max-width: 35vw;
       margin-right: $gutter-sm;
+      margin-left: $gutter-sm;
       order: 2;
     }
   }
