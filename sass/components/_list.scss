@@ -69,22 +69,26 @@
       overflow: hidden;
       margin-left: $left-margin;
       margin-right: $left-margin;
+      margin-bottom: $gutter-sm;
+      display: inline-block;
+      position: relative;
       @include respond(mobile) {
         margin-left: $gutter-sm;
         margin-right: $gutter-sm;
       }
 
-      margin-bottom: $gutter-sm;
-      display: inline-block;
-      position: relative;
 
       img {
-        object-fit: cover;
-        object-position: 0% 0%;
-        width: 100%;
-        height: $proj-header-mobile;
         cursor: pointer;
         position: relative;
+        // IE 11 doesn't support object-fit
+        @supports (object-fit: cover) {
+          object-fit: cover;
+          object-position: 0% 0%;
+          width: 100%;
+        }
+        height: $proj-header-mobile;
+        overflow: hidden;
 
         &:hover,
         &:focus {
@@ -104,9 +108,11 @@
         margin-bottom: 0;
         height: $proj-header-tab;
         width: 50%;
+        overflow: hidden;
 
         img {
-          height: $proj-header-tab;
+          height: 35vw;
+          max-width: 300%;
         }
       }
 
