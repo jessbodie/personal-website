@@ -107,6 +107,7 @@
         margin-top: 0;
         margin-bottom: 0;
         height: $proj-header-tab;
+        max-height: calc(#{$grid-width} / 4);
         width: 50%;
         overflow: hidden;
 

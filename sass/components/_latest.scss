@@ -1,18 +1,22 @@
 
 
 .latest {
+  width: calc(100% - #{$gutter-sm} - #{$gutter-sm});
   display: flex;
   align-items: flex-start;
   align-content: flex-start;
   flex-direction: column;
   justify-content: space-between;
   
-  margin-left: $left-margin;
-  margin-right: $left-margin;
+  margin-left: $gutter-sm;
+  margin-right: $gutter-sm;
   padding: 0;
 
   // Responsive edits
   @include respond(tab-port) {
+    margin-left: $left-margin;
+    margin-right: $left-margin;
+    width: calc(100% - #{$left-margin} - #{$left-margin});
     flex-direction: row;
   }
 
@@ -84,15 +88,16 @@
   }
 
 
-
+  // DEBUG
+  // IE 11 Problem where white space is appearing when latest__image for latest__first
   &__image {
     max-width: 100%;
-    // object-fit: scale-down;
     @include dropshadow;
     display: inline-block;
     vertical-align: top;
     line-height: 0;
     position: relative;
+    overflow: hidden;
     top: 0;
     margin-top: 0;
     margin-bottom: .8rem;
@@ -101,6 +106,7 @@
 
     img {
       width: 100%; // DEBUG
+      overflow: hidden;
 
       // IE 11 doesn't support object-fit
       @supports (object-fit: scale-down) {
@@ -118,11 +124,11 @@
 
 
   &__first {
-    flex: 1 1 50vw;
+    flex: 1 1 40vw; 
     margin-bottom: 4rem;
 
     @include respond(tab-port) {
-      max-width: 50vw;
+      max-width: 50vw; 
       order: 3;
     }
   
@@ -131,7 +137,7 @@
 
 
   &__second {
-    flex: 2 1 35vw;
+    flex: 2 1 30vw;
 
     @include respond(tab-port) {
       max-width: 35vw;
