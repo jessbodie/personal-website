@@ -141,13 +141,16 @@ var UIController = (function() {
       // To show in top featured area
       var featuredImage = projImage.cloneNode();
       var featuredDescrip = projDescrip.cloneNode(true);
-      var featuredLink = projLink.cloneNode();
       var featuredTitle = projTitle.cloneNode(true);
 
+      var featuredLink;
       // Add link to image in featured area
       if (projLink) {
+        featuredLink = projLink.cloneNode();
         featuredLink.appendChild(featuredImage);
-        } 
+        } else {
+          featuredLink = featuredImage;
+        }
     
       //Remove u-hidden and add u-visible
       document.getElementById("section-featured").classList.remove('u-hidden');
