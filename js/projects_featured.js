@@ -1,81 +1,100 @@
 var dataController = (function() {
 
-     var curFeature = {
-       image: '',
-       title: '',
-       descrip: ''
-     };
+    var curFeature = {
+      image: '',
+      title: '',
+      descrip: ''
+    };
 
-     var prevClickedFeature = {
-       image: '',
-       title: '',
-       descrip: ''
-     };
+    var prevClickedFeature = {
+      image: '',
+      title: '',
+      descrip: ''
+    };
 
-     var projToggleID;
-     var prevFeature;
-     var nextFeature;
+    var projToggleID;
+    var prevFeature;
+    var nextFeature;
 
 
-     return {
+    return {
 
-       getCurFeature: function() {
-         return curFeature;
-       },
+      // Load list of projects from JSON
+      loadJSON: function(listReady) {
+        var listURL = "http://127.0.0.1:8080/data/projects_list.json";   
+        // var listURL = "http://www.panix.com/~ianr/jbr/data/projects_list.json";   
+        var list = new XMLHttpRequest();
+            list.overrideMimeType("application/json");
+            list.responseType = "json";
+            list.open('GET', listURL); 
+            list.send();
+    
+            // After successful data load, call fn to show JSON
+            list.onreadystatechange = function () {
+              if (list.readyState == 4 && list.status == "200") {
+                listJSON = list.response;
+                listReady(listJSON);
+              }
+          };
+      },
+    
+      getCurFeature: function() {
+        return curFeature;
+      },
 
-       getPrevFeature: function() {
-         return prevFeature;
-       },
+      getPrevFeature: function() {
+        return prevFeature;
+      },
 
-       getNextFeature: function() {
-         return nextFeature;
-       },
+      getNextFeature: function() {
+        return nextFeature;
+      },
 
-       getPrevClickedFeature: function() {
-         return prevClickedFeature;
-       },
+      getPrevClickedFeature: function() {
+        return prevClickedFeature;
+      },
 
-       getCurNode: function() {
-         return projToggleID;
-       },
+      getCurNode: function() {
+        return projToggleID;
+      },
 
       updateFeature: function(cur) {
 
-          // Set the previous feature data to what was current feature
-          prevClickedFeature.image = curFeature.image;
-          prevClickedFeature.title = curFeature.title;
-          prevClickedFeature.descrip = curFeature.descrip;
+        // Set the previous feature data to what was current feature
+        prevClickedFeature.image = curFeature.image;
+        prevClickedFeature.title = curFeature.title;
+        prevClickedFeature.descrip = curFeature.descrip;
 
-          // Currently selected node
-          projToggleID = cur.parentNode.parentNode;
+        // Currently selected node
+        projToggleID = cur.parentNode.parentNode;
 
-          // If there is node BEFORE current, set data for it, else set to null
-          if (projToggleID.parentNode.previousElementSibling) {
-            prevFeature = projToggleID.parentNode.previousElementSibling.children[1];
-          } else {
-            prevFeature = null;
-          }
+        // If there is node BEFORE current, set data for it, else set to null
+        if (projToggleID.parentNode.previousElementSibling) {
+          prevFeature = projToggleID.parentNode.previousElementSibling.children[1];
+        } else {
+          prevFeature = null;
+        }
 
-          // If there is node AFTER current, set data for it, else set to null
-          if (projToggleID.parentNode.nextElementSibling) {
-            nextFeature = projToggleID.parentNode.nextElementSibling.children[1];
-          } else  {
-            nextFeature = null;
-          }
+        // If there is node AFTER current, set data for it, else set to null
+        if (projToggleID.parentNode.nextElementSibling) {
+          nextFeature = projToggleID.parentNode.nextElementSibling.children[1];
+        } else  {
+          nextFeature = null;
+        }
 
-          // Title text (displayed on  mobile) from list for feature area
-          var curProjTitle = projToggleID.nextSibling.nextSibling.childNodes[1].childNodes[1];
+        // Title text (displayed on  mobile) from list for feature area
+        var curProjTitle = projToggleID.nextSibling.nextSibling.childNodes[1].childNodes[1];
 
-          // Descriptive text (displayed on  mobile) from list for feature area
-          var curProjDescrip = projToggleID.nextSibling.nextSibling.childNodes[1].childNodes[3];
-          // Update data for current feature
-          curFeature.image = cur;
-          curFeature.title = curProjTitle;
-          curFeature.descrip = curProjDescrip;
+        // Descriptive text (displayed on  mobile) from list for feature area
+        var curProjDescrip = projToggleID.nextSibling.nextSibling.childNodes[1].childNodes[3];
+        // Update data for current feature
+        curFeature.image = cur;
+        curFeature.title = curProjTitle;
+        curFeature.descrip = curProjDescrip;
 
-       }
+      }
 
-     }
+    }
 
 })();
 
@@ -84,6 +103,16 @@ var dataController = (function() {
 var UIController = (function() {
 
   return {
+    // Show all projects from JSON
+    showAllProjects: function(p) {
+      // console.log(p);
+
+      for (i = 0; i < p.length; i++) {
+        var newProjDiv = document.createElement("div");
+        document.getElementById("list").appendChild(newProjDiv);
+        newProjDiv.outerHTML = "<div class='list__container'><input id='toggle" + i +"' type='checkbox' unchecked>  <label for='toggle" + i +"'>  <div class='list__container-image' data-aos='fade-up' data-aos-once='true'> <div class='list__container-header'> <div class='list__container-header-rotate'> <h2 class='heading-secondary'>" + p[i].label + "</h2> </div> </div> <img src='" + p[i].screenshot + "' alt='" + p[i].alt + "'> </div> </label> <div id='expand'> <div class='list__container-text'> <a href='" + p[i].link + "' target='_blank'></a><h3 class='heading-tertiary'>" + p[i].title + "</h3>" + p[i].description + "</div> </div> </div>";
+      }
+    },
 
     // Show the image and text for selected project in feature area
     showFeature: function (projImage, prevFeature) {
@@ -91,8 +120,9 @@ var UIController = (function() {
       var projToggleID = projImage.parentNode.parentNode;
 
       // Get title, descrip (displayed on  mobile only)
-      var projTitle = projToggleID.nextSibling.nextSibling.childNodes[1].childNodes[1];
+      var projTitle = projToggleID.nextSibling.nextSibling.childNodes[1].childNodes[2]; 
       var projDescrip = projToggleID.nextSibling.nextSibling.childNodes[1].childNodes[3];
+      var projLink = projToggleID.nextSibling.nextSibling.childNodes[1].childNodes[1];
 
       // Define where featured image and text should appear
       var featuredImageDiv = document.getElementById("feature-container").childNodes[3];
@@ -100,17 +130,20 @@ var UIController = (function() {
 
 
       // Clone image, title, descrip that was selected from list
+      // To show in top featured area
       var featuredImage = projImage.cloneNode();
-      var featuredTitle = projTitle.cloneNode(true);
       var featuredDescrip = projDescrip.cloneNode(true);
-      // If project has a link, make featured image clickable
-      var featuredLink;
-      if (projTitle.tagName === "A") {
-        featuredLink = projTitle.cloneNode(false);
+      var featuredLink = projLink.cloneNode();
+      var featuredTitle = projTitle.cloneNode(true);
+
+      if (featuredLink.href === "0") {
+        console.log('equals 0');
         featuredLink.appendChild(featuredImage);
+        console.log(featuredLink);
         } else {
         featuredLink = featuredImage;
-        // console.log(featuredLink);
+        console.log('else');
+        console.log(featuredLink);
         }
     
       //Remove u-hidden and add u-visible
@@ -146,7 +179,6 @@ var UIController = (function() {
     },
 
     closeFeature: function () {
-      // console.log("closeFeature");
       document.getElementById("section-featured").classList.remove('u-visible');
       document.getElementById("section-featured").className += ' u-hidden';
 
@@ -172,12 +204,10 @@ var controller = (function(dataCtrl, UICtrl){
     // Convert the event's target in order to call updateFeature with the target var
     var evTarget = function (ev) {
       updateFeat(ev.target);
-
     }
 
     // Update the feature section
     var updateFeat = function(feat) {
-
       // Get previous featured
       var curFeat = dataCtrl.getCurFeature();
 
@@ -235,7 +265,6 @@ var controller = (function(dataCtrl, UICtrl){
     // When Previous Button clicked, check for Previous, then update
     var prevFeat = function () {
       var prev = dataCtrl.getPrevFeature();
-      // console.log(prev);
       if (prev) {
         var prevImage = prev.children[0].children[1];
         updateFeat(prevImage);
@@ -270,9 +299,9 @@ var controller = (function(dataCtrl, UICtrl){
       // Listeners for showing project in featured area
       var divList = document.querySelectorAll('.list__container-image > img');
       for (var i = 0; i < divList.length; i++) {
-        // console.log(divList[i]);
         // If window width greater than 600, listener to show top feature area
         if (w >= 600) {
+          // console.log(divList[i]);
           divList[i].addEventListener('click', evTarget);
           divList[i].addEventListener('focus', evTarget);
         } else {
@@ -296,7 +325,7 @@ var controller = (function(dataCtrl, UICtrl){
 
     }
 
-    // When user resizes window, reset the listeners. Probably an edge case.
+    // When user resizes window, reset the listeners. (For edge use case.)
     var resizeReset = function() {
 
       // Listeners for showing project in featured area
@@ -314,12 +343,29 @@ var controller = (function(dataCtrl, UICtrl){
         setupEventListeners();
       }
 
+    // Draw list of Projects
+    var projectList = function(list) {
+      UICtrl.showAllProjects(list);
+    }
+
 
 
     return {
       init: function() {
+        // Load Projects List JSON
+        var allProjects = dataCtrl.loadJSON(controller.projListReady);
+
+      }, 
+
+      // When JSON data is loaded -       
+      projListReady: function(allJSONData) {
+        // Initiate showing of each project
+        projectList(allJSONData);
+
+        // Event Listeners
         setupEventListeners();
-      }
+      }    
+    
     }
 
 })(dataController, UIController);
