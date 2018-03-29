@@ -110,7 +110,15 @@ var UIController = (function() {
       for (i = 0; i < p.length; i++) {
         var newProjDiv = document.createElement("div");
         document.getElementById("list").appendChild(newProjDiv);
-        newProjDiv.outerHTML = "<div class='list__container'><input id='toggle" + i +"' type='checkbox' unchecked>  <label for='toggle" + i +"'>  <div class='list__container-image' data-aos='fade-up' data-aos-once='true'> <div class='list__container-header'> <div class='list__container-header-rotate'> <h2 class='heading-secondary'>" + p[i].label + "</h2> </div> </div> <img src='" + p[i].screenshot + "' alt='" + p[i].alt + "'> </div> </label> <div id='expand'> <div class='list__container-text'> <a href='" + p[i].link + "' target='_blank'></a><h3 class='heading-tertiary'>" + p[i].title + "</h3>" + p[i].description + "</div> </div> </div>";
+        newProjDiv.outerHTML = "<div class='list__container'><input id='toggle" + i +"' type='checkbox' unchecked>  <label for='toggle" + i +"'>  <div class='list__container-image' data-aos='fade-up' data-aos-once='true'> <div class='list__container-header'> <div class='list__container-header-rotate'> <h2 class='heading-secondary'>" + p[i].label + "</h2> </div> </div> <img src='" + p[i].screenshot + "' alt='" + p[i].alt + "'> </div> </label> <div id='expand'> <div class='list__container-text' id='proj-text-" + i + "'> <h3 class='heading-tertiary'>" + p[i].title + "</h3>" + p[i].description + "</div> </div> </div>";
+        // If object has link, add it
+        if (p[i].link) {
+          var featLink = document.createElement("a");
+          featLink.href = p[i].link;
+          featLink.target = "_blank";
+          // console.log(featLink);
+          document.getElementById("proj-text-" + i).appendChild(featLink);
+        }
       }
     },
 
@@ -120,9 +128,9 @@ var UIController = (function() {
       var projToggleID = projImage.parentNode.parentNode;
 
       // Get title, descrip (displayed on  mobile only)
-      var projTitle = projToggleID.nextSibling.nextSibling.childNodes[1].childNodes[2]; 
-      var projDescrip = projToggleID.nextSibling.nextSibling.childNodes[1].childNodes[3];
-      var projLink = projToggleID.nextSibling.nextSibling.childNodes[1].childNodes[1];
+      var projTitle = projToggleID.nextSibling.nextSibling.childNodes[1].childNodes[1]; 
+      var projDescrip = projToggleID.nextSibling.nextSibling.childNodes[1].childNodes[2];
+      var projLink = projToggleID.nextSibling.nextSibling.childNodes[1].childNodes[3];
 
       // Define where featured image and text should appear
       var featuredImageDiv = document.getElementById("feature-container").childNodes[3];
@@ -136,15 +144,10 @@ var UIController = (function() {
       var featuredLink = projLink.cloneNode();
       var featuredTitle = projTitle.cloneNode(true);
 
-      if (featuredLink.href === "0") {
-        console.log('equals 0');
+      // Add link to image in featured area
+      if (projLink) {
         featuredLink.appendChild(featuredImage);
-        console.log(featuredLink);
-        } else {
-        featuredLink = featuredImage;
-        console.log('else');
-        console.log(featuredLink);
-        }
+        } 
     
       //Remove u-hidden and add u-visible
       document.getElementById("section-featured").classList.remove('u-hidden');
