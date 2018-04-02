@@ -21,20 +21,24 @@ var dataController = (function() {
 
       // Load list of projects from JSON
       loadJSON: function(listReady) {
-        var listURL = "http://127.0.0.1:8080/data/projects_list.json";   
-        // var listURL = "http://www.panix.com/~ianr/jbr/data/projects_list.json";   
+        // var listURL = "http://127.0.0.1:8080/data/projects_list.json";   // DEBUG
+        var listURL = "http://www.panix.com/~ianr/jbr/data/projects_list.json";   
         var list = new XMLHttpRequest();
-            list.overrideMimeType("application/json");
-            list.responseType = "json";
+            // list.overrideMimeType("application/json");
             list.open('GET', listURL); 
+            list.responseType = "json";
             list.send();
     
             // After successful data load, call fn to show JSON
             list.onreadystatechange = function () {
               if (list.readyState == 4 && list.status == "200") {
                 listJSON = list.response;
+                // Workaround because IE 11 isn't supporting responseType
+                if (typeof listJSON === 'string') {
+                  listJSON = JSON.parse(listJSON);
+               }
                 listReady(listJSON);
-              }
+              } 
           };
       },
     
@@ -366,6 +370,7 @@ var controller = (function(dataCtrl, UICtrl){
       // When JSON data is loaded -       
       projListReady: function(allJSONData) {
         // Initiate showing of each project
+        console.log("listReady");
         projectList(allJSONData);
 
         // Event Listeners
