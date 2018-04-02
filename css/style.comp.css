@@ -1432,7 +1432,8 @@ img {
   max-width: 180rem;
   width: 100%;
   display: block;
-  position: relative; }
+  position: relative;
+  height: 100%; }
   @media only screen and (min-width: 112.5em) {
     .row {
       width: 80%;
