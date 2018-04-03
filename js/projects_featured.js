@@ -21,20 +21,24 @@ var dataController = (function() {
 
       // Load list of projects from JSON
       loadJSON: function(listReady) {
-        var listURL = "http://127.0.0.1:8080/data/projects_list.json";   
+        var listURL = "http://127.0.0.1:8080/data/projects_list.json";   // DEBUG
         // var listURL = "http://www.panix.com/~ianr/jbr/data/projects_list.json";   
         var list = new XMLHttpRequest();
-            list.overrideMimeType("application/json");
-            list.responseType = "json";
+            // list.overrideMimeType("application/json");
             list.open('GET', listURL); 
+            list.responseType = "json";
             list.send();
     
             // After successful data load, call fn to show JSON
             list.onreadystatechange = function () {
-              if (list.readyState == 4 && list.status == "200") {
-                listJSON = list.response;
+              if (list.readyState === 4 && list.status == "200") {
+                var listJSON = list.response;
+                // Workaround because IE 11 isn't supporting responseType
+                if (typeof listJSON === 'string') {
+                  listJSON = JSON.parse(listJSON);
+               }
                 listReady(listJSON);
-              }
+              } 
           };
       },
     
@@ -107,7 +111,7 @@ var UIController = (function() {
     showAllProjects: function(p) {
       // console.log(p);
 
-      for (i = 0; i < p.length; i++) {
+      for (var i = 0; i < p.length; i++) {
         var newProjDiv = document.createElement("div");
         document.getElementById("list").appendChild(newProjDiv);
         newProjDiv.outerHTML = "<div class='list__container'><input id='toggle" + i +"' type='checkbox' unchecked>  <label for='toggle" + i +"'>  <div class='list__container-image' data-aos='fade-up' data-aos-once='true'> <div class='list__container-header'> <div class='list__container-header-rotate'> <h2 class='heading-secondary'>" + p[i].label + "</h2> </div> </div> <img src='" + p[i].screenshot + "' alt='" + p[i].alt + "'> </div> </label> <div id='expand'> <div class='list__container-text' id='proj-text-" + i + "'> <h3 class='heading-tertiary'>" + p[i].title + "</h3>" + p[i].description + "</div> </div> </div>";
@@ -123,7 +127,7 @@ var UIController = (function() {
     },
 
     // Show the image and text for selected project in feature area
-    showFeature: function (projImage, prevFeature) {
+    showFeature: function (projImage) {
       // Find parent Div of selected project, with ID
       var projToggleID = projImage.parentNode.parentNode;
 
@@ -217,7 +221,7 @@ var controller = (function(dataCtrl, UICtrl){
       // Get previous featured
       var curFeat = dataCtrl.getCurFeature();
 
-      var prevClickedFeat = dataCtrl.getPrevClickedFeature(); // TODO Don't reload feature if already selected
+      dataCtrl.getPrevClickedFeature(); // TODO Don't reload feature if already selected
 
       // Set currently selected, previous node, next node
       dataCtrl.updateFeature(feat);
@@ -314,7 +318,7 @@ var controller = (function(dataCtrl, UICtrl){
           // Less than 600px, listener to scroll current project into view
           divList[i].addEventListener('click', function(el) {
             var projContainer = el.target.parentNode.parentNode.parentNode;
-            console.log(projContainer);
+            // console.log(projContainer);
             projContainer.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
           });
         }
@@ -359,8 +363,7 @@ var controller = (function(dataCtrl, UICtrl){
     return {
       init: function() {
         // Load Projects List JSON
-        var allProjects = dataCtrl.loadJSON(controller.projListReady);
-
+        dataCtrl.loadJSON(controller.projListReady);
       }, 
 
       // When JSON data is loaded -       

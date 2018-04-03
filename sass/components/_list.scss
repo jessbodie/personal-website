@@ -40,6 +40,9 @@
       height: $proj-header-tab;
       padding-top: 0;
       padding-bottom: 0;
+      @include respond(big-desktop) {
+        max-height: calc(#{$desktop-width} / 4);
+      }
 
       &:nth-child(1),
       &:nth-child(4n + 1) {
@@ -72,6 +75,9 @@
       margin-bottom: $gutter-sm;
       display: inline-block;
       position: relative;
+      @include respond(big-desktop) {
+        max-height: calc(#{$desktop-width} / 4);
+      }
       @include respond(mobile) {
         margin-left: $gutter-sm;
         margin-right: $gutter-sm;
@@ -107,7 +113,9 @@
         margin-top: 0;
         margin-bottom: 0;
         height: $proj-header-tab;
-        max-height: calc(#{$grid-width} / 4);
+        @include respond(big-desktop) {
+          max-height: calc(#{$desktop-width} / 4);
+        }
         width: 50%;
         overflow: hidden;
 
@@ -129,6 +137,7 @@
       position: relative;
       top: 0;
       left: 0;
+      max-height: inherit;
 
       &-rotate {
         height: 4rem;
